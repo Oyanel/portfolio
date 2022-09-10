@@ -12,6 +12,9 @@
 /.next/
 /out/
 
+#lighthouse
+/.unlighthouse
+
 # production
 /build
 
@@ -33,4 +36,10 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+
+# history
+.history/
+
+#env files
+.env.*
+*.zip

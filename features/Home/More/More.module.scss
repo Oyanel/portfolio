@@ -1,0 +1,46 @@
+@use "styles/sass/core/colors";
+@use "styles/sass/core/screens";
+@use "styles/sass/core/layout";
+@use "styles/sass/core/typography";
+@use "styles/sass/functions/breakpoints";
+
+.container {
+    @include layout.container;
+    background-color: colors.$dark;
+    width: 100%;
+    display: flex;
+    background-size: cover;
+
+    .textContainer {
+        @include layout.max-container;
+        @include breakpoints.desktop {
+            padding-inline: 4rem;
+        }
+        color: colors.$light;
+
+        .title {
+            @include typography.section-title;
+        }
+
+        .skillsContainer {
+            @include breakpoints.desktop {
+                margin-top: 10rem;
+            }
+
+            > div {
+                margin-block: 10rem;
+                @include breakpoints.mobile {
+                    &:last-of-type {
+                        margin-bottom: 4rem;
+                    }
+                    &:first-of-type {
+                        margin-top: 4rem;
+                    }
+                }
+                @include breakpoints.desktop {
+                    margin-block: 6rem;
+                }
+            }
+        }
+    }
+}

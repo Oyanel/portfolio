@@ -1,5 +1,13 @@
-import { Test } from "../components/Test";
+import { Navigation } from "../components/Navigation";
+import { Landing } from "../features/Home/Landing/Landing";
+import { Me } from "../features/Home/Me/Me";
 
 export default function Home() {
-    return <Test />;
+    return (
+        <>
+            <Navigation />
+            <Landing />
+            <Me />
+        </>
+    );
 }

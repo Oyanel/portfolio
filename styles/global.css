@@ -1,0 +1,61 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Inter, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: BakbakOne;
+    line-height: 6rem;
+}
+
+h2 {
+    font-family: BakbakOne;
+}
+
+@font-face {
+    font-family: BakbakOne;
+    src: url("/fonts/BakbakOneRegular.woff") format("woff");
+}
+
+@font-face {
+    font-family: Inter;
+    src: url("/fonts/Inter/Inter-Bold.ttf") format("ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Inter;
+    src: url("/fonts/Inter/Inter-Medium.ttf") format("ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Inter;
+    src: url("/fonts/Inter/Inter-Regular.ttf") format("ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Inter;
+    src: url("/fonts/Inter/Inter-Light.ttf") format("ttf");
+    font-weight: 300;
+}

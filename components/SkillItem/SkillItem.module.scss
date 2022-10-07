@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    .image {
+        width: 200px;
+        aspect-ratio: 1;
+        background-color: white;
+    }
+    .textContainer {
+        margin-left: 6rem;
+    }
+    .title {
+        font-weight: bold;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    .text {
+        font-weight: 300;
+    }
+}
+
+.inverted {
+    flex-direction: row-reverse;
+    background-color: aqua;
+}

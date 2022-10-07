@@ -2,6 +2,7 @@
 @use 'styles/sass/core/colors';
 @use 'styles/sass/core/fonts';
 @use 'styles/sass/core/screens';
+@use 'styles/sass/core/layout';
 
 .container {
     height: 100vh;
@@ -15,12 +16,10 @@
         padding: 4rem;
     }
     .textContainer {
+        @include layout.max-container;
         margin-top: auto;
         margin-bottom: 5%;
         color: colors.$light;
-        margin-inline: auto;
-        max-width: screens.$large;
-        width: 100%;
         .title {
             font-weight: bold;
             font-size: min(5rem, 15vw);

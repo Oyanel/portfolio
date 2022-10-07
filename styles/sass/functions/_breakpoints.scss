@@ -1,3 +1,5 @@
+@use "styles/sass/core/screens";
+
 @mixin mobile {
   @media (max-width: 767px) {
     @content;
@@ -5,7 +7,14 @@
 }
 
 @mixin desktop {
-  @media (min-width: 768px) {
+  @media (min-width: screens.$small) {
+    @content;
+  }
+}
+
+
+@mixin large-desktop {
+  @media (min-width: screens.$medium) {
     @content;
   }
 }

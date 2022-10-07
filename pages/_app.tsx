@@ -11,7 +11,9 @@ function MyApp(props: AppProps) {
                 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" name="viewport" />
                 <title>Therence BRUNE Portfolio</title>
             </Head>
-            <Component {...pageProps} />
+           <main>
+               <Component {...pageProps} />
+           </main>
         </>
     );
 }

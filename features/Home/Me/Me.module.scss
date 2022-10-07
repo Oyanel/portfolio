@@ -1,30 +1,25 @@
 @use "styles/sass/core/colors";
 @use "styles/sass/core/screens";
+@use "styles/sass/core/layout";
+@use "styles/sass/core/typography";
 @use "styles/sass/functions/breakpoints";
 
 .container {
+    @include layout.container;
     background-color: colors.$dark;
     width: 100%;
     display: flex;
     background-size: cover;
-    padding: 4rem 2rem;
-    @include breakpoints.desktop {
-        padding: 8rem 4rem;
-    }
 
     .textContainer {
-        max-width: screens.$large;
-        width: 100%;
-        margin: auto;
-        color: colors.$light;
+        @include layout.max-container;
         @include breakpoints.desktop {
             padding-inline: 4rem;
         }
+        color: colors.$light;
 
         .title {
-            font-weight: bold;
-            font-size: 3rem;
-            text-transform: capitalize;
+            @include typography.section-title;
         }
 
         .skillsContainer {
@@ -34,6 +29,14 @@
 
             > div {
                 margin-block: 10rem;
+                @include breakpoints.mobile {
+                    &:last-of-type {
+                        margin-bottom: 4rem;
+                    }
+                    &:first-of-type {
+                        margin-top: 4rem;
+                    }
+                }
                 @include breakpoints.desktop {
                     margin-block: 6rem;
                 }

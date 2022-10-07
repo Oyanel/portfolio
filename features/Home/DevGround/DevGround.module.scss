@@ -1,0 +1,44 @@
+@use "styles/sass/core/layout";
+@use "styles/sass/core/colors";
+@use "styles/sass/core/typography";
+@use "styles/sass/functions/breakpoints";
+
+.section {
+  background-color: colors.$primary;
+
+  .container {
+    @include layout.container;
+    @include layout.max-container;
+    @include breakpoints.large-desktop {
+      display: flex;
+    }
+
+    .title {
+      @include typography.section-title;
+      text-transform: uppercase;
+      color: colors.$light;
+      margin-bottom: 2rem;
+      @include breakpoints.large-desktop {
+        margin-bottom: 0;
+      }
+    }
+
+    .textContainer {
+      color: colors.$light;
+      @include breakpoints.large-desktop {
+        max-width: 30%;
+      }
+    }
+
+    .projects {
+      width: 100%;
+      height: 400px;
+      background-color: #0F1523;
+      margin-top: 4rem;
+      @include breakpoints.large-desktop {
+        margin-top: 0;
+        margin-left: 4rem;
+      }
+    }
+  }
+}

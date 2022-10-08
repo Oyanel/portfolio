@@ -1,8 +1,8 @@
-@use 'styles/sass/functions/breakpoints';
-@use 'styles/sass/core/colors';
-@use 'styles/sass/core/fonts';
-@use 'styles/sass/core/screens';
-@use 'styles/sass/core/layout';
+@use "styles/sass/functions/breakpoints";
+@use "styles/sass/core/colors";
+@use "styles/sass/core/fonts";
+@use "styles/sass/core/screens";
+@use "styles/sass/core/layout";
 
 .container {
     height: 100vh;
@@ -10,7 +10,7 @@
     padding: 2rem;
     width: 100%;
     display: flex;
-    background: url("/images/background.jpg") no-repeat center;
+    background: url("/images/backgroundGenerated.png") no-repeat bottom;
     background-size: cover;
     @include breakpoints.desktop {
         padding: 4rem;

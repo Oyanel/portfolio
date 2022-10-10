@@ -5,7 +5,9 @@ export const More = () => (
         <div className={style.textContainer}>
             <h2 className={style.title}>{"Curious about this site ?"}</h2>
             <div className={style.skillsContainer}>
-                todo
+                <div>One</div>
+                <div>Two</div>
+                <div>Three</div>
             </div>
         </div>
     </section>

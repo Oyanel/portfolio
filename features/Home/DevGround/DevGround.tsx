@@ -1,4 +1,6 @@
 import style from "./DevGround.module.scss";
+import Image from "next/image";
+import background1 from "/public/images/background.jpg";
 
 export const DevGround = () => (
         <section className={style.section}>
@@ -16,7 +18,28 @@ export const DevGround = () => (
                     </p>
                 </div>
                 <div className={style.projects}>
-                    TODO
+                    <div className={style.project}>
+                        <Image alt="b1" layout="fill" objectFit="cover" src={background1} />
+                        <div className={style.projectCard}>
+                            <div className={style.projectCardText}>
+                                <p>Mary b. Decoration</p>
+                                <p>A Home designer web site</p>
+                                <p>A collaboration with a UI/UX designer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={style.project}>
+                        <Image alt="b1" layout="fill" objectFit="cover" src={background1} />
+                        <div className={style.projectCard}>
+                            <p className={style.projectCardText}>Test</p>
+                        </div>
+                    </div>
+                    <div className={style.project}>
+                        <Image alt="b1" layout="fill" objectFit="cover" src={background1} />
+                        <div className={style.projectCard}>
+                            <p className={style.projectCardText}>Test</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

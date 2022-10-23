@@ -1,6 +1,6 @@
 import style from "./DevGround.module.scss";
 import Image from "next/image";
-import background1 from "/public/images/background.jpg";
+import background from "/public/images/backgroundDefault.jpg";
 
 export const DevGround = () => (
         <section className={style.section}>
@@ -19,7 +19,7 @@ export const DevGround = () => (
                 </div>
                 <div className={style.projects}>
                     <div className={style.project}>
-                        <Image alt="b1" layout="fill" objectFit="cover" src={background1} />
+                        <Image alt="b1" layout="fill" objectFit="cover" src={background} />
                         <div className={style.projectCard}>
                             <div className={style.projectCardText}>
                                 <p>Mary b. Decoration</p>
@@ -29,13 +29,13 @@ export const DevGround = () => (
                         </div>
                     </div>
                     <div className={style.project}>
-                        <Image alt="b1" layout="fill" objectFit="cover" src={background1} />
+                        <Image alt="b1" layout="fill" objectFit="cover" src={background} />
                         <div className={style.projectCard}>
                             <p className={style.projectCardText}>Test</p>
                         </div>
                     </div>
                     <div className={style.project}>
-                        <Image alt="b1" layout="fill" objectFit="cover" src={background1} />
+                        <Image alt="b1" layout="fill" objectFit="cover" src={background} />
                         <div className={style.projectCard}>
                             <p className={style.projectCardText}>Test</p>
                         </div>

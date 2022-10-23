@@ -1,4 +1,5 @@
 @use "core/fonts";
+@use "styles/sass/core/colors";
 
 html,
 body {
@@ -7,17 +8,20 @@ body {
     font-family: fonts.$text-font-family;
 }
 
+a {
+    color: colors.$secondary;
+    text-decoration: none;
+    &:hover {
+        color: mix(colors.$secondary, white, 90%);
+    }
+}
+
 h1,
 h2,
 h3,
 h4,
 h5 {
     margin: 0;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
 }
 
 * {

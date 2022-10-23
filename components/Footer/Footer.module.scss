@@ -1,0 +1,44 @@
+@use "styles/sass/core/layout";
+@use "styles/sass/core/colors";
+@use "styles/sass/functions/breakpoints";
+
+.section {
+    width: 100%;
+    background-color: colors.$dark;
+
+    .container {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        @include layout.max-container;
+
+        .divider {
+            width: 80px;
+            height: 1px;
+            background-color: colors.$light;
+        }
+
+        .email {
+            color: colors.$light;
+            @include breakpoints.desktop {
+                position: absolute;
+                right: 2rem;
+            }
+        }
+
+        .icon {
+            width: 60px;
+            margin-left: 2rem;
+        }
+
+        .links {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            margin-block: 2rem;
+        }
+    }
+}

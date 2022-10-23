@@ -11,34 +11,40 @@
     display: flex;
     background-size: cover;
 
+    .logo {
+        width: 30%;
+    }
+
     .textContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+        color: colors.$light;
         @include layout.max-container;
         @include breakpoints.desktop {
             padding-inline: 4rem;
+            flex-direction: row;
         }
-        color: colors.$light;
 
         .title {
             @include typography.section-title;
+            @include breakpoints.desktop {
+                max-width: 50%;
+            }
         }
 
         .skillsContainer {
             @include breakpoints.desktop {
-                margin-top: 10rem;
+                width: 50%;
+                margin-left: auto;
             }
-
-            > div {
-                margin-block: 10rem;
-                @include breakpoints.mobile {
-                    &:last-of-type {
-                        margin-bottom: 4rem;
-                    }
-                    &:first-of-type {
-                        margin-top: 4rem;
-                    }
-                }
+            .techs {
+                display: flex;
+                justify-content: space-around;
+                margin-top: 4rem;
                 @include breakpoints.desktop {
-                    margin-block: 6rem;
+                    margin-top: 6rem;
                 }
             }
         }

@@ -7,6 +7,7 @@
     background-color: colors.$dark;
 
     .container {
+        position: relative;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
@@ -14,6 +15,8 @@
         @include layout.max-container;
 
         .divider {
+            top:0;
+            position: absolute;
             width: 80px;
             height: 1px;
             background-color: colors.$light;
@@ -28,8 +31,7 @@
         }
 
         .icon {
-            width: 60px;
-            margin-left: 2rem;
+            width: 45px;
         }
 
         .links {
@@ -37,6 +39,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 2rem;
             margin: auto;
             margin-block: 2rem;
         }

@@ -40,6 +40,9 @@ yarn-error.log*
 # history
 .history/
 
+#IDE
+.idea/
+
 #env files
 .env.*
 *.zip

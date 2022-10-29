@@ -10,12 +10,27 @@
     padding: 2rem;
     width: 100%;
     display: flex;
-    background: url("/images/backgroundGenerated.png") no-repeat bottom;
+    background: url("/images/backgroundDefault.jpg") no-repeat bottom;
     background-size: cover;
     @include breakpoints.desktop {
         padding: 4rem;
     }
+
+    .gradient {
+        margin-left: -2rem;
+        margin-top: -2rem;
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        background: linear-gradient(0deg, colors.$dark 0%, transparentize(colors.$dark, 0.2) 20%, transparent 60%);
+        @include breakpoints.desktop {
+            margin-left: -4rem;
+            margin-top: -4rem;
+        }
+    }
+
     .textContainer {
+        z-index: 2;
         @include layout.max-container;
         margin-top: auto;
         margin-bottom: 5%;
@@ -36,7 +51,7 @@
             max-width: 18ch;
             letter-spacing: 1.2px;
             @include breakpoints.desktop {
-                font-size: 4rem;
+                font-size: 3.5rem;
                 letter-spacing: 1.5px;
             }
         }

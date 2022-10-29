@@ -8,12 +8,12 @@ export const Footer = () => (
         <div className={style.container}>
             <div className={style.divider} />
             <div className={style.links}>
-                <a href="https://github.com/Oyanel" target="_blank">
+                <a href="https://github.com/Oyanel" rel="noreferrer" target="_blank">
                     <div className={style.icon}>
                         <Image alt="sass logo" layout="responsive" src={githubIcon} />
                     </div>
                 </a>
-                <a href="https://github.com/Oyanel" target="_blank">
+                <a href="https://github.com/Oyanel" rel="noreferrer" target="_blank" >
                     <div className={style.icon}>
                         <Image alt="sass logo" layout="responsive" src={linkedinIcon} />
                     </div>
@@ -21,7 +21,7 @@ export const Footer = () => (
             </div>
             <p className={style.email}>
                 Email me:{" "}
-                <a href="mailto:therence.brune@gmail.com" target="_blank">
+                <a href="mailto:therence.brune@gmail.com" rel="noreferrer" target="_blank">
                     therence.brune@gmail.com
                 </a>
             </p>

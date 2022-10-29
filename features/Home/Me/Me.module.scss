@@ -13,9 +13,6 @@
 
     .textContainer {
         @include layout.max-container;
-        @include breakpoints.desktop {
-            padding-inline: 4rem;
-        }
         color: colors.$light;
 
         .title {
@@ -24,6 +21,7 @@
 
         .skillsContainer {
             @include breakpoints.desktop {
+                padding-inline: 4rem;
                 margin-top: 10rem;
             }
 

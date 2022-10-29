@@ -31,10 +31,11 @@
 
     .textContainer {
         z-index: 2;
-        @include layout.max-container;
         margin-top: auto;
         margin-bottom: 5%;
         color: colors.$light;
+        @include layout.max-container;
+
         .title {
             font-weight: bold;
             font-size: min(5rem, 15vw);

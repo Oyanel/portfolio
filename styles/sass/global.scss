@@ -8,6 +8,10 @@ body {
     font-family: fonts.$text-font-family;
 }
 
+p {
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+}
+
 a {
     color: colors.$secondary;
     text-decoration: none;

@@ -2,9 +2,6 @@
 
 @mixin section-title {
     font-weight: bold;
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 4vw, 4rem);
     text-transform: uppercase;
-    @include breakpoints.mobile {
-        font-size: 2.5rem;
-    }
 }

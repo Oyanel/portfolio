@@ -38,6 +38,10 @@
             }
         }
 
+        &.isSelected:hover {
+            background-color:  transparent;
+        }
+
         .projectCardText {
             position: absolute;
             bottom: 2rem;

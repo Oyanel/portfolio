@@ -6,46 +6,72 @@
 .section {
     background-color: colors.$primary;
 
-    .container {
+    .wrapper {
         @include layout.container;
         @include layout.max-container;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        @include breakpoints.large-desktop {
-            flex-direction: row;
-        }
+        position: relative;
 
-        .title {
-            @include typography.section-title;
-            text-transform: uppercase;
-            color: colors.$light;
-            margin-bottom: 2rem;
-            @include breakpoints.large-desktop {
-                margin-bottom: 0;
-            }
-        }
-
-        .textContainer {
-            color: colors.$light;
-            @include breakpoints.large-desktop {
-                max-width: 30%;
-            }
-        }
-
-        .projects {
+        .container {
             display: flex;
-            width: 100%;
-            height: 600px;
-            margin-top: 4rem;
-            gap: 1rem;
-            padding: 1rem;
-            @include breakpoints.mobile {
-                flex-direction: column;
-            }
+            flex-direction: column;
+            align-items: center;
             @include breakpoints.large-desktop {
-                margin-top: 0;
-                margin-left: 4rem;
+                flex-direction: row;
+            }
+
+            &.isSelected {
+                transform: translateX(-30%);
+                transition: all 0.5s ease;
+            }
+
+            .title {
+                @include typography.section-title;
+                text-transform: uppercase;
+                color: colors.$light;
+                margin-bottom: 2rem;
+                @include breakpoints.large-desktop {
+                    margin-bottom: 0;
+                }
+            }
+
+            .textContainer {
+                color: colors.$light;
+                @include breakpoints.large-desktop {
+                    max-width: 30%;
+                }
+
+                &.isSelected {
+                    opacity: 0;
+                    transition: all 0.5s ease;
+                }
+            }
+
+            .projects {
+                display: flex;
+                width: 100%;
+                height: 600px;
+                margin-top: 4rem;
+                gap: 1rem;
+                padding: 1rem;
+                @include breakpoints.mobile {
+                    flex-direction: column;
+                }
+                @include breakpoints.large-desktop {
+                    margin-top: 0;
+                    margin-left: 4rem;
+                }
+            }
+            .fullText {
+                position: absolute;
+                right: 0;
+                max-width: 30%;
+                transform: translateX(300%);
+                background-color: #912F40;
+
+                &.isSelected {
+                    transform: translateX(calc(100% + 2rem));
+                    transition: all 0.5s ease;
+                }
             }
         }
     }

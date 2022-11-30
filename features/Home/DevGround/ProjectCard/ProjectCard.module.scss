@@ -10,6 +10,10 @@
     width: 100%;
     flex-basis: 33%;
     transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+    padding: 0;
+
     @include breakpoints.desktop {
         flex-direction: column;
         &:hover {
@@ -17,11 +21,16 @@
         }
     }
 
+    &:not(.isSelected) {
+        cursor: pointer;
+    }
+
     &.isSelected {
         flex-basis: 100% !important;
     }
 
     .projectCard {
+        top: 0;
         transition: all 0.3s ease;
         position: absolute;
         background-color: transparentize(colors.$dark, 0.9);
@@ -32,7 +41,7 @@
             opacity: 0;
         }
 
-        &:hover {
+        &:hover:not(.isSelected) {
             background-color: transparentize(colors.$dark, 0.7);
 
             & > .projectCardText {
@@ -42,15 +51,20 @@
             }
         }
 
-        &.isSelected:hover {
-            background-color:  transparent;
-        }
-
         .projectCardText {
             position: absolute;
             bottom: 2rem;
-            margin-left: 2rem;
             color: colors.$light;
+            text-align: left;
+            padding: 1rem;
+
+            .title {
+                @include typography.button;
+            }
+
+            .smallText > p {
+                font-size: clamp(1rem, 1vw, 1.2rem);
+            }
         }
     }
 }

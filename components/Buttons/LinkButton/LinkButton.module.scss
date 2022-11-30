@@ -1,0 +1,24 @@
+@use "styles/sass/core/colors";
+@use "styles/sass/core/typography";
+
+.linkButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border: 1px solid colors.$light;
+    border-radius: 0.5rem;
+    background: transparent;
+    color: colors.$light;
+    min-width: 120px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    @include typography.button;
+
+    &:hover {
+        color: colors.$dark;
+        background-color: darken(colors.$light, 4%);
+        padding-inline: 2rem;
+    }
+}

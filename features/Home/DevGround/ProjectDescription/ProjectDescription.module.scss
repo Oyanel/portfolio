@@ -1,0 +1,41 @@
+@use "styles/sass/core/layout";
+@use "styles/sass/core/colors";
+@use "styles/sass/core/typography";
+@use "styles/sass/functions/breakpoints";
+
+.description {
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    color: colors.$light;
+
+    .title {
+        margin-bottom: 2rem;
+        @include typography.section-title-h3;
+    }
+
+    .fullText{
+        overflow: auto;
+        max-height: 400px;
+
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+            border-radius: 100px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: transparentize(colors.$light, 0.8);
+            border-radius: 100px;
+        }
+    }
+
+    .button {
+        margin-top: 2rem;
+        margin-inline: auto;
+    }
+}
+

@@ -17,6 +17,10 @@
         }
     }
 
+    &.isSelected {
+        flex-basis: 100% !important;
+    }
+
     .projectCard {
         transition: all 0.3s ease;
         position: absolute;

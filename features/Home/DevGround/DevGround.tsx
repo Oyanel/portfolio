@@ -1,6 +1,8 @@
 import style from "./DevGround.module.scss";
 import { useState } from "react";
 import { ProjectCard } from "./ProjectCard/ProjectCard";
+import Image from "next/image";
+import chevronLeftIcon from "../../../public/icons/chevron_left.svg";
 
 export const DevGround = () => {
     const [selectedCardIndex, setSelectedCardIndex] = useState<number>();
@@ -30,11 +32,18 @@ export const DevGround = () => {
                                 " If you wish to see some of my work, check this."}
                         </p>
                     </div>
-                    <div className={style.projects}>
+                    <button
+                        className={`${style.backButton} ${selectedStyle}`}
+                        onClick={() => setSelectedCardIndex(undefined)}
+                    >
+                        <Image alt="Chevron gauche" height={24} src={chevronLeftIcon} width={24} />
+                    </button>
+                    <div className={`${style.projects} ${selectedCardIndex !== undefined ? style.fullWidth : ""}`}>
                         {projectCardList}
                     </div>
-                    <div className={`${style.fullText} ${selectedStyle}`}>{"Because sometimes I want to build something, I open a few softwares and try to make it happen." +
-                        " If you wish to see some of my work, check this."}
+                    <div className={`${style.fullText} ${selectedStyle}`}>
+                        {"Because sometimes I want to build something, I open a few softwares and try to make it happen." +
+                            " If you wish to see some of my work, check this."}
                     </div>
                 </div>
             </div>

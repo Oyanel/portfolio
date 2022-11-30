@@ -7,14 +7,16 @@
     background-color: colors.$primary;
 
     .wrapper {
+        overflow: hidden;
+        position: relative;
         @include layout.container;
         @include layout.max-container;
-        position: relative;
 
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
+            transition: all 0.5s ease;
             @include breakpoints.large-desktop {
                 flex-direction: row;
             }
@@ -22,6 +24,32 @@
             &.isSelected {
                 transform: translateX(-30%);
                 transition: all 0.5s ease;
+            }
+
+            .backButton{
+                left: 30%;
+                top: 0;
+                position: absolute;
+                background-color: colors.$light;
+                border-radius: 50%;
+                height: 40px;
+                width: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                transition-delay: 0.3s;
+
+                &:hover, &:focus {
+                    transition: opacity 0.1s ease;
+                    cursor: pointer;
+                    background-color: darken(colors.$light, 4%);
+                }
+
+                &.isSelected {
+                    opacity: 1;
+                }
             }
 
             .title {
@@ -36,6 +64,7 @@
 
             .textContainer {
                 color: colors.$light;
+                transition: all 0.5s ease;
                 @include breakpoints.large-desktop {
                     max-width: 30%;
                 }
@@ -61,16 +90,28 @@
                     margin-left: 4rem;
                 }
             }
+
+            .fullWidth {
+                & > * {
+                    flex-basis: 0;
+                }
+            }
+
             .fullText {
                 position: absolute;
                 right: 0;
                 max-width: 30%;
-                transform: translateX(300%);
+                transform: translateX(-10%);
+                opacity: 0;
                 background-color: #912F40;
+                transition: all 0.5s ease;
+                z-index: -1;
 
                 &.isSelected {
                     transform: translateX(calc(100% + 2rem));
+                    opacity: 1;
                     transition: all 0.5s ease;
+                    transition-delay: 0.4s;
                 }
             }
         }

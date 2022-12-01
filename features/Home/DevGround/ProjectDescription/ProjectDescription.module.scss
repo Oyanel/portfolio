@@ -17,6 +17,7 @@
     .fullText{
         overflow: auto;
         max-height: 400px;
+        padding-right: 2rem;
 
         &::-webkit-scrollbar {
             width: 6px;

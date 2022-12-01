@@ -62,10 +62,6 @@
 
                 .title {
                     @include typography.section-title;
-
-                    &:focus span {
-                        font-size: clamp(2rem, 4vw, 4rem);
-                    }
                 }
             }
 

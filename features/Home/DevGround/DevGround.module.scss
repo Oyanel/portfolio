@@ -63,8 +63,8 @@
                 .title {
                     @include typography.section-title;
 
-                    &:hover span {
-                        font-size: clamp(2rem, 3vw, 4rem);
+                    &:focus span {
+                        font-size: clamp(2rem, 4vw, 4rem);
                     }
                 }
             }

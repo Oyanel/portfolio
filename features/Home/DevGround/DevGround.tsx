@@ -121,7 +121,7 @@ export const DevGround = () => {
                                 " Though I specialize in React, I could probably build an app with any library."}
                         </p>
                         <p>
-                            {"Because sometimes I want to build something, I open a few softwares and try to make it happen." +
+                            {"Because sometimes I want to build something, I open a few apps and try to make it happen." +
                                 " If you wish to see some of my work, check this."}
                         </p>
                     </div>

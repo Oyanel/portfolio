@@ -1,5 +1,5 @@
 import style from "./GlitchedText.module.scss";
-import { createElement, HTMLAttributes, useCallback, useEffect, useRef, useState } from "react";
+import { createElement, HTMLAttributes, useState } from "react";
 
 interface IParams extends HTMLAttributes<HTMLHeadingElement> {
     text: string;
@@ -9,36 +9,18 @@ interface IParams extends HTMLAttributes<HTMLHeadingElement> {
 
 export const GlitchedText = (props: IParams) => {
     const { text, altText, headingElement, className, ...rest } = props;
-    const [currentText, setCurrentText] = useState(text);
-    const ref = useRef<HTMLHeadingElement>();
-    const isHover = currentText === altText;
+    const [currentText, setCurrentText] = useState(altText);
 
-    const alternateText = useCallback(
-        () => setCurrentText((prevText) => (prevText === text ? altText : text)),
-        [altText, text]
-    );
-
-    useEffect(() => {
-        const currentRef = ref.current;
-        if (currentRef) {
-            currentRef.addEventListener("mouseenter", alternateText);
-            currentRef.addEventListener("mouseleave", alternateText);
-        }
-
-        return () => {
-            currentRef?.removeEventListener("mouseenter", alternateText);
-            currentRef?.removeEventListener("mouseleave", alternateText);
-        };
-    }, [alternateText]);
+    const alternateText = () => setCurrentText((prevText) => (prevText === text ? altText : text));
 
     return createElement(
         headingElement,
         {
-            className: `${style.glitchedText} ${isHover ? style.altText : ""} ${className ? className : ""}`,
+            className: `${style.glitchedText} ${className ? className : ""}`,
             "data-text": currentText,
             key: text,
-            ref,
             ...rest,
+            onClick: alternateText,
         },
         <span>{currentText}</span>
     );

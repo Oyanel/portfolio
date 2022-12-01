@@ -48,10 +48,6 @@
                 @include breakpoints.desktop {
                     font-size: 7rem;
                 }
-
-                &:hover span {
-                    font-size: clamp(3rem, 6vw, 6rem);
-                }
             }
         }
         .subTitle {

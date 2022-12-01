@@ -8,6 +8,7 @@ import ryoumengoImage from "../../../public/images/ryoumengo.png";
 import gomoImage from "../../../public/images/gomo.png";
 import { IProjectCard } from "./ProjectCard/IProjectCard";
 import { ProjectDescription } from "./ProjectDescription/ProjectDescription";
+import { GlitchedText } from "../../../components/GlitchedText/GlitchedText";
 
 const projectCardContentList: IProjectCard[] = [
     {
@@ -106,7 +107,14 @@ export const DevGround = () => {
             <div className={style.wrapper}>
                 <div className={`${style.container} ${selectedStyle}`}>
                     <div className={`${style.textContainer} ${selectedStyle}`}>
-                        <h2 className={style.title}>{"My dev ground"}</h2>
+                        <div className={style.titleContainer}>
+                            <GlitchedText
+                                altText="デブクラウンド"
+                                className={style.title}
+                                headingElement="h2"
+                                text="My dev ground"
+                            />
+                        </div>
                         <p>
                             {"I’d like to say I am a full stack dev but I mainly create frontend apps." +
                                 " Still, I do some node/java when I need to. Like a lot of devs, I do a lot of things." +

@@ -51,13 +51,21 @@
                 }
             }
 
-            .title {
+            .titleContainer {
                 @include typography.section-title;
                 text-transform: uppercase;
                 color: colors.$light;
                 margin-bottom: 2rem;
                 @include breakpoints.large-desktop {
                     margin-bottom: 0;
+                }
+
+                .title {
+                    @include typography.section-title;
+
+                    &:hover span {
+                        font-size: clamp(2rem, 3vw, 4rem);
+                    }
                 }
             }
 

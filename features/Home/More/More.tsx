@@ -12,6 +12,13 @@ export const More = () => (
                     {"I tried to make a fun site with animations but still make it performant." +
                         " I don't have that much time unfortunaltly, so I'll make updates on the long run. This is my tech selection"}
                 </p>
+                <p>
+                    {"Credit to"}{" "}
+                    <a href="https://codepen.io/mattgrosswork/pen/VwprebG" rel="noreferrer" target="_blank">
+                        Matt Gross
+                    </a>
+                    {" for the glitch effect."}
+                </p>
                 <div className={style.techs}>
                     <div className={style.logo}>
                         <Image alt="sass logo" layout="responsive" src={nextIcon} />

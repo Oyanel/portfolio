@@ -125,14 +125,14 @@ export const DevGround = () => {
                                 " If you wish to see some of my work, check this."}
                         </p>
                     </div>
-                    <button
-                        className={`${style.backButton} ${selectedStyle}`}
-                        onClick={() => setSelectedCardIndex(undefined)}
-                    >
-                        <Image alt="Chevron gauche" height={24} src={chevronLeftIcon} width={24} />
-                    </button>
-                    <div className={`${style.projects} ${selectedCardIndex !== undefined ? style.fullWidth : ""}`}>
+                    <div className={`${style.projects} ${selectedCardIndex !== undefined ? style.fullWidth : ""} `}>
                         {projectCardList}
+                        <button
+                            className={`${style.backButton} ${selectedStyle}`}
+                            onClick={() => setSelectedCardIndex(undefined)}
+                        >
+                            <Image alt="Chevron gauche" height={24} src={chevronLeftIcon} width={24} />
+                        </button>
                     </div>
                     <div className={`${style.fullText} ${selectedStyle}`}>
                         {currentProjectCardContent && (

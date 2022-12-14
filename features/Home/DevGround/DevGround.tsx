@@ -140,8 +140,8 @@ export const DevGround = () => {
                                 " Though I specialize in React, I could probably build an app with any library."}
                         </p>
                         <p>
-                            {"Because sometimes I want to build something, I open a few apps and try to make it happen." +
-                                " If you wish to see some of my work, check this."}
+                            {"Unfortunately you won't be able to see the projects I've been working on the most as they are private projects." +
+                                " Still, If you wish to see some of my work, check this."}
                         </p>
                     </div>
                     <div className={`${style.projects} ${selectedCardIndex !== undefined ? style.fullWidth : ""} `}>

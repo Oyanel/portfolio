@@ -14,14 +14,17 @@ export const More = () => (
                 </p>
                 <p>
                     {"Credit to"}{" "}
-                    <a href="https://codepen.io/mattgrosswork/pen/VwprebG" rel="noreferrer" target="_blank">
+                    <a href="https://codepen.io/mattgrosswork" rel="noreferrer" target="_blank">
                         Matt Gross
                     </a>
-                    {" for the glitch effect."}
+                    {" for the "}
+                    <a href="https://codepen.io/mattgrosswork/pen/VwprebG" rel="noreferrer" target="_blank">
+                        glitch effect.
+                    </a>
                 </p>
                 <div className={style.techs}>
                     <div className={style.logo}>
-                        <Image alt="sass logo" layout="responsive" src={nextIcon} />
+                        <Image alt="Next logo" layout="responsive" src={nextIcon} />
                     </div>
                     <div className={style.logo}>
                         <Image alt="sass logo" layout="responsive" src={sassIcon} />

@@ -110,12 +110,9 @@
                     opacity: 0;
                     transition: opacity 0.3s ease;
                     transition-delay: 0.5s;
-                    left: 1rem;
+                    left: 50%;
+                    transform: translateX(-50%);
                     bottom: -0.5rem;
-
-                    @include breakpoints.desktop {
-                        bottom: -3rem;
-                    }
 
                     @include breakpoints.large-desktop {
                         top: 50%;
@@ -136,6 +133,7 @@
             }
 
             .fullWidth {
+                gap: 0;
                 & > * {
                     flex-basis: 0;
                 }

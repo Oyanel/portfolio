@@ -19,38 +19,58 @@ const projectCardContentList: IProjectCard[] = [
         altImage: "Screeenshot of mary-b-decoration.fr website",
         fullText: (
             <>
-                <p>This web site was made in collaboration with a UI/UX designer</p>
+                <p>{"This web site was made in collaboration with a UI/UX designer"}</p>
+                <p>{"It's a showcase website for a home designer made with Emotion/css and NextJS"}</p>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac augue nec lacus finibus congue.
-                    Ut orci orci, gravida eget ligula eu, porta porta nulla. Sed nec risus eget ex maximus commodo et
-                    quis velit. Praesent tincidunt ex id elit euismod, eget cursus elit maximus.
+                    {
+                        "My job here was first to discuss with the designer and the client about the mockups. Once every screen was designed, I started the development."
+                    }
                 </p>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac augue nec lacus finibus congue.
-                    Ut orci orci, gravida eget ligula eu, porta porta nulla. Sed nec risus eget ex maximus commodo et
-                    quis velit. Praesent tincidunt ex id elit euismod, eget cursus elit maximus.
+                    {
+                        "This project is not over yet as I will later plug a Strapi (CMS) in to help the client handle the content themselves."
+                    }
                 </p>
+                <p>
+                    {
+                        "To share my progress with the client and get reviews from the designer, I deployed the site on Netlify with CI hooks."
+                    }
+                </p>
+                <p>{"On a second part I also rented a web server, and deployed the project in production."}</p>
             </>
         ),
     },
     {
         title: "Ryoumengo",
-        smallText: <p>This is an ongoing react native mobile app to study japanese.</p>,
+        smallText: <p>This is ongoing react native mobile app to study japanese.</p>,
         image: ryoumengoImage,
-        altImage: "Screeenshot of mary-b-decoration.fr website",
+        projectLink: "https://www.figma.com/file/d4P2hxEld703X7gfnHigs1/Ryoumengo-mobile?t=LRZZC83XYZIY5dx4-1",
+        altImage: "Screeenshot of the figma project of Ryoumengo",
         fullText: (
             <>
-                <p>This is an ongoing react native mobile app to study japanese.</p>
-                <p>the project is 80% completed and is on hold for now.</p>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac augue nec lacus finibus congue.
-                    Ut orci orci, gravida eget ligula eu, porta porta nulla. Sed nec risus eget ex maximus commodo et
-                    quis velit. Praesent tincidunt ex id elit euismod, eget cursus elit maximus.
+                    {
+                        "This is an ongoing react native mobile app to study japanese with flash cards made by the community or yourself."
+                    }
+                </p>
+                <p>{"It composed of a frontend for mobile and of a backend (mongo, node, "}</p>
+                <p>{"The project is 80% completed and is on hold for now."}</p>
+                <p>
+                    {"I started learning japanese 3 years ago and I came across an app called Anki. It's the reference for flash card studies." +
+                        "It's made with the default java desktop app design that we dislike so much. I then decided that I could make a simpler, better app for my use." +
+                        " This is how I started this project."}
                 </p>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac augue nec lacus finibus congue.
-                    Ut orci orci, gravida eget ligula eu, porta porta nulla. Sed nec risus eget ex maximus commodo et
-                    quis velit. Praesent tincidunt ex id elit euismod, eget cursus elit maximus.
+                    {
+                        "It was a great way to learn react native, figma and the mobile development. It's really different from the web, even though I used React Native that is based on react."
+                    }
+                </p>
+                <p>
+                    {"You can see the "}
+                    <a href="https://github.com/Ryounengo" rel="noreferrer" target="_blank">
+                        Ryoumengo project
+                    </a>
+                    {" on my github account."}
                 </p>
             </>
         ),
@@ -58,22 +78,20 @@ const projectCardContentList: IProjectCard[] = [
     {
         title: "Gomo",
         projectLink: "https://gomo.ie",
-        smallText: <p>Gomo is a online only brand from the Eir telephone/internet operator in ireland</p>,
+        smallText: <p>Gomo is a online only low cost brand from the Eir operator in Ireland</p>,
         image: gomoImage,
-        altImage: "Screeenshot of mary-b-decoration.fr website",
+        altImage: "Screeenshot of gomo.ie website",
         fullText: (
             <>
-                <p>Gomo is a online only brand from the Eir telephone/internet operator in ireland</p>
+                <p>{"Gomo is a online only low cost brand from the Eir operator in Ireland"}</p>
+                <p>{"It is made with React/Wordpress for the frontend and multiple web services for the backend."}</p>
+                <p>{"I didn't had the chance to build the project from scratch but participated actively in it."}</p>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac augue nec lacus finibus congue.
-                    Ut orci orci, gravida eget ligula eu, porta porta nulla. Sed nec risus eget ex maximus commodo et
-                    quis velit. Praesent tincidunt ex id elit euismod, eget cursus elit maximus.
+                    {
+                        "I mainly wrote all the tests of this app as they where none at all with react testing library. I also maintained it up to date and added a few features along the years."
+                    }
                 </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac augue nec lacus finibus congue.
-                    Ut orci orci, gravida eget ligula eu, porta porta nulla. Sed nec risus eget ex maximus commodo et
-                    quis velit. Praesent tincidunt ex id elit euismod, eget cursus elit maximus.
-                </p>
+                <p>{"This app lives in pair with a self-care app available for client only."}</p>
             </>
         ),
     },
@@ -88,6 +106,7 @@ export const DevGround = () => {
         projectCardList.push(
             <ProjectCard
                 isSelected={i === selectedCardIndex}
+                key={projectCardContentList[i].title}
                 projectCard={projectCardContentList[i]}
                 onClick={() => setSelectedCardIndex(i)}
             />
@@ -128,6 +147,7 @@ export const DevGround = () => {
                     <div className={`${style.projects} ${selectedCardIndex !== undefined ? style.fullWidth : ""} `}>
                         {projectCardList}
                         <button
+                            aria-label="Go back to project cards"
                             className={`${style.backButton} ${selectedStyle}`}
                             onClick={() => setSelectedCardIndex(undefined)}
                         >

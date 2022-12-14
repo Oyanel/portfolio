@@ -7,11 +7,14 @@
 .container {
     @include layout.container;
     background-color: colors.$dark;
+    background-image: url("/images/devGroundBackground2.png");
+    background-position: center center;
     width: 100%;
     display: flex;
     background-size: cover;
 
     .textContainer {
+        backdrop-filter: hue(colors.$dark);
         @include layout.max-container;
         color: colors.$light;
 

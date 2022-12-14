@@ -36,13 +36,13 @@ const projectCardContentList: IProjectCard[] = [
                         "To share my progress with the client and get reviews from the designer, I deployed the site on Netlify with CI hooks."
                     }
                 </p>
-                <p>{"On a second part I also rented a web server, and deployed the project in production."}</p>
+                <p>{"In a second time, I rented a web server and deployed the project in production."}</p>
             </>
         ),
     },
     {
         title: "Ryoumengo",
-        smallText: <p>This is ongoing react native mobile app to study japanese.</p>,
+        smallText: <p>This is an ongoing react native mobile app to study japanese.</p>,
         image: ryoumengoImage,
         projectLink: "https://www.figma.com/file/d4P2hxEld703X7gfnHigs1/Ryoumengo-mobile?t=LRZZC83XYZIY5dx4-1",
         altImage: "Screeenshot of the figma project of Ryoumengo",
@@ -53,10 +53,10 @@ const projectCardContentList: IProjectCard[] = [
                         "This is an ongoing react native mobile app to study japanese with flash cards made by the community or yourself."
                     }
                 </p>
-                <p>{"It composed of a frontend for mobile and of a backend (mongo, node, "}</p>
+                <p>{"It is composed of a frontend for mobile and a backend (mongo, node, tsoa)."}</p>
                 <p>{"The project is 80% completed and is on hold for now."}</p>
                 <p>
-                    {"I started learning japanese 3 years ago and I came across an app called Anki. It's the reference for flash card studies." +
+                    {"I started learning japanese 3 years ago and I came across an app called Anki that is the reference for flash card studies." +
                         "It's made with the default java desktop app design that we dislike so much. I then decided that I could make a simpler, better app for my use." +
                         " This is how I started this project."}
                 </p>
@@ -78,20 +78,20 @@ const projectCardContentList: IProjectCard[] = [
     {
         title: "Gomo",
         projectLink: "https://gomo.ie",
-        smallText: <p>Gomo is a online only low cost brand from the Eir operator in Ireland</p>,
+        smallText: <p>Gomo is an online-only, low-cost brand from the Eir operator in Ireland</p>,
         image: gomoImage,
         altImage: "Screeenshot of gomo.ie website",
         fullText: (
             <>
-                <p>{"Gomo is a online only low cost brand from the Eir operator in Ireland"}</p>
-                <p>{"It is made with React/Wordpress for the frontend and multiple web services for the backend."}</p>
-                <p>{"I didn't had the chance to build the project from scratch but participated actively in it."}</p>
+                <p>{"Gomo is an online-only, low-cost brand from the Eir operator in Ireland"}</p>
+                <p>{"It is made with React/Wordpress for the frontend, and multiple web services for the backend."}</p>
+                <p>{"I didn't have the chance to build the project from scratch but I participated actively in it."}</p>
                 <p>
                     {
                         "I mainly wrote all the tests of this app as they where none at all with react testing library. I also maintained it up to date and added a few features along the years."
                     }
                 </p>
-                <p>{"This app lives in pair with a self-care app available for client only."}</p>
+                <p>{"This app lives in pair with a self-care app available for clients only."}</p>
             </>
         ),
     },

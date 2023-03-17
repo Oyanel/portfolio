@@ -27,4 +27,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           local-dir: ./
-          server-dir: portfolio/
+          server-dir: repositories/portfolio/

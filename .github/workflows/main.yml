@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '16'
         
-      - name: Build Nuxt
+      - name: Build
         run: |
           npm install
           npm run build
@@ -27,4 +27,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           local-dir: /
-          server-dir: repositories/portfolio/
+          server-dir: portfolio/

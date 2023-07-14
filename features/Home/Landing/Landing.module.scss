@@ -16,6 +16,21 @@
         padding: 4rem;
     }
 
+    .openingLayer {
+        margin-left: -2rem;
+        margin-top: -2rem;
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        z-index: 10;
+        background-color: transparent;
+        animation: fade-color 2s ease-in-out;
+        @include breakpoints.desktop {
+            margin-left: -4rem;
+            margin-top: -4rem;
+        }
+    }
+
     .gradient {
         margin-left: -2rem;
         margin-top: -2rem;
@@ -38,6 +53,7 @@
 
         .titleContainer {
             margin-bottom: 1rem;
+            animation: slide-in 1s ease-in-out, fade-in 1s ease-in-out;
             @include breakpoints.desktop {
                 margin-bottom: 3rem;
             }
@@ -56,10 +72,37 @@
             font-size: 2rem;
             max-width: 18ch;
             letter-spacing: 1.2px;
+            animation: slide-in 1s ease-in-out 0.2s, fade-in 1.2s ease-in-out;
             @include breakpoints.desktop {
                 font-size: 3.5rem;
                 letter-spacing: 1.5px;
             }
         }
+    }
+}
+
+@keyframes fade-color {
+    from {
+        background-color: colors.$dark;
+    }
+    to {
+        background-color: transparent;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(50%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

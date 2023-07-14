@@ -10,7 +10,7 @@
     padding: 2rem;
     width: 100%;
     display: flex;
-    background: url("/images/backgroundDefault2.jpg") no-repeat bottom;
+    background: colors.$dark url("/images/backgroundDefault2.jpg") no-repeat bottom;
     background-size: cover;
     @include breakpoints.desktop {
         padding: 4rem;

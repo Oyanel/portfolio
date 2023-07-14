@@ -24,7 +24,7 @@
         width: 100%;
         z-index: 10;
         background-color: transparent;
-        animation: fade-color 2s ease-in-out;
+        animation: fade-color 1.2s ease-in-out forwards, no-height 0s forwards 1.2s;
         @include breakpoints.desktop {
             margin-left: -4rem;
             margin-top: -4rem;
@@ -53,7 +53,7 @@
 
         .titleContainer {
             margin-bottom: 1rem;
-            animation: slide-in 1s ease-in-out, fade-in 1s ease-in-out;
+            animation: slide-in 1s ease-in-out, fade-in 1.2s ease-in-out;
             @include breakpoints.desktop {
                 margin-bottom: 3rem;
             }
@@ -92,7 +92,7 @@
 
 @keyframes slide-in {
     from {
-        transform: translateX(50%);
+        transform: translateX(300px);
     }
     to {
         transform: translateX(0);
@@ -104,5 +104,14 @@
     }
     to {
         opacity: 1;
+    }
+}
+
+@keyframes no-height {
+    from {
+        height: 100vh;
+    }
+    to {
+        height: 0;
     }
 }

@@ -88,7 +88,7 @@ const projectCardContentList: IProjectCard[] = [
                 <p>{"I didn't have the chance to build the project from scratch but I participated actively in it."}</p>
                 <p>
                     {
-                        "I mainly wrote all the tests of this app as they where none at all with react testing library. I also maintained it up to date and added a few features along the years."
+                        "I mainly wrote all the tests of this app as there were none at all with react testing library. I also maintained it up to date and added a few features along the years."
                     }
                 </p>
                 <p>{"This app lives in pair with a self-care app available for clients only."}</p>

@@ -10,10 +10,25 @@
     padding: 2rem;
     width: 100%;
     display: flex;
-    background: url("/images/backgroundDefault2.jpg") no-repeat bottom;
+    background: colors.$dark url("/images/backgroundDefault2.jpg") no-repeat bottom;
     background-size: cover;
     @include breakpoints.desktop {
         padding: 4rem;
+    }
+
+    .openingLayer {
+        margin-left: -2rem;
+        margin-top: -2rem;
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        z-index: 10;
+        background-color: transparent;
+        animation: fade-color 1.2s ease-in-out forwards, no-height 0s forwards 1.2s;
+        @include breakpoints.desktop {
+            margin-left: -4rem;
+            margin-top: -4rem;
+        }
     }
 
     .gradient {
@@ -38,6 +53,7 @@
 
         .titleContainer {
             margin-bottom: 1rem;
+            animation: slide-in 1s ease-in-out, fade-in 1.2s ease-in-out;
             @include breakpoints.desktop {
                 margin-bottom: 3rem;
             }
@@ -56,10 +72,46 @@
             font-size: 2rem;
             max-width: 18ch;
             letter-spacing: 1.2px;
+            animation: slide-in 1s ease-in-out 0.2s, fade-in 1.2s ease-in-out;
             @include breakpoints.desktop {
                 font-size: 3.5rem;
                 letter-spacing: 1.5px;
             }
         }
+    }
+}
+
+@keyframes fade-color {
+    from {
+        background-color: colors.$dark;
+    }
+    to {
+        background-color: transparent;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(300px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes no-height {
+    from {
+        height: 100vh;
+    }
+    to {
+        height: 0;
     }
 }

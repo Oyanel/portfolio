@@ -3,6 +3,7 @@ import { GlitchedText } from "../../../components/GlitchedText/GlitchedText";
 
 export const Landing = () => (
     <section className={style.container}>
+        <div className={style.openingLayer} />
         <div className={style.gradient} />
         <div className={style.textContainer}>
             <div className={style.titleContainer}>

@@ -6,7 +6,13 @@ export const Landing = () => (
         <div className={style.gradient} />
         <div className={style.textContainer}>
             <div className={style.titleContainer}>
-                <GlitchedText altText="こんにちは" className={style.title} headingElement="h1" text="Welcome" />
+                <GlitchedText
+                    altText="こんにちは"
+                    autoAltText
+                    className={style.title}
+                    headingElement="h1"
+                    text="Welcome"
+                />
             </div>
             <h2 className={style.subTitle}>This is my website, Feel free to explore.</h2>
         </div>

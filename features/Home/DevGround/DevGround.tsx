@@ -1,5 +1,5 @@
 import style from "./DevGround.module.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ProjectCard } from "./ProjectCard/ProjectCard";
 import Image from "next/image";
 import chevronLeftIcon from "../../../public/icons/chevron_left.svg";
@@ -100,7 +100,12 @@ const projectCardContentList: IProjectCard[] = [
 export const DevGround = () => {
     const [selectedCardIndex, setSelectedCardIndex] = useState<number>();
     const [currentProjectCardContent, setCurrentProjectCardContent] = useState<IProjectCard>();
+    const sectionRef = useRef<HTMLElement>(null);
     const projectCardList = [];
+
+    const onCardClick = () => {
+        sectionRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
 
     for (let i = 0; i < 3; i++) {
         projectCardList.push(
@@ -108,7 +113,10 @@ export const DevGround = () => {
                 isSelected={i === selectedCardIndex}
                 key={projectCardContentList[i].title}
                 projectCard={projectCardContentList[i]}
-                onClick={() => setSelectedCardIndex(i)}
+                onClick={() => {
+                    setSelectedCardIndex(i);
+                    onCardClick();
+                }}
             />
         );
     }
@@ -122,7 +130,7 @@ export const DevGround = () => {
     }, [selectedCardIndex]);
 
     return (
-        <section className={style.section}>
+        <section className={style.section} ref={sectionRef}>
             <div className={style.wrapper}>
                 <div className={`${style.container} ${selectedStyle}`}>
                     <div className={`${style.textContainer} ${selectedStyle}`}>

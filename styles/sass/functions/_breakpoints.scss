@@ -1,20 +1,31 @@
 @use "styles/sass/core/screens";
 
 @mixin mobile {
-  @media (max-width: 767px) {
-    @content;
-  }
+    @media (max-width: screens.$small) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: screens.$small) {
+        @content;
+    }
 }
 
 @mixin desktop {
-  @media (min-width: screens.$small) {
-    @content;
-  }
+    @media (min-width: screens.$medium) {
+        @content;
+    }
 }
 
-
 @mixin large-desktop {
-  @media (min-width: screens.$medium) {
-    @content;
-  }
+    @media (min-width: screens.$large) {
+        @content;
+    }
+}
+
+@mixin x-large-desktop {
+    @media (min-width: screens.$x-large) {
+        @content;
+    }
 }

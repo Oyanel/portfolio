@@ -4,20 +4,39 @@
 @use "styles/sass/functions/breakpoints";
 
 .description {
-    padding: 1rem;
     position: relative;
     overflow: hidden;
     color: colors.$light;
 
+    @include breakpoints.desktop {
+        padding: 1rem;
+    }
+
     .title {
         margin-bottom: 2rem;
         @include typography.section-title-h3;
+
+        @include breakpoints.mobile {
+            text-align: center;
+        }
     }
 
-    .fullText{
+    .fullText {
         overflow: auto;
-        max-height: 400px;
-        padding-right: 2rem;
+        max-height: 320px;
+        padding-right: 1rem;
+
+        @include breakpoints.mobile {
+            max-height: 350px;
+        }
+
+        @include breakpoints.tablet {
+            max-height: 250px;
+        }
+
+        @include breakpoints.desktop {
+            max-height: 300px;
+        }
 
         &::-webkit-scrollbar {
             width: 6px;
@@ -39,4 +58,3 @@
         margin-inline: auto;
     }
 }
-

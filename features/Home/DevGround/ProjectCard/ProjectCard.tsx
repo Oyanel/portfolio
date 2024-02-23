@@ -20,7 +20,13 @@ export const ProjectCard = (props: IParams) => {
             className={`${style.project} ${selectedStyle}`}
             onClick={onClick}
         >
-            <Image alt={altImage} layout="fill" objectFit="cover" src={image} />
+            <Image
+                alt={altImage}
+                fill
+                sizes="(max-width: 1280px) 90vw, 70vw"
+                src={image}
+                style={{ objectFit: "cover" }}
+            />
             <div className={`${style.projectCard} ${selectedStyle}`}>
                 <div className={style.projectCardText}>
                     <h3 className={style.title}>{title}</h3>

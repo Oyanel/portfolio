@@ -11,10 +11,6 @@
     display: flex;
     background-size: cover;
 
-    .logo {
-        width: 30%;
-    }
-
     .textContainer {
         display: flex;
         flex-direction: column;
@@ -42,9 +38,16 @@
             .techs {
                 display: flex;
                 justify-content: space-around;
+                gap: 5rem;
                 margin-top: 4rem;
                 @include breakpoints.desktop {
                     margin-top: 6rem;
+                }
+
+                .logo {
+                    height: 200px;
+                    position: relative;
+                    flex: 1;
                 }
             }
         }

@@ -10,12 +10,12 @@ export const Footer = () => (
             <div className={style.links}>
                 <a href="https://github.com/Oyanel" rel="noreferrer" target="_blank">
                     <div className={style.icon}>
-                        <Image alt="Github logo" layout="responsive" src={githubIcon} />
+                        <Image alt="Github logo" sizes="(max-width: 768px) 10vw, 5vw" src={githubIcon} width={45} />
                     </div>
                 </a>
                 <a href="https://www.linkedin.com/in/therence-brune" rel="noreferrer" target="_blank">
                     <div className={style.icon}>
-                        <Image alt="Linkedin logo" layout="responsive" src={linkedinIcon} />
+                        <Image alt="Linkedin logo" sizes="(max-width: 768px) 10vw, 5vw" src={linkedinIcon} width={45} />
                     </div>
                 </a>
             </div>

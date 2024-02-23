@@ -15,7 +15,7 @@ export const SkillItem = (props: Props) => {
     return (
         <div className={`${style.container} ${inverted ? style.inverted : ""}`}>
             <div className={style.image}>
-                <Image alt={altImage} layout="responsive" src={image} />
+                <Image alt={altImage} height={200} sizes="(max-width: 768px) 50vw, 10vw" src={image} width={200} />
             </div>
             <div className={style.textContainer}>
                 <h3 className={style.title}>{title}</h3>

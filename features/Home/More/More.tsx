@@ -24,10 +24,10 @@ export const More = () => (
                 </p>
                 <div className={style.techs}>
                     <div className={style.logo}>
-                        <Image alt="Next logo" layout="responsive" src={nextIcon} />
+                        <Image alt="Next logo" fill src={nextIcon} />
                     </div>
                     <div className={style.logo}>
-                        <Image alt="sass logo" layout="responsive" src={sassIcon} />
+                        <Image alt="sass logo" fill src={sassIcon} />
                     </div>
                 </div>
             </div>

@@ -4,42 +4,55 @@
 @use "styles/sass/core/typography";
 @use "styles/sass/functions/breakpoints";
 
-.container {
-    @include layout.container;
+.section {
+    position: relative;
     background-color: colors.$dark;
-    background-image: url("/images/devGroundBackground2.png");
-    background-position: center center;
-    width: 100%;
     display: flex;
-    background-size: cover;
+    flex: 1;
 
-    .textContainer {
-        backdrop-filter: hue(colors.$dark);
-        @include layout.max-container;
-        color: colors.$light;
+    .backgroundImage {
+        display: flex;
+        position: absolute;
+        object-position: center;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        flex: 1;
+    }
 
-        .title {
-            @include typography.section-title;
-        }
+    .container {
+        position: relative;
+        width: 100%;
+        display: flex;
+        @include layout.container;
 
-        .skillsContainer {
-            @include breakpoints.desktop {
-                padding-inline: 4rem;
-                margin-top: 10rem;
+        .textContainer {
+            @include layout.max-container;
+            color: colors.$light;
+
+            .title {
+                @include typography.section-title;
             }
 
-            > div {
-                margin-block: 10rem;
-                @include breakpoints.mobile {
-                    &:last-of-type {
-                        margin-bottom: 4rem;
-                    }
-                    &:first-of-type {
-                        margin-top: 4rem;
-                    }
-                }
+            .skillsContainer {
                 @include breakpoints.desktop {
-                    margin-block: 6rem;
+                    padding-inline: 4rem;
+                    margin-top: 10rem;
+                }
+
+                > div {
+                    margin-block: 10rem;
+                    @include breakpoints.mobile {
+                        &:last-of-type {
+                            margin-bottom: 4rem;
+                        }
+                        &:first-of-type {
+                            margin-top: 4rem;
+                        }
+                    }
+                    @include breakpoints.desktop {
+                        margin-block: 6rem;
+                    }
                 }
             }
         }

@@ -15,6 +15,9 @@ function alternateText(element: HTMLHeadingElement) {
     const altText = element.getAttribute("data-alt-text");
     const text = element.getAttribute("data-text");
 
+    element.setAttribute("data-alt-text", text as string);
+    element.setAttribute("data-text", altText as string);
+
     if (!altText || !text) {
         return;
     }

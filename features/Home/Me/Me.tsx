@@ -3,12 +3,13 @@ import style from "./Me.module.scss";
 import computerIcon from "/public/icons/computer.svg";
 import tubesIcon from "/public/icons/tubes.svg";
 import gameJapIcon from "/public/icons/game_jap.svg";
-import { useInView } from "react-intersection-observer";
+import { IntersectionOptions, useInView } from "react-intersection-observer";
 
 export const Me = () => {
-    const [computerRef, computerInView] = useInView({ threshold: 0.5 });
-    const [labRef, labInView] = useInView({ threshold: 0.5 });
-    const [japGameRef, japGameInView] = useInView({ threshold: 0.5 });
+    const intersectionOptions: IntersectionOptions = { threshold: 0.8, triggerOnce: true };
+    const [computerRef, computerInView] = useInView(intersectionOptions);
+    const [labRef, labInView] = useInView(intersectionOptions);
+    const [japGameRef, japGameInView] = useInView(intersectionOptions);
 
     return (
         <section className={style.section}>

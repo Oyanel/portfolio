@@ -7,7 +7,10 @@ export const setGlitchedInterval = (intervalFunction: () => void) => {
     };
 
     const runInterval = () => {
-        const delay = Math.max(800, Math.random() * 2000);
+        let delay = Math.floor(Math.max(400, Math.random() * 2000));
+        if (delay > 1500) {
+            delay = 50;
+        }
 
         timeout = setTimeout(timeoutFunction, delay);
     };

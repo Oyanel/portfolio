@@ -1,5 +1,5 @@
 import style from "./DevGround.module.scss";
-import { useEffect, useRef, useState } from "react";
+import { ComponentProps, ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import { ProjectCard } from "./ProjectCard/ProjectCard";
 import Image from "next/image";
 import chevronLeftIcon from "../../../public/icons/chevron_left.svg";
@@ -28,7 +28,12 @@ const projectCardContentList: IProjectCard[] = [
                 </p>
                 <p>
                     {
-                        "This project is not over yet as I will later plug a Strapi (CMS) in to help the client handle the content themselves."
+                        "This project is not plugged with a back office (strapi), so the client can now update some of the content themselves."
+                    }
+                </p>
+                <p>
+                    {
+                        "To gain performance, it is made with NextJS SSR/SSG systems. The content appears fast and is regenerated after a period of time on a client request."
                     }
                 </p>
                 <p>
@@ -101,25 +106,30 @@ export const DevGround = () => {
     const [selectedCardIndex, setSelectedCardIndex] = useState<number>();
     const [currentProjectCardContent, setCurrentProjectCardContent] = useState<IProjectCard>();
     const sectionRef = useRef<HTMLElement>(null);
-    const projectCardList = [];
 
     const onCardClick = () => {
         sectionRef.current?.scrollIntoView({ behavior: "smooth" });
     };
 
-    for (let i = 0; i < 3; i++) {
-        projectCardList.push(
-            <ProjectCard
-                isSelected={i === selectedCardIndex}
-                key={projectCardContentList[i].title}
-                projectCard={projectCardContentList[i]}
-                onClick={() => {
-                    setSelectedCardIndex(i);
-                    onCardClick();
-                }}
-            />
-        );
-    }
+    const projectCardList = useMemo(() => {
+        const newProjectCardList: ReactElement<ComponentProps<typeof ProjectCard>>[] = [];
+
+        for (let i = 0; i < 3; i++) {
+            newProjectCardList.push(
+                <ProjectCard
+                    isSelected={i === selectedCardIndex}
+                    key={projectCardContentList[i].title}
+                    projectCard={projectCardContentList[i]}
+                    onClick={() => {
+                        setSelectedCardIndex(i);
+                        onCardClick();
+                    }}
+                />
+            );
+        }
+
+        return newProjectCardList;
+    }, [selectedCardIndex]);
 
     const selectedStyle = selectedCardIndex !== undefined ? style.isSelected : "";
 

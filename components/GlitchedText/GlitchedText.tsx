@@ -1,6 +1,6 @@
 import { setGlitchedInterval as setGlitchedInterval } from "../../utils/Interval";
+import { HTMLAttributes, useCallback, useEffect, useRef } from "react";
 import style from "./GlitchedText.module.scss";
-import { createElement, HTMLAttributes, useCallback, useEffect, useState } from "react";
 
 interface IParams extends HTMLAttributes<HTMLHeadingElement> {
     text: string;
@@ -11,33 +11,49 @@ interface IParams extends HTMLAttributes<HTMLHeadingElement> {
 
 let clearTimeout: () => void;
 
-export const GlitchedText = (props: IParams) => {
-    const { text, altText, autoAltText, headingElement, className, ...rest } = props;
-    const [currentText, setCurrentText] = useState(altText);
+function alternateText(element: HTMLHeadingElement) {
+    const altText = element.getAttribute("data-alt-text");
+    const text = element.getAttribute("data-text");
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const alternateText = useCallback(() => setCurrentText((prevText) => (prevText === text ? altText : text)), []);
+    if (!altText || !text) {
+        return;
+    }
+
+    const innerText = element.innerText.toLowerCase() === text.toLowerCase() ? altText : text;
+    element.innerHTML = `<span>${innerText}</span>`;
+}
+
+export const GlitchedText = (props: IParams) => {
+    const { text, altText, autoAltText, headingElement: Heading, className, ...rest } = props;
+    const ref = useRef<HTMLHeadingElement>(null);
 
     useEffect(() => {
-        if (autoAltText) {
-            const { clear } = setGlitchedInterval(alternateText);
+        if (autoAltText && ref?.current) {
+            const { clear } = setGlitchedInterval(() => alternateText(ref.current as HTMLHeadingElement));
             clearTimeout = clear;
         }
 
         return () => {
             clearTimeout?.();
         };
-    }, [autoAltText, alternateText]);
+    }, [autoAltText]);
 
-    return createElement(
-        headingElement,
-        {
-            className: `${style.glitchedText} ${className ? className : ""}`,
-            "data-text": currentText,
-            key: text,
-            onClick: autoAltText ? undefined : alternateText,
-            ...rest,
-        },
-        <span>{currentText}</span>
+    const onClick = useCallback(() => {
+        if (!autoAltText && ref?.current) {
+            alternateText(ref.current);
+        }
+    }, [autoAltText]);
+
+    return (
+        <Heading
+            className={`${className ? className : ""} ${style.glitchedText}`}
+            data-alt-text={altText}
+            data-text={text}
+            ref={ref}
+            onClick={onClick}
+            {...rest}
+        >
+            <span>{altText}</span>
+        </Heading>
     );
 };

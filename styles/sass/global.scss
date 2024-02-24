@@ -16,7 +16,7 @@ a {
     color: colors.$secondary;
     text-decoration: none;
     &:hover {
-        color: mix(colors.$secondary, white, 90%);
+        color: transparentize(colors.$secondary, 0.3);
     }
 }
 

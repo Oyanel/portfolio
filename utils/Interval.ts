@@ -1,13 +1,13 @@
 export const setGlitchedInterval = (intervalFunction: () => void) => {
     let timeout: NodeJS.Timeout;
 
-    const runInterval = (runCounter = 0) => {
-        const timeoutFunction = () => {
-            intervalFunction();
-            runInterval(runCounter + (1 % 2));
-        };
+    const timeoutFunction = () => {
+        intervalFunction();
+        runInterval();
+    };
 
-        const delay = Math.floor(Math.random() * (2000 - 10)) + 10;
+    const runInterval = () => {
+        const delay = Math.max(800, Math.random() * 2000);
 
         timeout = setTimeout(timeoutFunction, delay);
     };

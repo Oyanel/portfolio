@@ -28,7 +28,7 @@ const projectCardContentList: IProjectCard[] = [
                 </p>
                 <p>
                     {
-                        "This project is not plugged with a back office (strapi), so the client can now update some of the content themselves."
+                        "This project is now plugged to a back office (strapi), so they can now update some of the content themselves."
                     }
                 </p>
                 <p>

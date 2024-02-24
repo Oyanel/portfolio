@@ -13,13 +13,13 @@ export const Me = () => {
     return (
         <section className={style.section}>
             <picture>
-                <source media="(min-width: 1080gpx)" srcSet="/images/me/me-2048-2048.png" />
-                <source media="(min-width: 600px)" srcSet="/images/me/me-1024-1024.png" />
-                <source media="(max-width: 599px)" srcSet="/images/me/me-512-1024.png" />
+                <source media="(min-width: 1080gpx)" srcSet="/images/me/me-2048-2048.webp" />
+                <source media="(min-width: 600px)" srcSet="/images/me/me-1024-1024.webp" />
+                <source media="(max-width: 599px)" srcSet="/images/me/me-512-1024.webp" />
                 <img
                     alt="Sky scrappers in the night"
                     className={style.backgroundImage}
-                    src="/images/me/me-1024-1024.png"
+                    src="/images/me/me-1024-1024.webp"
                 />
             </picture>
             <div className={style.container}>

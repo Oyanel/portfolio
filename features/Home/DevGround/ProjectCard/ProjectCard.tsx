@@ -26,7 +26,6 @@ export const ProjectCard = (props: IParams) => {
                 sizes="(max-width: 1280px) 90vw, 70vw"
                 src={image}
                 style={{ objectFit: "cover" }}
-                unoptimized
             />
             <div className={`${style.projectCard} ${selectedStyle}`}>
                 <div className={style.projectCardText}>

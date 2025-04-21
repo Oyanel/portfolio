@@ -1,0 +1,11 @@
+services:
+    next-app:
+        container_name: app
+        build:
+            dockerfile: Dockerfile
+            args:
+                ENV_VARIABLE: ${ENV_VARIABLE}
+                NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+        restart: always
+        ports:
+            - 3010:3000

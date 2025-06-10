@@ -3,7 +3,7 @@ import { ComponentProps, ReactElement, useEffect, useMemo, useRef, useState } fr
 import { ProjectCard } from "./ProjectCard/ProjectCard";
 import Image from "next/image";
 import chevronLeftIcon from "../../../public/icons/chevron_left.svg";
-import marybImage from "../../../public/images/mary-b.png";
+import m6plus from "../../../public/images/m6-plus.png";
 import ryoumengoImage from "../../../public/images/ryoumengo.png";
 import gomoImage from "../../../public/images/gomo.png";
 import { IProjectCard } from "./ProjectCard/IProjectCard";
@@ -12,36 +12,29 @@ import { GlitchedText } from "../../../components/GlitchedText/GlitchedText";
 
 const projectCardContentList: IProjectCard[] = [
     {
-        title: "Mary b. decoration",
-        projectLink: "https://mary-b-decoration.fr",
-        smallText: <p>This web site was made in collaboration with a UI/UX designer</p>,
-        image: marybImage,
-        altImage: "Screeenshot of mary-b-decoration.fr website",
+        title: "Bedrock Streaming",
+        projectLink: "https://bedrockstreaming.com",
+        smallText: <p>Participate to create streaming champions</p>,
+        image: m6plus,
+        altImage: "Screeenshot of the m6.fr website",
         fullText: (
             <>
-                <p>{"This web site was made in collaboration with a UI/UX designer"}</p>
-                <p>{"It's a showcase website for a home designer made with Emotion/css and NextJS"}</p>
+                <p>{"I had the chance to work on a big and fun project at Bedrock Streaming"}</p>
                 <p>
                     {
-                        "My job here was first to discuss with the designer and the client about the mockups. Once every screen was designed, I started the development."
+                        "Bedrock Streaming creates streaming platforms such as Videoland, M6+, RTL+ from a unique product by a complete customization process."
                     }
                 </p>
                 <p>
                     {
-                        "This project is now plugged to a back office (strapi), so they can now update some of the content themselves."
+                        "My job there was to create features and improve the web player in a team of around 10 people as a frontend developer."
                     }
                 </p>
                 <p>
                     {
-                        "To gain performance, it is made with NextJS SSR/SSG systems. The content appears fast and is regenerated after a period of time on a client request."
+                        "Working on a web player and all its environment (third parties, ads, media content, ...)  was really interesting and it was a refreshing experience. Playing with streams, video sdks, and complex mechanisms in a video made the frontend developer job a lot more challenging that it usually is."
                     }
                 </p>
-                <p>
-                    {
-                        "To share my progress with the client and get reviews from the designer, I deployed the site on Netlify with CI hooks."
-                    }
-                </p>
-                <p>{"In a second time, I rented a web server and deployed the project in production."}</p>
             </>
         ),
     },

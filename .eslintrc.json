@@ -6,7 +6,7 @@
   "parserOptions": {
       "project": "./tsconfig.json"
   },
-  "plugins": ["react", "react-hooks", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint"],
   "extends": [
       "next/core-web-vitals",
       "eslint:recommended",

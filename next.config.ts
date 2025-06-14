@@ -1,9 +1,8 @@
-/** @type {import('next').NextConfig} */
-const path = require("path");
+import type { NextConfig } from 'next'
+import path from "path";
 
-const nextConfig = {
+const nextConfig: NextConfig = {
     reactStrictMode: true,
-    swcMinify: true,
     sassOptions: {
         includePaths: [path.join(__dirname, "styles")],
     },
@@ -12,8 +11,8 @@ const nextConfig = {
         defaultLocale: "en",
     },
     images: {
-        domains: ["therence.net"],
+        remotePatterns: [new URL('https://therence.net/**')],
     },
-};
+}
 
-module.exports = nextConfig;
+export default nextConfig

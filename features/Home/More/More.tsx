@@ -1,6 +1,6 @@
 import style from "./More.module.scss";
-import sassIcon from "/public/icons/sass.svg";
-import nextIcon from "/public/icons/nextIcon.svg";
+import sassIcon from "@/public/icons/sass.svg";
+import nextIcon from "@/public/icons/nextIcon.svg";
 import Image from "next/image";
 
 export const More = () => (

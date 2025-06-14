@@ -1,6 +1,6 @@
 import style from "./Footer.module.scss";
-import githubIcon from "/public/icons/github.svg";
-import linkedinIcon from "/public/icons/linkedin.svg";
+import githubIcon from "@/public/icons/github.svg";
+import linkedinIcon from "@/public/icons/linkedin.svg";
 import Image from "next/image";
 
 export const Footer = () => (

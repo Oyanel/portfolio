@@ -11,7 +11,7 @@ export const LinkButton = (props: IParams) => {
 
     return (
         <a
-            className={`${style.linkButton} ${className ? className : ""}`}
+            className={`${style.linkButton} ${className ?? ""}`}
             href={linkTo}
             rel="noreferrer"
             target="_blank"

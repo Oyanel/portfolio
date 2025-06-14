@@ -49,7 +49,7 @@ export const GlitchedText = (props: IParams) => {
 
     return (
         <Heading
-            className={`${className ? className : ""} ${style.glitchedText}`}
+            className={`${className ?? ""} ${style.glitchedText}`}
             data-alt-text={altText}
             data-text={text}
             ref={ref}

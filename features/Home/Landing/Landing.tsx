@@ -1,8 +1,8 @@
 import style from "./Landing.module.scss";
-import { GlitchedText } from "../../../components/GlitchedText/GlitchedText";
+import { GlitchedText } from "@/components/GlitchedText/GlitchedText";
 import { useEffect, useRef } from "react";
-import { setGlitchedInterval } from "../../../utils/Interval";
-import { useIsBelowWindowWidth } from "../../../utils/breakpoints";
+import { setGlitchedInterval } from "@/utils/Interval";
+import { useIsBelowWindowWidth } from "@/utils/breakpoints";
 
 let clearTimeout: () => void;
 

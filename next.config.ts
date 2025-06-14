@@ -4,7 +4,7 @@ import path from "path";
 const nextConfig: NextConfig = {
     reactStrictMode: true,
     sassOptions: {
-        includePaths: [path.join(__dirname, "styles")],
+        includePaths: [path.join(import.meta.dirname, "styles")],
     },
     i18n: {
         locales: ["en"],

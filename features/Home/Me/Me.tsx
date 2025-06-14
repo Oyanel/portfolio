@@ -1,4 +1,6 @@
-import { SkillItem } from "../../../components/SkillItem/SkillItem";
+'use client';
+
+import { SkillItem } from "@/components/SkillItem/SkillItem";
 import style from "./Me.module.scss";
 import computerIcon from "@/public/icons/computer.svg";
 import tubesIcon from "@/public/icons/tubes.svg";

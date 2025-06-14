@@ -1,3 +1,5 @@
+'use client';
+
 import { setGlitchedInterval as setGlitchedInterval } from "../../utils/Interval";
 import { HTMLAttributes, useCallback, useEffect, useRef } from "react";
 import style from "./GlitchedText.module.scss";

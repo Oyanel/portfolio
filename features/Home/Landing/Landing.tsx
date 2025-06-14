@@ -1,3 +1,5 @@
+'use client';
+
 import style from "./Landing.module.scss";
 import { GlitchedText } from "@/components/GlitchedText/GlitchedText";
 import { useEffect, useRef } from "react";

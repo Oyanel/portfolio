@@ -1,3 +1,5 @@
+'use client';
+
 import style from "./DevGround.module.scss";
 import { ComponentProps, ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import { ProjectCard } from "./ProjectCard/ProjectCard";
@@ -8,7 +10,7 @@ import ryoumengoImage from "@/public/images/ryoumengo.png";
 import gomoImage from "@/public/images/gomo.png";
 import { IProjectCard } from "./ProjectCard/IProjectCard";
 import { ProjectDescription } from "./ProjectDescription/ProjectDescription";
-import { GlitchedText } from "../../../components/GlitchedText/GlitchedText";
+import { GlitchedText } from "@/components/GlitchedText/GlitchedText";
 
 const projectCardContentList: IProjectCard[] = [
     {

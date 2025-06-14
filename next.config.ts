@@ -6,10 +6,6 @@ const nextConfig: NextConfig = {
     sassOptions: {
         includePaths: [path.join(import.meta.dirname, "styles")],
     },
-    i18n: {
-        locales: ["en"],
-        defaultLocale: "en",
-    },
     images: {
         remotePatterns: [new URL('https://therence.net/**')],
     },

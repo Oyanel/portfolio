@@ -1,5 +1,43 @@
+@use "styles/sass/core/colors";
+@use "styles/sass/functions/breakpoints";
+
 .container {
     position: fixed;
-    top: 0;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
     width: 100%;
+    border-top: 1px solid colors.$light;
+    background-color: rgba(colors.$dark, 0.8);
+
+    @include breakpoints.large-desktop {
+        display: none;
+    }
+
+    .linkList {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+
+        .home {
+            position: relative;
+        }
+
+        .link {
+            text-decoration: none;
+            color: colors.$light;
+            text-transform: uppercase;
+            font-family: BakbakOne, serif;
+            font-size: 1.2rem;
+
+            &.active:before {
+                content: "⏵";
+                margin-right: .5rem;
+            }
+
+            &:hover {
+                color: rgba(colors.$light, .5);
+            }
+        }
+    }
 }

@@ -1,7 +1,7 @@
 @use "styles/sass/core/screens";
 
 @mixin mobile {
-    @media (max-width: screens.$small) {
+    @media (max-width: screens.$small - 1px) {
         @content;
     }
 }

@@ -1,3 +1,13 @@
-import style from "./Navigation.module.scss";
+"use client";
 
-export const Navigation = () => <nav className={style.container}>TODO</nav>;
+import { MobileNavigation } from "@/components/Navigation/MobileNavigation/MobileNavigation";
+import { DesktopNavigation } from "@/components/Navigation/DesktopNavigation/DesktopNavigation";
+
+export const Navigation = () => {
+    return (
+        <>
+            <MobileNavigation />
+            <DesktopNavigation />
+        </>
+    );
+};

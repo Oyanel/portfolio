@@ -71,9 +71,13 @@
     .textContainer {
         z-index: 2;
         margin-top: auto;
-        margin-bottom: 5%;
+        margin-bottom: 10%;
         color: colors.$light;
         @include layout.max-container;
+        @include breakpoints.desktop {
+            margin-bottom: 0;
+            margin-left: 5%;
+        }
 
         .titleContainer {
             margin-bottom: 1rem;

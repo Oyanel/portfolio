@@ -1,11 +1,25 @@
-import Link from "next/link";
-import style from "./Navigation.module.scss";
+'use client';
 
-export const Navigation = () => (
+import Link from "next/link";
+import style from "./DesktopNavigation.module.scss";
+import { navigationLinks } from "@/components/Navigation/constant";
+
+export const DesktopNavigation = () => (
     <nav className={style.container}>
-        <ul className="">
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/dev-ground">Dev Ground</Link></li>
+        <ul className={style.linkList}>
+            <li className={style.home}>
+                <Link href="/" className={style.link}>
+                    Home
+                </Link>
+                <hr className={style.separator} />
+            </li>
+            {navigationLinks.slice(1).map((link) => (
+                <li key={link.label}>
+                    <Link href={link.href} className={style.link}>
+                        {link.label}
+                    </Link>
+                </li>
+            ))}
         </ul>
     </nav>
 );

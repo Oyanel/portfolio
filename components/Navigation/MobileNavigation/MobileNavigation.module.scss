@@ -32,11 +32,11 @@
 
             &.active:before {
                 content: "⏵";
-                margin-right: .5rem;
+                margin-right: 0.5rem;
             }
 
             &:hover {
-                color: rgba(colors.$light, .5);
+                color: rgba(colors.$light, 0.5);
             }
         }
     }

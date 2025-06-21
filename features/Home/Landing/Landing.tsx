@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import style from "./Landing.module.scss";
 import { GlitchedText } from "@/components/GlitchedText/GlitchedText";

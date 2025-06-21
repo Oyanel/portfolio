@@ -6,7 +6,7 @@ import classNames from "classnames";
 import { Button } from "@/components/Buttons/Button/Button";
 
 export const StageSelection = () => {
-    const {selectedStage, onStageSelect} = useStageSelection();
+    const { selectedStage, selectStage, onStageChange } = useStageSelection();
 
     return (
         <section className={style.stageSelectionRoot}>
@@ -20,18 +20,27 @@ export const StageSelection = () => {
                     <p className={style.selectText}>Select a Stage</p>
                     <ul className={style.stageList}>
                         {stageList.map((stage) => (
-                            <li key={stage.id} className={classNames(style.stage, {
-                                [style.isSelected]: selectedStage.id === stage.id
-                            })}>
-                                <button onClick={() => onStageSelect(stage)}>
+                            <li
+                                key={stage.id}
+                                className={classNames(style.stage, {
+                                    [style.isSelected]: selectedStage.id === stage.id,
+                                })}
+                            >
+                                <button
+                                    onClick={function () {
+                                        onStageChange(stage);
+                                    }}
+                                >
                                     <Image alt={stage.alt} src={stage.image} className={style.stageImage} fill />
                                 </button>
                             </li>
                         ))}
                     </ul>
                 </div>
-                <Button variant="primary">Play !</Button>
+                <Button variant="primary" onClick={selectStage}>
+                    Play !
+                </Button>
             </div>
         </section>
-    )
-}
+    );
+};

@@ -11,10 +11,14 @@ export const Button = (props: IParams) => {
 
     return (
         <button
-            className={classNames(style.button, {
-                [style.primary]: variant === "primary",
-                [style.secondary]: variant === "secondary"
-            }, className)}
+            className={classNames(
+                style.button,
+                {
+                    [style.primary]: variant === "primary",
+                    [style.secondary]: variant === "secondary",
+                },
+                className,
+            )}
             {...rest}
         >
             {children}

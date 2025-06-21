@@ -362,7 +362,10 @@
         top: 10px;
         left: 15px;
         color: colors.$secondary;
-        animation: paths 5s step-end infinite, opacity 5s step-end infinite, font 8s step-end infinite,
+        animation:
+            paths 5s step-end infinite,
+            opacity 5s step-end infinite,
+            font 8s step-end infinite,
             movement 10s step-end infinite;
     }
 
@@ -370,7 +373,10 @@
         top: 5px;
         left: -10px;
         color: #1bc7fb;
-        animation: paths 5s step-end infinite, opacity 5s step-end infinite, font 7s step-end infinite,
+        animation:
+            paths 5s step-end infinite,
+            opacity 5s step-end infinite,
+            font 7s step-end infinite,
             movement 8s step-end infinite;
     }
 

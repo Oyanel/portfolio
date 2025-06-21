@@ -1,18 +1,26 @@
 import stage1Image from "@/public/images/m6-plus.png";
 import stage2Image from "@/public/images/gomo.png";
-import { Stage } from "./StageSelection.type";
+import { StageType } from "./StageSelection.type";
 
-export const stageList: Stage[] = [
+export enum EStage {
+    DEFAULT = "DEFAULT",
+    PRO = "PRO",
+    PERSO = "PERSO",
+}
+
+export const stageList: StageType[] = [
     {
-        id: "pro",
+        id: EStage.PRO,
         label: "Pro",
         image: stage1Image,
-        alt: ""
+        alt: "",
+        scene: "ProScene"
     },
     {
-        id: "perso",
+        id: EStage.PERSO,
         label: "Perso",
         image: stage2Image,
-        alt: ""
+        alt: "",
+        scene: "PersoScene"
     },
 ];

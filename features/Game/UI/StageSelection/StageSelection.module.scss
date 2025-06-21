@@ -1,0 +1,77 @@
+@use "styles/sass/core/colors";
+
+.stageSelectionRoot {
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+  .background {
+    position: absolute;
+    inset: 0;
+
+    .backgroundImage {
+      object-fit: cover;
+    }
+
+    .mask {
+      top: 0;
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  .content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 24px;
+    color: colors.$light;
+    width: 100%;
+
+    .stageName {
+      margin-left: 24px;
+      margin-top: 24px;
+      margin-bottom: auto;
+    }
+
+    .stageListContainer {
+      padding: 12px;
+      gap: 16px;
+
+      .selectText {
+        text-align: center;
+        font-family: BakbakOne, serif;
+        text-transform: uppercase;
+      }
+
+      .stageList {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        list-style: none;
+
+        .stage {
+          overflow: hidden;
+          cursor: pointer;
+          position: relative;
+          border-radius: 0.5rem;
+          width: 150px;
+          aspect-ratio: 1;
+
+          &.isSelected {
+            outline: 1px solid colors.$light;
+          }
+
+          .stageImage {
+            cursor: pointer;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}

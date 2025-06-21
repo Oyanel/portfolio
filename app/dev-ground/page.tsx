@@ -1,7 +1,11 @@
-export default function devGround() {
+'use client';
+
+import dynamic from "next/dynamic";
+
+const ClientSideGame = dynamic(() => import("@/features/Game/GameConnector"), { ssr: false });
+
+export default function DevGround() {
     return (
-        <p>
-            devground
-        </p>
+        <ClientSideGame />
     );
 }

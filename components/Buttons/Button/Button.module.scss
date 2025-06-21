@@ -1,0 +1,35 @@
+@use "styles/sass/core/colors";
+@use "styles/sass/core/typography";
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    min-width: 120px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: colors.$light;
+        color: colors.$dark;
+    }
+}
+
+.primary {
+    border-radius: 6px;
+    background-color: colors.$primary;
+    color:  colors.$light;
+    @include typography.button;
+}
+
+.secondary {
+    border-radius: 6px;
+    background-color:  colors.$light;
+    color: colors.$primary;
+    @include typography.button;
+}

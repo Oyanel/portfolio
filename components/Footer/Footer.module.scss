@@ -5,6 +5,11 @@
 .section {
     width: 100%;
     background-color: colors.$dark;
+    padding-bottom: 60px;
+
+    @include breakpoints.large-desktop {
+        padding-bottom: 0;
+    }
 
     .container {
         position: relative;

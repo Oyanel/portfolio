@@ -48,7 +48,9 @@
         width: 100%;
         z-index: 10;
         background-color: transparent;
-        animation: fade-color 1.2s ease-in-out forwards, no-height 0s forwards 1.2s;
+        animation:
+            fade-color 1.2s ease-in-out forwards,
+            no-height 0s forwards 1.2s;
         @include breakpoints.desktop {
             margin-left: -4rem;
             margin-top: -4rem;
@@ -81,7 +83,9 @@
 
         .titleContainer {
             margin-bottom: 1rem;
-            animation: slide-in 1s ease-in-out, fade-in 1.2s ease-in-out;
+            animation:
+                slide-in 1s ease-in-out,
+                fade-in 1.2s ease-in-out;
             @include breakpoints.desktop {
                 margin-bottom: 3rem;
             }
@@ -100,7 +104,9 @@
             font-size: 2rem;
             max-width: 18ch;
             letter-spacing: 1.2px;
-            animation: slide-in 1s ease-in-out 0.2s, fade-in 1.2s ease-in-out;
+            animation:
+                slide-in 1s ease-in-out 0.2s,
+                fade-in 1.2s ease-in-out;
             @include breakpoints.desktop {
                 font-size: 3.5rem;
                 letter-spacing: 1.5px;

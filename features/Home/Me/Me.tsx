@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { SkillItem } from "@/components/SkillItem/SkillItem";
 import style from "./Me.module.scss";

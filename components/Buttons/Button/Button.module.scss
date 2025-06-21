@@ -23,13 +23,13 @@
 .primary {
     border-radius: 6px;
     background-color: colors.$primary;
-    color:  colors.$light;
+    color: colors.$light;
     @include typography.button;
 }
 
 .secondary {
     border-radius: 6px;
-    background-color:  colors.$light;
+    background-color: colors.$light;
     color: colors.$primary;
     @include typography.button;
 }

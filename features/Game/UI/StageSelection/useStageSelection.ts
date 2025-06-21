@@ -1,17 +1,22 @@
 import { useState } from "react";
-import { Stage } from "@/features/Game/UI/StageSelection/StageSelection.type";
+import { StageType } from "@/features/Game/UI/StageSelection/StageSelection.type";
 import { stageList } from "@/features/Game/UI/StageSelection/constant";
+import { eventManager } from "@/features/Game/EventManager";
 
 export const useStageSelection = () => {
-    const [selectedStage, setSelectedStage] = useState<Stage>(stageList[0]);
+    const [selectedStage, setSelectedStage] = useState<StageType>(stageList[0]);
 
-    const onStageSelect = (stage: Stage) => {
+    const onStageChange = (stage: StageType) => {
         setSelectedStage(stage);
-        // + emit event for phaser
-    }
+    };
+
+    const selectStage = () => {
+        eventManager.emit({ type: "PLAY", stage: selectedStage });
+    };
 
     return {
         selectedStage,
-        onStageSelect
-    }
-}
+        onStageChange,
+        selectStage,
+    };
+};

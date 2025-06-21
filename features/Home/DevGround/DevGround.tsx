@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import style from "./DevGround.module.scss";
 import { ComponentProps, ReactElement, useEffect, useMemo, useRef, useState } from "react";
@@ -119,7 +119,7 @@ export const DevGround = () => {
                         setSelectedCardIndex(i);
                         onCardClick();
                     }}
-                />
+                />,
             );
         }
 

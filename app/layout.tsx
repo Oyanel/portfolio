@@ -5,12 +5,12 @@ import "@/styles/sass/global.scss";
 import { Navigation } from "@/components/Navigation/Navigation";
 
 export const metadata: Metadata = {
-    title: 'Therence BRUNE Portfolio',
-    description: 'This is Therence\'s website',
-}
+    title: "Therence BRUNE Portfolio",
+    description: "This is Therence's website",
+};
 
 export const viewport: Viewport = {
-    width: 'device-width',
+    width: "device-width",
     initialScale: 1,
 };
 

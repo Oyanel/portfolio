@@ -4,7 +4,7 @@ import nextPlugin from "@next/eslint-plugin-next";
 import reactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
 import tseslint from "typescript-eslint";
-import stylistic from '@stylistic/eslint-plugin'
+import stylistic from "@stylistic/eslint-plugin";
 
 export default tseslint.config(
     {
@@ -15,7 +15,7 @@ export default tseslint.config(
         plugins: {
             "@next/next": nextPlugin,
             "@typescript-eslint": tseslint.plugin,
-            '@stylistic': stylistic
+            "@stylistic": stylistic,
         },
         languageOptions: {
             parserOptions: {

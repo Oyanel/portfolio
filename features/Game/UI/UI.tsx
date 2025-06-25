@@ -19,10 +19,8 @@ export const UI = () => {
 
         return () => {
             eventManager.removeListener("PLAY");
-        }
+        };
     }, []);
 
-    return <div className={style.UIRoot}>
-        {uiState === UIScreen.DEFAULT && <StageSelection />}
-    </div>;
+    return <div className={style.UIRoot}>{uiState === UIScreen.DEFAULT && <StageSelection />}</div>;
 };

@@ -33,8 +33,7 @@ export class Preloader extends Scene {
     }
 
     create() {
-        eventManager.on("PLAY", ( event) => {
-            console.log("create in preloader");
+        eventManager.on("PLAY", (event) => {
             const { stage } = event as PlayUIEvent;
             this.scene.start(stage.scene);
         });

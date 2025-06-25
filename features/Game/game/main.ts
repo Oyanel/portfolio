@@ -1,6 +1,4 @@
 import { Boot } from "./scenes/Boot";
-import { GameOver } from "./scenes/GameOver";
-import { Game as MainGame } from "./scenes/Game";
 import { AUTO, Game, Scale } from "phaser";
 import { Preloader } from "./scenes/Preloader";
 import type { Types } from "phaser";
@@ -12,11 +10,18 @@ import { PersoScene } from "@/features/Game/game/scenes/PersoScene";
 const config: Types.Core.GameConfig = {
     type: AUTO,
     mode: Scale.EXPAND,
-    width: 1024,
-    height: 768,
+    width: 960,
+    height: 640,
     parent: "game-container",
+    pixelArt: true, // For Tiled maps
+    physics: {
+        default: "arcade",
+        arcade: {
+            debug: true, // Set to true for debugging physics bodies
+        },
+    },
     backgroundColor: "#028af8",
-    scene: [Boot, Preloader, ProScene, PersoScene, MainGame, GameOver],
+    scene: [Boot, Preloader, ProScene, PersoScene],
 };
 
 const StartGame = (parent: string) => {

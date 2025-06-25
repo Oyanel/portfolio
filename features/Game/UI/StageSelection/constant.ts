@@ -14,13 +14,13 @@ export const stageList: StageType[] = [
         label: "Pro",
         image: stage1Image,
         alt: "",
-        scene: "ProScene"
+        scene: "ProScene",
     },
     {
         id: EStage.PERSO,
         label: "Perso",
         image: stage2Image,
         alt: "",
-        scene: "PersoScene"
+        scene: "PersoScene",
     },
 ];

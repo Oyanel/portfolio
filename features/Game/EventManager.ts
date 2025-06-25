@@ -20,7 +20,6 @@ class EventManager {
     };
 
     on = (eventType: GameEvent["type"] | UIEvent["type"], callback: (event: GameEvent | UIEvent) => void) => {
-        console.log("on", eventType);
         this.eventEmitter.on(eventType, callback);
     };
 }

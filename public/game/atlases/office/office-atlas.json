@@ -1,0 +1,21 @@
+{
+    "frames": [
+        {
+            "filename": "Interiors_free_32x32.png",
+            "frame": { "x": 0, "y": 0, "w": 512, "h": 2848 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 512, "h": 2848 },
+            "sourceSize": { "w": 512, "h": 2848 }
+        }
+    ],
+    "meta": {
+        "app": "https://www.codeandweb.com/texturepacker",
+        "version": "1.0",
+        "image": "office-atlas.png",
+        "format": "RGBA8888",
+        "size": { "w": 512, "h": 2848 },
+        "scale": "1",
+        "smartupdate": "$TexturePacker:SmartUpdate:cf5183fd8300b88df9e39d5d7d92f0d3:850bcaa76bbbc9ce1dba1195393479f6:a8fff8a53e14992ae23a2522b76d64a8$"
+    }
+}

@@ -1,5 +1,5 @@
-import { StageScene, IInteractable, LayerConfig, TilesetMapping } from "./StageScene";
-import Phaser from "phaser";
+import { LayerConfig, TilesetMapping } from "../types/Tilemap.type";
+import { StageScene } from "./StageScene";
 
 export class ProScene extends StageScene {
     constructor() {
@@ -12,8 +12,15 @@ export class ProScene extends StageScene {
         this.load.image("office_tiles", "game/office.png");
         this.load.image("walls_tiles", "game/walls.png");
 
-        // load the JSON file
+        // load the JSON file (map)
         this.load.tilemapTiledJSON("tilemap", "game/office_map.json");
+
+        // load the office object atlas
+        this.load.atlas(
+            "office_atlas",
+            "game/atlases/office/office-atlas.png",
+            "game/atlases/office/office-atlas.json",
+        );
     }
 
     create() {
@@ -33,57 +40,20 @@ export class ProScene extends StageScene {
             { name: "Objects/objects to remove", isColliding: false, renderOrder: 6 }, // Assuming these are items to pick up, not solid obstacles
         ];
 
-        const { objectLayer } = this.createTilemapLayers(
+        const { interactiveObjects, spawnObjects } = this.createTilemapLayers(
             "tilemap", // This is the key of your Tiled JSON map
             officeTilesetMappings,
             officeLayerConfigs,
         );
 
-        if (objectLayer) {
-            objectLayer.objects.forEach((object) => {
-                let interactiveObject: IInteractable | undefined;
-
-                // const centerX = object.x + (object.width ?? 0) / 2;
-                // const centerY = object.y + (object.height ?? 0) / 2;
-
-                const centerX = 0;
-                const centerY = 0;
-
-                if (object.name === "computer") {
-                    const computerSprite = this.add.sprite(centerX, centerY, "computer") as IInteractable;
-                    computerSprite.name = "Computer";
-                    computerSprite.interact = () => {
-                        console.log("You interact with the computer. It needs an update.");
-                    };
-                    interactiveObject = computerSprite;
-                } else if (object.name === "desk") {
-                    const deskSprite = this.add.sprite(centerX, centerY, "desk") as IInteractable;
-                    deskSprite.name = "Desk";
-                    deskSprite.interact = () => {
-                        console.log("You look under the desk. Nothing here.");
-                    };
-                    interactiveObject = deskSprite;
-                }
-
-                if (interactiveObject) {
-                    this.physics.world.enable(interactiveObject);
-                    (interactiveObject.body as Phaser.Physics.Arcade.Body).setImmovable(true);
-                    this.interactables.add(interactiveObject);
-                }
-            });
+        if (interactiveObjects) {
+            this.createInteractiveObjects(interactiveObjects);
         }
 
-        // Set player spawn point from Tiled, if available
-        const playerSpawn = objectLayer?.objects.find((obj) => obj.name === "playerSpawn");
+        console.log(spawnObjects);
 
-        if (playerSpawn && playerSpawn.x && playerSpawn.y) {
-            this.playerSpawnPoint = {
-                x: playerSpawn.x + (playerSpawn.width ?? 0) / 2,
-                y: playerSpawn.y + (playerSpawn.height ?? 0) / 2,
-            };
+        if (spawnObjects) {
+            this.placePlayer(spawnObjects);
         }
-
-        this.player.setDepth(7);
-        this.player.setPosition(this.playerSpawnPoint.x, this.playerSpawnPoint.y);
     }
 }

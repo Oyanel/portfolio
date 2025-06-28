@@ -1,45 +1,17 @@
-// StageScene.js
 import Phaser from "phaser";
-import GameObject = Phaser.GameObjects.GameObject;
-import { Player } from "@/features/Game/game/sprites/player";
-
-export interface IInteractable extends Phaser.GameObjects.Sprite {
-    name: string;
-    interact: () => void;
-    // Add other common properties or methods interactables might have
-    // For example, if you add highlight/clearHighlight:
-    // highlight?: () => void;
-    // clearHighlight?: () => void;
-}
-
-const isInteractableObject = (object: GameObject): object is IInteractable => {
-    if (object instanceof Phaser.GameObjects.Sprite && (typeof "interact") in object) {
-        return true;
-    }
-
-    return false;
-};
-
-// Define a type for tileset mappings from Tiled name to Phaser key
-export type TilesetMapping = {
-    tiledTilesetName: string; // The name of the tileset asset within your Tiled map (.json file)
-    phaserImageKey: string; // The key you used in Phaser's preload to load the image
-};
-
-// Define a type for individual layer configurations
-export type LayerConfig = {
-    name: string; // The name of the layer in your Tiled map
-    isColliding: boolean; // Whether this layer should have collision with the player
-    renderOrder: number;
-};
+import { Player } from "@/features/Game/game/prefab/player";
+import { IInteractableSprite, InteractiveSprite } from "@/features/Game/game/prefab/InteractiveObject";
+import { getTiledProperties, isTiledInteractiveObject } from "../utils/TiledObjectUtils";
+import { LayerConfig, TilesetMapping } from "../types/Tilemap.type";
 
 export class StageScene extends Phaser.Scene {
     protected player!: Player;
     protected cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
-    protected interactables!: Phaser.GameObjects.Group; // Group of interactable objects
     protected map!: Phaser.Tilemaps.Tilemap;
+    protected interactablesGroup!: Phaser.Physics.Arcade.Group;
+    protected dynamicDepthGroup!: Phaser.GameObjects.Group;
     protected playerSpawnPoint: { x: number; y: number } = { x: 0, y: 0 };
-    protected currentNearestInteractable: IInteractable | null = null; // Type it with the interface
+    protected currentNearestInteractable: IInteractableSprite | null = null; // Type it with the interface
 
     constructor(key: string) {
         super(key);
@@ -47,7 +19,7 @@ export class StageScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.spritesheet("player_atlas", "game/Alex_16x16.png", {
+        this.load.spritesheet("player_atlas", "game/atlases/player/Alex_16x16.png", {
             frameWidth: 16,
             frameHeight: 32,
         });
@@ -55,6 +27,9 @@ export class StageScene extends Phaser.Scene {
 
     create() {
         console.log(`Creating scene: ${this.scene.key}`);
+
+        this.dynamicDepthGroup = this.add.group();
+        this.interactablesGroup = this.physics.add.group();
 
         this.player = new Player(this, this.playerSpawnPoint.x, this.playerSpawnPoint.y, "player_atlas");
 
@@ -64,54 +39,73 @@ export class StageScene extends Phaser.Scene {
 
         // Set up common input for interaction
         this.input.keyboard!.on("keydown-E", this.handleInteraction, this);
+
+        this.events.on("interactObject", this.onInteractObject, this);
     }
 
     update(): void {
-        this.player.handleMovement(this.cursors);
-
-        // Check for interaction proximity
-        // this.checkInteractionProximity();
+        this.performDynamicDepthSorting();
+        this.handlePlayerMovement();
+        this.updateNearestInteractableOutline();
     }
 
-    protected checkInteractionProximity(): void {
-        // Ensure interactables group exists and has children
-        if (!this.interactables || this.interactables.children.size === 0) {
-            return;
-        }
+    private performDynamicDepthSorting(): void {
+        this.dynamicDepthGroup.children.each((child) => {
+            const displayObject = child as Phaser.GameObjects.Sprite;
+            displayObject.setDepth(displayObject.y);
 
-        let nearestInteractable: IInteractable | null = null;
-        let minDistance = 100; // Max distance for interaction in pixels
+            return true;
+        });
+    }
 
-        this.interactables.children.each((object) => {
-            // Ensure it's a sprite and has the interact method
-            if (isInteractableObject(object)) {
-                const distance = Phaser.Math.Distance.Between(this.player.x, this.player.y, object.x, object.y);
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    nearestInteractable = object;
-                }
+    private handlePlayerMovement(): void {
+        this.player.handleMovement(this.cursors);
+    }
+
+    private updateNearestInteractableOutline(): void {
+        let closestInteractable: InteractiveSprite;
+        let minDistance = Infinity;
+        const interactionRange = 50;
+
+        this.interactablesGroup.children.each((obj) => {
+            const interactable = obj as InteractiveSprite;
+            const distance = Phaser.Math.Distance.Between(this.player.x, this.player.y, interactable.x, interactable.y);
+
+            if (distance < interactionRange && distance < minDistance) {
+                minDistance = distance;
+                closestInteractable = interactable;
             }
 
             return true;
         });
 
-        if (nearestInteractable && nearestInteractable !== this.currentNearestInteractable) {
+        if (closestInteractable! && this.currentNearestInteractable !== closestInteractable) {
             if (this.currentNearestInteractable) {
-                // this.currentNearestInteractable.clearHighlight?.(); // Use optional chaining for optional methods
+                this.currentNearestInteractable.removeOutline();
             }
-            // nearestInteractable.highlight?.();
-            console.log(`Near: ${nearestInteractable}`);
-        } else if (!nearestInteractable && this.currentNearestInteractable) {
-            // this.currentNearestInteractable.clearHighlight?.();
-            console.log("No longer near anything.");
+            closestInteractable.applyOutline();
+            this.currentNearestInteractable = closestInteractable;
+        } else if (!closestInteractable! && this.currentNearestInteractable) {
+            this.currentNearestInteractable.removeOutline();
+            this.currentNearestInteractable = null;
         }
-        this.currentNearestInteractable = nearestInteractable;
     }
 
-    protected handleInteraction(): void {
+    // private handleObjectOverlap(player: Phaser.GameObjects.GameObject, obj: Phaser.GameObjects.GameObject): void {
+    //     // As before, this is for specific overlap triggers, not continuous outlining.
+    // }
+
+    private onInteractObject(interactable: IInteractableSprite): void {
+        console.log(`Scene received interaction from: ${interactable.name}`);
+        console.log(`Modal Text: ${interactable.dialogText}`);
+        // TODO: Open your modal UI here
+    }
+
+    private handleInteraction(): void {
         if (this.currentNearestInteractable) {
-            console.log(`Interacting with: ${this.currentNearestInteractable.name}`);
             this.currentNearestInteractable.interact();
+        } else {
+            console.log("Nothing to interact with.");
         }
     }
 
@@ -119,7 +113,11 @@ export class StageScene extends Phaser.Scene {
         tilemapKey: string,
         tilesetMappings: TilesetMapping[],
         layerConfigs: LayerConfig[],
-    ): { createdLayers: Map<string, Phaser.Tilemaps.TilemapLayer>; objectLayer: Phaser.Tilemaps.ObjectLayer | null } {
+    ): {
+        createdLayers: Map<string, Phaser.Tilemaps.TilemapLayer>;
+        interactiveObjects: Phaser.Types.Tilemaps.TiledObject[] | undefined;
+        spawnObjects: Phaser.Types.Tilemaps.TiledObject[] | undefined;
+    } {
         this.map = this.make.tilemap({ key: tilemapKey });
 
         // Add all required tilesets to the map using their Tiled name and Phaser image key
@@ -163,8 +161,52 @@ export class StageScene extends Phaser.Scene {
         this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
 
         // Retrieve the 'Objects' layer, assuming a consistent name for object layers
-        const objectLayer = this.map.getObjectLayer("Objects");
+        const objectLayer = this.map.getObjectLayer("Interactive");
+        const spawnLayer = this.map.getObjectLayer("Spawn");
 
-        return { createdLayers, objectLayer };
+        return {
+            createdLayers,
+            interactiveObjects: objectLayer?.objects,
+            spawnObjects: spawnLayer?.objects,
+        };
+    }
+
+    protected placePlayer(objectLayer: Phaser.Types.Tilemaps.TiledObject[]) {
+        const playerSpawn = objectLayer?.find((obj) => obj.name === "playerSpawn");
+
+        if (playerSpawn && playerSpawn.x && playerSpawn.y) {
+            this.playerSpawnPoint = {
+                x: playerSpawn.x + (playerSpawn.width ?? 0) / 2,
+                y: playerSpawn.y + (playerSpawn.height ?? 0) / 2,
+            };
+        }
+
+        this.player.setDepth(1000); // Make sure it's in front
+        this.dynamicDepthGroup.add(this.player);
+        this.player.setPosition(this.playerSpawnPoint.x, this.playerSpawnPoint.y);
+    }
+
+    protected createInteractiveObjects(objects: Phaser.Types.Tilemaps.TiledObject[]) {
+        objects.forEach((interactiveObject) => {
+            if (isTiledInteractiveObject(interactiveObject)) {
+                const parsedObject = getTiledProperties(interactiveObject);
+                const interactiveSprite = new InteractiveSprite(
+                    this,
+                    interactiveObject.x! + (interactiveObject.width ?? 0) / 2,
+                    interactiveObject.y! + (interactiveObject.height ?? 0) / 2,
+                    parsedObject.textureKey,
+                    interactiveObject.name || "unnamed_object",
+                    parsedObject,
+                    parsedObject.frameName,
+                );
+
+                this.interactablesGroup.add(interactiveSprite);
+                this.dynamicDepthGroup.add(interactiveSprite);
+            } else {
+                console.warn(
+                    `Missing properties for object "${interactiveObject.name}" on layer "${interactiveObject.name}".`,
+                );
+            }
+        });
     }
 }

@@ -91,13 +91,9 @@ export class StageScene extends Phaser.Scene {
         }
     }
 
-    // private handleObjectOverlap(player: Phaser.GameObjects.GameObject, obj: Phaser.GameObjects.GameObject): void {
-    //     // As before, this is for specific overlap triggers, not continuous outlining.
-    // }
-
     private onInteractObject(interactable: IInteractableSprite): void {
         console.log(`Scene received interaction from: ${interactable.name}`);
-        console.log(`Modal Text: ${interactable.dialogText}`);
+        console.log(`Modal Text: ${interactable.dialogueKey}`);
         // TODO: Open your modal UI here
     }
 
@@ -208,5 +204,6 @@ export class StageScene extends Phaser.Scene {
                 );
             }
         });
+        this.physics.add.collider(this.interactablesGroup, this.player);
     }
 }

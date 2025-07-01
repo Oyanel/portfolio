@@ -3,7 +3,7 @@ import style from "./Button.module.scss";
 import classNames from "classnames";
 
 export interface IParams extends ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: "primary" | "secondary";
+    variant?: "primary" | "secondary" | "dialogue";
 }
 
 export const Button = (props: IParams) => {
@@ -16,6 +16,7 @@ export const Button = (props: IParams) => {
                 {
                     [style.primary]: variant === "primary",
                     [style.secondary]: variant === "secondary",
+                    [style.dialogue]: variant === "dialogue",
                 },
                 className,
             )}

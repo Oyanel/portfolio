@@ -326,6 +326,11 @@
                     "name": "computer1",
                     "properties": [
                         {
+                            "name": "dialogueKey",
+                            "type": "string",
+                            "value": "desk_interaction_start"
+                        },
+                        {
                             "name": "textureKey",
                             "type": "string",
                             "value": "computer1"
@@ -343,6 +348,11 @@
                     "id": 26,
                     "name": "computer2",
                     "properties": [
+                        {
+                            "name": "dialogueKey",
+                            "type": "string",
+                            "value": "simple_sign_dialogue"
+                        },
                         {
                             "name": "textureKey",
                             "type": "string",
@@ -362,6 +372,11 @@
                     "name": "book",
                     "properties": [
                         {
+                            "name": "dialogueKey",
+                            "type": "string",
+                            "value": "bookcase_read_comic"
+                        },
+                        {
                             "name": "textureKey",
                             "type": "string",
                             "value": "book"
@@ -379,6 +394,11 @@
                     "id": 28,
                     "name": "bookself",
                     "properties": [
+                        {
+                            "name": "dialogueKey",
+                            "type": "string",
+                            "value": "desk_search_drawers"
+                        },
                         {
                             "name": "textureKey",
                             "type": "string",

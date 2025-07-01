@@ -1,10 +1,10 @@
 import Phaser from "phaser";
 import { FlattenParsedTileObjectProperties } from "@/features/Game/game/types/Tiled.type";
+import { eventManager } from "@/features/Game/EventManager";
 
 export interface IInteractableSprite extends Phaser.Physics.Arcade.Sprite {
     name: string;
-    dialogText: string;
-    dialogOptions?: string[];
+    dialogueKey: string;
     interact: () => void;
     removeOutline: () => void;
     applyOutline: () => void;
@@ -12,8 +12,7 @@ export interface IInteractableSprite extends Phaser.Physics.Arcade.Sprite {
 
 export class InteractiveSprite extends Phaser.Physics.Arcade.Sprite implements IInteractableSprite {
     public name: string;
-    public dialogText: string;
-    public dialogOptions?: string[];
+    public dialogueKey: string;
     public frameName: string;
 
     constructor(
@@ -31,13 +30,14 @@ export class InteractiveSprite extends Phaser.Physics.Arcade.Sprite implements I
         scene.physics.add.existing(this);
 
         this.setImmovable(true);
+        this.setPushable(false);
         this.setOrigin(0.5, 0.5);
 
         this.name = tiledObjectName;
-        this.dialogText = tiledProperties.dialogText;
-        this.dialogOptions = tiledProperties.dialogOptions;
+        this.dialogueKey = tiledProperties.dialogueKey;
         this.frameName = frameName;
     }
+
     public applyOutline(): void {
         this.setTint(0xff8800); // Orange tint for outline
         // TODO: Integrate a PostFXPipeline shader here for pixel-perfect outlines
@@ -52,16 +52,14 @@ export class InteractiveSprite extends Phaser.Physics.Arcade.Sprite implements I
 
     // --- Interaction Method ---
     public interact(): void {
-        // This is the core interaction logic specific to THIS object type.
-        // It should probably emit an event for the scene or a UI manager to handle.
         console.log(`[${this.name}] Interaction triggered!`);
-        console.log(`Dialog: ${this.dialogText}`);
-        if (this.dialogOptions) {
-            console.log(`Options: ${this.dialogOptions}`);
-        }
+        console.log(`Dialog: ${this.dialogueKey}`);
 
-        // Example: Emit a custom event the scene can listen to,
-        // or directly call a method on a global UI manager.
+        eventManager.emit({
+            type: "OBJECT_INTERACTION",
+            objectName: this.name,
+            dialogueKey: this.dialogueKey,
+        });
         this.scene.events.emit("interactObject", this);
     }
 }

@@ -40,6 +40,8 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
         if (cursors.shift.isDown) {
             this.speed = 300;
+        } else {
+            this.speed = 200;
         }
 
         if (cursors.left.isDown) {

@@ -33,3 +33,15 @@
     color: colors.$primary;
     @include typography.button;
 }
+
+.dialogue {
+    border-radius: 6px;
+    background-color: colors.$primary;
+    color: colors.$light;
+    @include typography.button;
+
+    &:hover {
+        background-color: rgba(colors.$primary, 0.8);
+        color: colors.$light;
+    }
+}

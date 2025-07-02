@@ -3,6 +3,7 @@ import { useCallback, useState } from "react";
 import { Button } from "@/components/Buttons/Button/Button";
 import { eventManager } from "@/features/Game/EventManager";
 import style from "./interaction.module.scss";
+import classNames from "classnames";
 
 type Props = {
     dialogues: DialoguesAtlas;
@@ -46,6 +47,10 @@ export const Interaction = ({ dialogues, dialogueKey }: Props) => {
     return (
         <div className={style.interactionRoot}>
             <div className={style.dialogBox}>
+                <div className={classNames(style.line, style.line1)} />
+                <div className={classNames(style.line, style.line3)} />
+                <div className={classNames(style.line, style.line4)} />
+                <div className={classNames(style.line, style.line5)} />
                 <p className={style.text}>{dialogue[dialogCounter].text}</p>
                 <ul className={style.options}>
                     {options?.map((option) => (
@@ -55,12 +60,14 @@ export const Interaction = ({ dialogues, dialogueKey }: Props) => {
                             </Button>
                         </li>
                     ))}
+                    {!options && dialogue[dialogCounter] && (
+                        <li>
+                            <Button className={style.button} variant="dialogue" onClick={onNext}>
+                                {dialogue[dialogCounter + 1] ? "Next" : "Ok"}
+                            </Button>
+                        </li>
+                    )}
                 </ul>
-                {!options && dialogue[dialogCounter] && (
-                    <Button className={style.button} variant="dialogue" onClick={onNext}>
-                        Next
-                    </Button>
-                )}
             </div>
         </div>
     );

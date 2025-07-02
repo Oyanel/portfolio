@@ -36,6 +36,7 @@ export class StageScene extends Phaser.Scene {
         this.cursors = this.input.keyboard!.createCursorKeys();
 
         this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
+        this.cameras.main.setZoom(1.5, 1.5);
 
         // Set up common input for interaction
         this.input.keyboard!.on("keydown-E", this.handleInteraction, this);

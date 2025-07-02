@@ -13,11 +13,6 @@
     text-align: center;
     text-transform: uppercase;
     transition: all 0.2s ease;
-
-    &:hover {
-        background-color: colors.$light;
-        color: colors.$dark;
-    }
 }
 
 .primary {
@@ -25,6 +20,11 @@
     background-color: colors.$primary;
     color: colors.$light;
     @include typography.button;
+
+    &:hover {
+        background-color: colors.$light;
+        color: colors.$dark;
+    }
 }
 
 .secondary {
@@ -32,16 +32,30 @@
     background-color: colors.$light;
     color: colors.$primary;
     @include typography.button;
+
+    &:hover {
+        background-color: colors.$light;
+        color: colors.$dark;
+    }
 }
 
 .dialogue {
-    border-radius: 6px;
-    background-color: colors.$primary;
+    display: flex;
+    border: 0;
     color: colors.$light;
+    background-color: transparent;
     @include typography.button;
 
-    &:hover {
-        background-color: rgba(colors.$primary, 0.8);
-        color: colors.$light;
+    &::before {
+        content: " ";
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+    }
+
+    &:hover::before,
+    &:focus::before {
+        content: "⏵";
+        margin-bottom: 2px;
     }
 }

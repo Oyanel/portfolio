@@ -9,7 +9,8 @@ import { PersoScene } from "@/features/Game/game/scenes/PersoScene";
 //  https://newdocs.phaser.io/docs/3.70.0/Phaser.Types.Core.GameConfig
 const config: Types.Core.GameConfig = {
     type: AUTO,
-    mode: Scale.EXPAND,
+    mode: Scale.FIT,
+    autoCenter: Scale.CENTER_BOTH,
     width: 960,
     height: 640,
     parent: "game-container",
@@ -20,7 +21,7 @@ const config: Types.Core.GameConfig = {
             debug: true, // Set to true for debugging physics bodies
         },
     },
-    backgroundColor: "#028af8",
+    backgroundColor: "#000000",
     scene: [Boot, Preloader, ProScene, PersoScene],
 };
 

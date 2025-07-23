@@ -31,7 +31,8 @@ export const UI = () => {
     useEffect(() => {
         eventManager.on("PLAY", async (event) => {
             const { stage } = event as PlayUIEvent;
-            dialoguesRef.current = await import(`./Interaction/dialogues/${DIALOGUES_CONFIG_PATHS[stage.id]}`);
+            const dialogues = await import(`./Interaction/dialogues/${DIALOGUES_CONFIG_PATHS[stage.id]}`);
+            dialoguesRef.current = dialogues.default;
             setUiState(undefined);
         });
 

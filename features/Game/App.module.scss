@@ -1,12 +1,18 @@
 @use "styles/sass/core/colors";
+@use "styles/sass/functions/breakpoints";
 
 .gameContainer {
     position: relative;
-    margin-inline: 4rem;
     display: flex;
+    height: 80dvh;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+
+    @include breakpoints.large-desktop {
+        height: 98dvh;
+        margin-inline: 4rem;
+    }
 
     .gameUI {
         position: absolute;

@@ -9,15 +9,16 @@ export class ProScene extends StageScene {
     preload() {
         super.preload();
         // load the PNG files
-        this.load.image("office_tiles", "game/office.png");
-        this.load.image("walls_tiles", "game/walls.png");
+        this.load.image("office_tiles", "game/atlases/office/tilesets/office.png");
+        this.load.image("interior_tiles", "game/atlases/office/tilesets/interior.png");
+        this.load.image("builder_tiles", "game/atlases/office/tilesets/builder.png");
 
         // load the JSON file (map)
-        this.load.tilemapTiledJSON("tilemap", "game/office_map.json");
+        this.load.tilemapTiledJSON("tilemap", "game/atlases/office/office-map.json");
 
         // load the office object atlas
         this.load.atlas(
-            "office_atlas",
+            "office-atlas",
             "game/atlases/office/office-atlas.png",
             "game/atlases/office/office-atlas.json",
         );
@@ -27,17 +28,20 @@ export class ProScene extends StageScene {
         super.create();
         const officeTilesetMappings: TilesetMapping[] = [
             { tiledTilesetName: "office", phaserImageKey: "office_tiles" },
-            { tiledTilesetName: "walls", phaserImageKey: "walls_tiles" },
+            { tiledTilesetName: "interior", phaserImageKey: "interior_tiles" },
+            { tiledTilesetName: "builder", phaserImageKey: "builder_tiles" },
         ];
 
         const officeLayerConfigs: LayerConfig[] = [
-            { name: "Floor/base", isColliding: false, renderOrder: 0 },
-            { name: "Floor/floor objects", isColliding: false, renderOrder: 1 }, // Assuming floor objects are not solid obstacles
-            { name: "Walls/walls", isColliding: true, renderOrder: 2 },
-            { name: "Walls/windows", isColliding: false, renderOrder: 3 },
-            { name: "Walls/border", isColliding: true, renderOrder: 4 },
-            { name: "Walls/wall objects", isColliding: false, renderOrder: 5 }, // Assuming wall objects are decorative or interactable, not collidable walls
-            { name: "Objects/objects to remove", isColliding: false, renderOrder: 6 }, // Assuming these are items to pick up, not solid obstacles
+            { name: "floor/base", isColliding: false, renderOrder: 0 },
+            { name: "floor/objects", isColliding: false, renderOrder: 1 },
+            { name: "walls/walls", isColliding: true, renderOrder: 2 },
+            { name: "walls/windows", isColliding: false, renderOrder: 3 },
+            { name: "objects/inactive1", isColliding: false, renderOrder: 4 },
+            { name: "objects/inactive2", isColliding: false, renderOrder: 5 },
+            { name: "objects/interactive1", isColliding: true, renderOrder: 6 },
+            { name: "objects/interactive2", isColliding: true, renderOrder: 7 },
+            { name: "border", isColliding: true, renderOrder: 8 },
         ];
 
         const { interactiveObjects, spawnObjects } = this.createTilemapLayers(
@@ -49,8 +53,6 @@ export class ProScene extends StageScene {
         if (interactiveObjects) {
             this.createInteractiveObjects(interactiveObjects);
         }
-
-        console.log(spawnObjects);
 
         if (spawnObjects) {
             this.placePlayer(spawnObjects);

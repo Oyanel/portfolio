@@ -36,7 +36,6 @@ export class StageScene extends Phaser.Scene {
         this.cursors = this.input.keyboard!.createCursorKeys();
 
         this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
-        this.cameras.main.setZoom(1.5, 1.5);
 
         // Set up common input for interaction
         this.input.keyboard!.on("keydown-E", this.handleInteraction, this);
@@ -142,12 +141,11 @@ export class StageScene extends Phaser.Scene {
                     `Tilemap layer '${layerConfig.name}' not found in map '${tilemapKey}' or could not be created.`,
                 );
             }
+
             layer.setDepth(layerConfig.renderOrder);
             createdLayers.set(layerConfig.name, layer);
 
             if (layerConfig.isColliding) {
-                // Assuming you've added a custom property 'collides' (boolean) to your tiles in Tiled
-                // and set it to true for collision tiles.
                 layer.setCollisionByProperty({ collides: true });
                 this.physics.add.collider(this.player, layer);
             }
@@ -158,8 +156,8 @@ export class StageScene extends Phaser.Scene {
         this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
 
         // Retrieve the 'Objects' layer, assuming a consistent name for object layers
-        const objectLayer = this.map.getObjectLayer("Interactive");
-        const spawnLayer = this.map.getObjectLayer("Spawn");
+        const objectLayer = this.map.getObjectLayer("interactive");
+        const spawnLayer = this.map.getObjectLayer("spawn");
 
         return {
             createdLayers,
@@ -169,7 +167,7 @@ export class StageScene extends Phaser.Scene {
     }
 
     protected placePlayer(objectLayer: Phaser.Types.Tilemaps.TiledObject[]) {
-        const playerSpawn = objectLayer?.find((obj) => obj.name === "playerSpawn");
+        const playerSpawn = objectLayer?.find((obj) => obj.name === "player");
 
         if (playerSpawn && playerSpawn.x && playerSpawn.y) {
             this.playerSpawnPoint = {
@@ -184,6 +182,7 @@ export class StageScene extends Phaser.Scene {
     }
 
     protected createInteractiveObjects(objects: Phaser.Types.Tilemaps.TiledObject[]) {
+        console.log(objects);
         objects.forEach((interactiveObject) => {
             if (isTiledInteractiveObject(interactiveObject)) {
                 const parsedObject = getTiledProperties(interactiveObject);
@@ -191,6 +190,8 @@ export class StageScene extends Phaser.Scene {
                     this,
                     interactiveObject.x! + (interactiveObject.width ?? 0) / 2,
                     interactiveObject.y! + (interactiveObject.height ?? 0) / 2,
+                    interactiveObject.height ?? 0,
+                    interactiveObject.width ?? 0,
                     parsedObject.textureKey,
                     interactiveObject.name || "unnamed_object",
                     parsedObject,

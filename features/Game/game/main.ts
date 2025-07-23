@@ -10,7 +10,7 @@ import { PersoScene } from "@/features/Game/game/scenes/PersoScene";
 const config: Types.Core.GameConfig = {
     type: AUTO,
     mode: Scale.FIT,
-    autoCenter: Scale.CENTER_BOTH,
+    autoCenter: Scale.NO_CENTER,
     width: 960,
     height: 640,
     parent: "game-container",

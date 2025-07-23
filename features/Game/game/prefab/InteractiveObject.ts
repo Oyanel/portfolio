@@ -19,6 +19,8 @@ export class InteractiveSprite extends Phaser.Physics.Arcade.Sprite implements I
         scene: Phaser.Scene,
         x: number,
         y: number,
+        height: number,
+        width: number,
         textureKey: string, // This is now the spritesheet key
         tiledObjectName: string,
         tiledProperties: FlattenParsedTileObjectProperties,
@@ -29,9 +31,11 @@ export class InteractiveSprite extends Phaser.Physics.Arcade.Sprite implements I
         scene.add.existing(this);
         scene.physics.add.existing(this);
 
+        this.body?.setSize(width, height);
         this.setImmovable(true);
         this.setPushable(false);
         this.setOrigin(0.5, 0.5);
+        this.setVisible(false);
 
         this.name = tiledObjectName;
         this.dialogueKey = tiledProperties.dialogueKey;

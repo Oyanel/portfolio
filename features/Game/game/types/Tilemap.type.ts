@@ -8,5 +8,6 @@ export type TilesetMapping = {
 export type LayerConfig = {
     name: string; // The name of the layer in your Tiled map
     isColliding: boolean; // Whether this layer should have collision with the player
+    customCollision?: boolean;
     renderOrder: number;
 };

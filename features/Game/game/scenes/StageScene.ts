@@ -9,6 +9,7 @@ export class StageScene extends Phaser.Scene {
     protected cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
     protected map!: Phaser.Tilemaps.Tilemap;
     protected interactablesGroup!: Phaser.Physics.Arcade.Group;
+    protected inactiveGroup!: Phaser.Physics.Arcade.Group;
     protected dynamicDepthGroup!: Phaser.GameObjects.Group;
     protected playerSpawnPoint: { x: number; y: number } = { x: 0, y: 0 };
     protected currentNearestInteractable: IInteractableSprite | null = null; // Type it with the interface
@@ -30,6 +31,7 @@ export class StageScene extends Phaser.Scene {
 
         this.dynamicDepthGroup = this.add.group();
         this.interactablesGroup = this.physics.add.group();
+        this.inactiveGroup = this.physics.add.group();
 
         this.player = new Player(this, this.playerSpawnPoint.x, this.playerSpawnPoint.y, "player_atlas");
 
@@ -39,8 +41,6 @@ export class StageScene extends Phaser.Scene {
 
         // Set up common input for interaction
         this.input.keyboard!.on("keydown-E", this.handleInteraction, this);
-
-        this.events.on("interactObject", this.onInteractObject, this);
     }
 
     update(): void {
@@ -91,17 +91,9 @@ export class StageScene extends Phaser.Scene {
         }
     }
 
-    private onInteractObject(interactable: IInteractableSprite): void {
-        console.log(`Scene received interaction from: ${interactable.name}`);
-        console.log(`Modal Text: ${interactable.dialogueKey}`);
-        // TODO: Open your modal UI here
-    }
-
     private handleInteraction(): void {
         if (this.currentNearestInteractable) {
             this.currentNearestInteractable.interact();
-        } else {
-            console.log("Nothing to interact with.");
         }
     }
 
@@ -112,6 +104,7 @@ export class StageScene extends Phaser.Scene {
     ): {
         createdLayers: Map<string, Phaser.Tilemaps.TilemapLayer>;
         interactiveObjects: Phaser.Types.Tilemaps.TiledObject[] | undefined;
+        inactiveObjects: Phaser.Types.Tilemaps.TiledObject[] | undefined;
         spawnObjects: Phaser.Types.Tilemaps.TiledObject[] | undefined;
     } {
         this.map = this.make.tilemap({ key: tilemapKey });
@@ -156,11 +149,13 @@ export class StageScene extends Phaser.Scene {
         this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
 
         // Retrieve the 'Objects' layer, assuming a consistent name for object layers
+        const inactiveLayer = this.map.getObjectLayer("inactive");
         const objectLayer = this.map.getObjectLayer("interactive");
         const spawnLayer = this.map.getObjectLayer("spawn");
 
         return {
             createdLayers,
+            inactiveObjects: inactiveLayer?.objects,
             interactiveObjects: objectLayer?.objects,
             spawnObjects: spawnLayer?.objects,
         };
@@ -181,8 +176,24 @@ export class StageScene extends Phaser.Scene {
         this.player.setPosition(this.playerSpawnPoint.x, this.playerSpawnPoint.y);
     }
 
+    protected createInactiveObjects(objects: Phaser.Types.Tilemaps.TiledObject[]) {
+        objects.forEach((inactiveObject) => {
+            const inactiveSprite = this.physics.add.sprite(
+                inactiveObject.x! + (inactiveObject.width ?? 0) / 2,
+                inactiveObject.y! + (inactiveObject.height ?? 0) / 2,
+                "none",
+            );
+            inactiveSprite.body?.setSize(inactiveObject.width ?? 0, inactiveObject.height ?? 0);
+            inactiveSprite.setVisible(false);
+            inactiveSprite.setPushable(false);
+            inactiveSprite.setImmovable(true);
+
+            this.inactiveGroup.add(inactiveSprite);
+        });
+        this.physics.add.collider(this.inactiveGroup, this.player);
+    }
+
     protected createInteractiveObjects(objects: Phaser.Types.Tilemaps.TiledObject[]) {
-        console.log(objects);
         objects.forEach((interactiveObject) => {
             if (isTiledInteractiveObject(interactiveObject)) {
                 const parsedObject = getTiledProperties(interactiveObject);

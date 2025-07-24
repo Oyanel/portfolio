@@ -54,11 +54,7 @@ export class InteractiveSprite extends Phaser.Physics.Arcade.Sprite implements I
         // Example: this.resetPipeline();
     }
 
-    // --- Interaction Method ---
     public interact(): void {
-        console.log(`[${this.name}] Interaction triggered!`);
-        console.log(`Dialog: ${this.dialogueKey}`);
-
         eventManager.emit({
             type: "OBJECT_INTERACTION",
             objectName: this.name,

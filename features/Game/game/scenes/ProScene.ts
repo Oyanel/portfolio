@@ -44,7 +44,7 @@ export class ProScene extends StageScene {
             { name: "border", isColliding: true, renderOrder: 8 },
         ];
 
-        const { interactiveObjects, spawnObjects } = this.createTilemapLayers(
+        const { interactiveObjects, spawnObjects, inactiveObjects } = this.createTilemapLayers(
             "tilemap", // This is the key of your Tiled JSON map
             officeTilesetMappings,
             officeLayerConfigs,
@@ -52,6 +52,10 @@ export class ProScene extends StageScene {
 
         if (interactiveObjects) {
             this.createInteractiveObjects(interactiveObjects);
+        }
+
+        if (inactiveObjects) {
+            this.createInactiveObjects(inactiveObjects);
         }
 
         if (spawnObjects) {

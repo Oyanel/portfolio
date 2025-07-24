@@ -14,7 +14,7 @@ export function getTiledProperties(tiledObject: TiledInteractiveObject) {
 }
 
 export function isTiledInteractiveObject(object: Phaser.Types.Tilemaps.TiledObject): object is TiledInteractiveObject {
-    const { textureKey } = getTiledProperties(object as TiledInteractiveObject);
+    const { textureKey, dialogueKey } = getTiledProperties(object as TiledInteractiveObject);
 
-    return textureKey !== undefined;
+    return textureKey !== undefined && dialogueKey !== undefined;
 }

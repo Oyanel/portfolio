@@ -8,7 +8,6 @@ class EventManager {
 
     emit = (event: GameEvent | UIEvent) => {
         const { type, ...rest } = event;
-        console.log("emit", event);
         this.eventEmitter.emit(type, rest);
     };
 

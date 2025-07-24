@@ -16,7 +16,6 @@ type Props = {
 };
 
 export const Interaction = ({ dialogues, dialogueKey }: Props) => {
-    console.log(dialogues, dialogueKey);
     const [dialogueEntry, setDialogueEntry] = useState<DialogueEntry>(dialogues[dialogueKey]);
     const { dialogue, options } = dialogueEntry;
     const [dialogCounter, setDialogCounter] = useState(0);

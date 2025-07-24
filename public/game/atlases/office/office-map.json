@@ -684,6 +684,342 @@
             "y": 0
         },
         {
+            "draworder": "topdown",
+            "id": 25,
+            "name": "inactive",
+            "objects": [
+                {
+                    "height": 46.5786847066652,
+                    "id": 44,
+                    "name": "18",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 88.7213042031718,
+                    "x": 4.43606521015859,
+                    "y": 82.0672063879339
+                },
+                {
+                    "height": 46.5787,
+                    "id": 45,
+                    "name": "17",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 24.3983544527005,
+                    "x": 100.920485632694,
+                    "y": 27.7253999168238
+                },
+                {
+                    "height": 38.8155858822225,
+                    "id": 46,
+                    "name": "16",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 47.6877423533326,
+                    "x": 9.98112605079291,
+                    "y": 161.916372524121
+                },
+                {
+                    "height": 80.9582194965067,
+                    "id": 47,
+                    "name": "15",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 27.7254065542864,
+                    "x": 1.66352495841187,
+                    "y": 272.263487567927
+                },
+                {
+                    "height": 41.0336131085727,
+                    "id": 48,
+                    "name": "14",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 188.532763868249,
+                    "x": 1.66352823555506,
+                    "y": 354.330703704114
+                },
+                {
+                    "height": 62.1049097482533,
+                    "id": 49,
+                    "name": "13",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 9.98137529111679,
+                    "x": 182.987575634912,
+                    "y": 354.330710258401
+                },
+                {
+                    "height": 33.2704761339691,
+                    "id": 50,
+                    "name": "12",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 78.7403907574581,
+                    "x": 199.068309667295,
+                    "y": 465.786853537762
+                },
+                {
+                    "height": 39.924597815238,
+                    "id": 51,
+                    "name": "11",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 95.3756445380947,
+                    "x": 193.523223533326,
+                    "y": 499.057330680936
+                },
+                {
+                    "height": 46.5786978152378,
+                    "id": 52,
+                    "name": "10",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 127.53707277365,
+                    "x": 32.1613737828546,
+                    "y": 393.700780847288
+                },
+                {
+                    "height": 75.4131238660308,
+                    "id": 53,
+                    "name": "9",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 62.1050381501608,
+                    "x": 65.9864073971387,
+                    "y": 403.681926477764
+                },
+                {
+                    "height": 78.740148907619,
+                    "id": 54,
+                    "name": "8",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 34.3795924365089,
+                    "x": 543.417944715537,
+                    "y": 453.587672025064
+                },
+                {
+                    "height": 51.0146924365089,
+                    "id": 55,
+                    "name": "7",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 32.1615673949207,
+                    "x": 575.024905556172,
+                    "y": 456.360237235222
+                },
+                {
+                    "height": 46.5786347898414,
+                    "id": 56,
+                    "name": "6",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 34.3796326050793,
+                    "x": 895.53060068759,
+                    "y": 432.516382948874
+                },
+                {
+                    "height": 45.4696,
+                    "id": 57,
+                    "name": "5",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 82.0673,
+                    "x": 872.795783292669,
+                    "y": 395.364346057447
+                },
+                {
+                    "height": 66.5408934457136,
+                    "id": 58,
+                    "name": "4",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 165.243523699678,
+                    "x": 601.641296817123,
+                    "y": 156.371341011423
+                },
+                {
+                    "height": 45.4695902517467,
+                    "id": 59,
+                    "name": "3",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 83.1767936120661,
+                    "x": 611.622205389819,
+                    "y": 211.822152861262
+                },
+                {
+                    "height": 45.4696,
+                    "id": 60,
+                    "name": "2",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 29.944017478097,
+                    "x": 641.565642364423,
+                    "y": 240.102063701896
+                },
+                {
+                    "height": 78.7400890761894,
+                    "id": 61,
+                    "name": "1",
+                    "properties": [
+                        {
+                            "name": "textureKey",
+                            "type": "string",
+                            "value": "none"
+                        }
+                    ],
+                    "rotation": 0,
+                    "type": "",
+                    "visible": true,
+                    "width": 52.1243260507929,
+                    "x": 715.869743373628,
+                    "y": 206.831574625707
+                }
+            ],
+            "opacity": 1,
+            "type": "objectgroup",
+            "visible": true,
+            "x": 0,
+            "y": 0
+        },
+        {
             "id": 3,
             "layers": [
                 {
@@ -1040,8 +1376,8 @@
             "y": 0
         }
     ],
-    "nextlayerid": 25,
-    "nextobjectid": 44,
+    "nextlayerid": 26,
+    "nextobjectid": 62,
     "orientation": "orthogonal",
     "renderorder": "right-down",
     "tiledversion": "1.11.2",

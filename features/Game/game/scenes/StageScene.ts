@@ -24,6 +24,10 @@ export class StageScene extends Phaser.Scene {
             frameWidth: 16,
             frameHeight: 32,
         });
+        this.load.spritesheet("pointer_atlas", "game/atlases/pointer/pointer-16x64.png", {
+            frameWidth: 16,
+            frameHeight: 16,
+        });
     }
 
     create() {
@@ -203,7 +207,6 @@ export class StageScene extends Phaser.Scene {
                     interactiveObject.y! + (interactiveObject.height ?? 0) / 2,
                     interactiveObject.height ?? 0,
                     interactiveObject.width ?? 0,
-                    parsedObject.textureKey,
                     interactiveObject.name || "unnamed_object",
                     parsedObject,
                     parsedObject.frameName,

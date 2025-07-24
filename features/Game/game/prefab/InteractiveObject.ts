@@ -21,12 +21,11 @@ export class InteractiveSprite extends Phaser.Physics.Arcade.Sprite implements I
         y: number,
         height: number,
         width: number,
-        textureKey: string, // This is now the spritesheet key
         tiledObjectName: string,
         tiledProperties: FlattenParsedTileObjectProperties,
         frameName: string,
     ) {
-        super(scene, x, y, textureKey);
+        super(scene, x, y, "pointer_atlas");
 
         scene.add.existing(this);
         scene.physics.add.existing(this);
@@ -35,11 +34,12 @@ export class InteractiveSprite extends Phaser.Physics.Arcade.Sprite implements I
         this.setImmovable(true);
         this.setPushable(false);
         this.setOrigin(0.5, 0.5);
-        this.setVisible(false);
 
         this.name = tiledObjectName;
         this.dialogueKey = tiledProperties.dialogueKey;
         this.frameName = frameName;
+        this.createAnimation("pointer_atlas");
+        this.play("pulsing");
     }
 
     public setInteractable(): void {
@@ -57,5 +57,16 @@ export class InteractiveSprite extends Phaser.Physics.Arcade.Sprite implements I
             dialogueKey: this.dialogueKey,
         });
         this.scene.events.emit("interactObject", this);
+        this.stop();
+        this.setVisible(false);
+    }
+
+    private createAnimation(textureKey: string) {
+        this.scene.anims.create({
+            key: "pulsing",
+            frames: this.scene.anims.generateFrameNumbers(textureKey, { start: 1, end: 4 }),
+            frameRate: 3,
+            repeat: -1, // Loop indefinitely
+        });
     }
 }

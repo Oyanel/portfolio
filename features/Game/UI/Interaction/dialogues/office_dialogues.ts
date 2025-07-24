@@ -3,21 +3,60 @@ import { DialoguesAtlas } from "@/features/Game/UI/Interaction/interaction.type"
 export default {
     computerITSF_interaction_start: {
         dialogue: [
-            { text: "This old computer reminds me of my time at ITSF." },
-            { text: "It's where my professional journey really kicked off, diving deep into computing science." },
+            {
+                text: "This computer brings back memories of ITSF, where I developed a CRM for telecommunications companies.",
+            },
+            {
+                text: "My role was focused on the frontend, contributing to the design, development, and continuous deployment of critical applications.",
+            },
         ],
         options: [
-            { text: "Tell me more about ITSF", nextEventKey: "DIALOGUE_BRANCH:computerITSF_details" },
-            { text: "Sounds like a strong start!", nextEventKey: "DIALOGUE_END" },
+            {
+                text: "What did you do as a frontend developer?",
+                nextEventKey: "DIALOGUE_BRANCH:computerITSF_frontend_role",
+            },
+            { text: "Tell me about the technical stack.", nextEventKey: "DIALOGUE_BRANCH:computerITSF_stack" },
+            { text: "Understood. Thank you for the insight.", nextEventKey: "DIALOGUE_END" },
         ],
     },
-    computerITSF_details: {
+    computerITSF_frontend_role: {
         dialogue: [
-            { text: "I spent three years there as an apprentice, working towards my engineer's degree." },
-            { text: "It was a fantastic learning environment, shaping me into the developer I am today." },
-            { text: "You can find more details on my LinkedIn profile if you're curious!" },
+            {
+                text: "As a frontend developer, I was a key player in building a complex B2B/B2C CRM. I specifically worked on the user interface and experience.",
+            },
+            {
+                text: "It involved developing and continuously delivering React features, interacting with dozens of internal microservices to manage millions of telecom customer services.",
+            },
         ],
-        options: [{ text: "I'll check your LinkedIn!", nextEventKey: "DIALOGUE_END" }],
+        options: [
+            {
+                text: "What about the technical quality?",
+                nextEventKey: "DIALOGUE_BRANCH:computerITSF_technical_quality",
+            },
+            { text: "I see. Moving on.", nextEventKey: "DIALOGUE_END" },
+        ],
+    },
+    computerITSF_technical_quality: {
+        dialogue: [
+            {
+                text: "I actively contributed to strengthening code quality through technical analysis, code reviews, and updating our tech stack and guidelines.",
+            },
+            {
+                text: "I also acted as a technical referent, ensuring best practices and smooth collaboration within the team.",
+            },
+        ],
+        options: [{ text: "Thank you for sharing. That's all for now.", nextEventKey: "DIALOGUE_END" }],
+    },
+    computerITSF_stack: {
+        dialogue: [
+            {
+                text: "My main tools were React 18, Typescript, MUI, and SWR for the frontend, working with Keycloak for authentication.",
+            },
+            {
+                text: "I also contributed to the Backend-for-Frontend (BFF) development using Spring/Java, and utilized Docker and Git for our continuous delivery.",
+            },
+        ],
+        options: [{ text: "Understood. This concludes our discussion.", nextEventKey: "DIALOGUE_END" }],
     },
 
     firePlace_interaction_start: {
@@ -42,50 +81,131 @@ export default {
 
     ITSFTest_interaction_start: {
         dialogue: [
-            { text: "This device brings back memories of countless integration tests." },
-            { text: "Ensuring all the pieces fit together seamlessly was a big part of the job." },
+            {
+                text: "This device brings back memories of ensuring software quality through various testing approaches.",
+            },
+            { text: "I utilized different testing strategies to confirm everything worked as expected." },
         ],
         options: [
-            { text: "Any funny test stories?", nextEventKey: "DIALOGUE_BRANCH:ITSFTest_story" },
-            { text: "Testing is vital!", nextEventKey: "DIALOGUE_END" },
+            { text: "Tell me about integration tests.", nextEventKey: "DIALOGUE_BRANCH:ITSFTest_integration" },
+            { text: "What about unit tests?", nextEventKey: "DIALOGUE_BRANCH:ITSFTest_unit" },
+            { text: "Why test your app at all?", nextEventKey: "DIALOGUE_BRANCH:ITSFTest_why_test" },
+            { text: "Understood. Thank you for the insight.", nextEventKey: "DIALOGUE_END" },
         ],
     },
-    ITSFTest_story: {
+    ITSFTest_integration: {
         dialogue: [
-            { text: "Let's just say, sometimes a single misplaced semicolon could bring down an entire system." },
-            { text: "The thrill of finding that tiny bug after hours of searching... priceless!" },
+            { text: "Integration tests allow us to verify the interactions between different parts of our system." },
+            {
+                text: "By mocking API responses, for example, we can accurately check the behavior of the UI in real-world scenarios.",
+            },
         ],
-        options: [{ text: "The life of a developer, right?", nextEventKey: "DIALOGUE_END" }],
+        options: [
+            { text: "Why use integration tests?", nextEventKey: "DIALOGUE_BRANCH:ITSFTest_integration_why" },
+            { text: "I see. Moving on.", nextEventKey: "DIALOGUE_END" },
+        ],
+    },
+    ITSFTest_integration_why: {
+        dialogue: [
+            {
+                text: "They are particularly useful for testing multi-step interactions, like a user's flow through an application, or to see how different components truly interact with one another.",
+            },
+            { text: "It helps catch issues that individual parts might miss when working in isolation." },
+        ],
+        options: [
+            {
+                text: "Understood. This concludes our discussion on integration tests.",
+                nextEventKey: "DIALOGUE_END",
+            },
+        ],
+    },
+    ITSFTest_unit: {
+        dialogue: [
+            { text: "Sometimes we also use unit tests, either instead of or in addition to integration tests." },
+            {
+                text: "Unit tests focus on the smallest testable parts of an application, like a single function or component.",
+            },
+        ],
+        options: [
+            { text: "Why use unit tests?", nextEventKey: "DIALOGUE_BRANCH:ITSFTest_unit_why" },
+            { text: "I see. Moving on.", nextEventKey: "DIALOGUE_END" },
+        ],
+    },
+    ITSFTest_unit_why: {
+        dialogue: [
+            {
+                text: "They are useful for checking local logic or pure components because a given input will always yield the same predictable output.",
+            },
+            {
+                text: "Crucially, unit tests are generally much faster to run, providing quick feedback during development and CI/CD times.",
+            },
+        ],
+        options: [{ text: "Thank you for sharing. That's all for now.", nextEventKey: "DIALOGUE_END" }],
+    },
+    ITSFTest_why_test: {
+        dialogue: [
+            {
+                text: "Testing is fundamental for several reasons. It helps developers catch mistakes early and provides confidence during code reviews.",
+            },
+            {
+                text: "It also ensures that existing logic continues to work as intended even after new changes, significantly reducing the risk of introducing new bugs.",
+            },
+        ],
+        options: [{ text: "That makes sense. Thanks for the explanation.", nextEventKey: "DIALOGUE_END" }],
     },
 
     safe_interaction_start: {
         dialogue: [
             { text: "A sturdy, unyielding safe." },
-            {
-                text: "This represents all the amazing, confidential projects I've worked on that I simply can't showcase publicly.",
-            },
+            { text: "This represents all the amazing work I've been a part of that remains confidential." },
+            { text: "There's a lot of great design and code from past projects that I can't showcase publicly." },
         ],
         options: [
-            { text: "Intriguing!", nextEventKey: "DIALOGUE_BRANCH:safe_intrigue" },
-            { text: "That's understandable.", nextEventKey: "DIALOGUE_END" },
+            {
+                text: "Tell me more about the confidential designs.",
+                nextEventKey: "DIALOGUE_BRANCH:safe_confidential_design",
+            },
+            {
+                text: "What about the technical solutions you can't show?",
+                nextEventKey: "DIALOGUE_BRANCH:safe_non_showcase_code",
+            },
+            { text: "Understood. Thank you for the insight.", nextEventKey: "DIALOGUE_END" },
         ],
     },
-    safe_intrigue: {
+    safe_confidential_design: {
         dialogue: [
-            { text: "Suffice to say, they were complex, challenging, and incredibly rewarding." },
-            { text: "It's like having a secret vault of achievements! Maybe someday they'll be public..." },
+            {
+                text: "Many projects involved intricate UI/UX designs, carefully crafted to enhance user experience and meet specific business needs.",
+            },
+            {
+                text: "While I can't share specifics, these designs were integral to the success of complex applications.",
+            },
         ],
-        options: [{ text: "A developer's secret weapon.", nextEventKey: "DIALOGUE_END" }],
+        options: [{ text: "I see. Moving on.", nextEventKey: "DIALOGUE_END" }],
+    },
+    safe_non_showcase_code: {
+        dialogue: [
+            {
+                text: "Much of the code tackled fascinating technical challenges, often to make our applications feel faster and responsive to users.",
+            },
+            {
+                text: "We also devised clever architectural patterns to share core code across a growing codebase, while still allowing for deep customization.",
+            },
+            {
+                text: "These were truly innovative solutions developed as a team at ITSF to handle our unique enterprise demands.",
+            },
+        ],
+        options: [{ text: "Thank you for sharing. That's all for now.", nextEventKey: "DIALOGUE_END" }],
     },
 
     phone_interaction_start: {
         dialogue: [
-            { text: "This old-school phone reminds me of my work on a CRM for telecoms in Europe." },
+            { text: "This old-school phone reminds me of my work on a CRM for telecoms in Europe at ITSF." },
             { text: "That was one of the main products I helped develop." },
         ],
         options: [
             { text: "What's a CRM?", nextEventKey: "DIALOGUE_BRANCH:phone_crm_info" },
-            { text: "Sounds important for telecoms!", nextEventKey: "DIALOGUE_END" },
+            { text: "Understood. Thank you for the insight.", nextEventKey: "DIALOGUE_END" },
         ],
     },
     phone_crm_info: {
@@ -96,30 +216,65 @@ export default {
             {
                 text: "Think of it as the brain behind keeping customers happy and organized for big telecom providers across Europe.",
             },
+            {
+                text: "This specific product enabled agents in store and remotely to help customers with any possible action on their account or subscriptions.",
+            },
         ],
-        options: [{ text: "Got it!", nextEventKey: "DIALOGUE_END" }],
+        options: [
+            { text: "Were there different CRMs?", nextEventKey: "DIALOGUE_BRANCH:phone_crm_variations" },
+            { text: "I see. Moving on.", nextEventKey: "DIALOGUE_END" },
+        ],
+    },
+    phone_crm_variations: {
+        dialogue: [
+            {
+                text: "Yes, there were actually two distinct CRM applications: one for Business-to-Business (B2B) clients and another for Business-to-Consumer (B2C) clients.",
+            },
+            {
+                text: "The significant challenge was to maximize code and component reuse between these two apps, despite their very different operational processes.",
+            },
+        ],
+        options: [{ text: "That sounds like an interesting architectural challenge.", nextEventKey: "DIALOGUE_END" }],
     },
 
     study_interaction_start: {
         dialogue: [
-            { text: "This study area takes me back to my three years as an apprentice at ITSF." },
+            { text: "This study area takes me back to my three years as an apprentice." },
             {
-                text: "It was intense – preparing for my engineer’s degree in computing science while working full-time.",
+                text: "It was an intense period of balancing my engineer’s degree in computing science with working at CGI.",
             },
         ],
         options: [
-            { text: "That sounds like a lot of work!", nextEventKey: "DIALOGUE_BRANCH:study_apprentice_life" },
-            { text: "Dedication!", nextEventKey: "DIALOGUE_END" },
+            {
+                text: "Tell me more about the apprentice life.",
+                nextEventKey: "DIALOGUE_BRANCH:study_apprentice_life",
+            },
+            {
+                text: "How did you balance study and work projects?",
+                nextEventKey: "DIALOGUE_BRANCH:study_project_preference",
+            },
+            { text: "Understood. Thank you for the insight.", nextEventKey: "DIALOGUE_END" },
         ],
     },
     study_apprentice_life: {
         dialogue: [
             {
-                text: "It was, but incredibly enriching. I gained hands-on experience that you just can't get from books alone.",
+                text: "It was indeed demanding, but incredibly enriching. School alone couldn't provide the rich environment, diverse projects, or daily expertise of senior developers that I found at the company.",
             },
-            { text: "Theory met practice daily, and that's the best way to learn, really." },
+            { text: "Theory and practical application met daily, which I believe is the most effective way to learn." },
         ],
-        options: [{ text: "The best kind of education.", nextEventKey: "DIALOGUE_END" }],
+        options: [{ text: "I see. Moving on.", nextEventKey: "DIALOGUE_END" }],
+    },
+    study_project_preference: {
+        dialogue: [
+            {
+                text: "When it came to school, I particularly enjoyed the technical projects. They were opportunities to learn new technologies and concepts that weren't always part of my day-to-day work at CGI.",
+            },
+            {
+                text: "However, overall, I almost always preferred working on real-world projects, as they offered a unique practical experience that studying couldn't fully replicate.",
+            },
+        ],
+        options: [{ text: "That perspective makes sense. Thank you for sharing.", nextEventKey: "DIALOGUE_END" }],
     },
 
     coffeeDispenser_interaction_start: {
@@ -130,42 +285,54 @@ export default {
             },
         ],
         options: [
-            { text: "Bad coffee is a serious problem.", nextEventKey: "DIALOGUE_BRANCH:coffeeDispenser_bad_coffee" },
+            {
+                text: "Bad coffee or tea is a serious problem.",
+                nextEventKey: "DIALOGUE_BRANCH:coffeeDispenser_bad_coffee",
+            },
             { text: "Glad things improved!", nextEventKey: "DIALOGUE_END" },
         ],
     },
     coffeeDispenser_bad_coffee: {
-        dialogue: [
-            { text: "Indeed! A developer's fuel should be top-notch. It impacts productivity... and mood!" },
-            { text: "Let's just say, I became quite adept at finding the nearest decent coffee shop." },
-        ],
-        options: [{ text: "A true coffee connoisseur.", nextEventKey: "DIALOGUE_END" }],
+        dialogue: [{ text: "Indeed! A developer's fuel should be top-notch. It impacts productivity... and mood!" }],
+        options: [{ text: "I see.", nextEventKey: "DIALOGUE_END" }],
     },
 
     computerCGI_interaction_start: {
         dialogue: [
-            { text: "This screen brings me back to my Drupal days at ITSF." },
-            { text: "Yes, before the modern frontend frameworks, Drupal was quite the beast!" },
+            { text: "This screen brings me back to my days at CGI, working on various web solutions." },
+            { text: "It was a time of significant learning, especially with technologies like Drupal." },
         ],
         options: [
-            { text: "Tell me about Drupal work", nextEventKey: "DIALOGUE_BRANCH:computerCGI_drupal" },
-            { text: "Times have changed!", nextEventKey: "DIALOGUE_END" },
+            { text: "Tell me about Drupal work.", nextEventKey: "DIALOGUE_BRANCH:computerCGI_drupal" },
+            { text: "What about other projects at CGI?", nextEventKey: "DIALOGUE_BRANCH:computerCGI_symfony" },
+            { text: "Understood. Thank you for the insight.", nextEventKey: "DIALOGUE_END" },
         ],
     },
     computerCGI_drupal: {
         dialogue: [
             {
-                text: "I was deeply involved in customizing and developing modules for large-scale enterprise websites.",
+                text: "I was deeply involved in customizing and developing modules for enterprise websites like the FFT.",
             },
             { text: "It taught me a lot about content management systems, PHP, and database integration." },
             { text: "Definitely a solid foundation for more modern web development." },
         ],
-        options: [{ text: "Good to know the roots!", nextEventKey: "DIALOGUE_END" }],
+        options: [{ text: "I see. Moving on.", nextEventKey: "DIALOGUE_END" }],
+    },
+    computerCGI_symfony: {
+        dialogue: [
+            {
+                text: "Besides Drupal, I also worked with Symfony for an insurance company. This project was crucial for understanding MVC (Model-View-Controller) architecture in a real-life production environment.",
+            },
+            {
+                text: "It provided valuable insights into structuring large-scale applications and managing complex business logic.",
+            },
+        ],
+        options: [{ text: "That's practical experience. Thanks for sharing.", nextEventKey: "DIALOGUE_END" }],
     },
 
     teamBedrock_interaction_start: {
         dialogue: [
-            { text: "Ah, the 'Team Bedrock' corner! I truly had an amazing time working with these folks." },
+            { text: "Ah, the Bedrock corner! I truly had an amazing time working with these folks." },
             { text: "It's so important to work with nice and competent people. They make all the difference." },
         ],
         options: [
@@ -178,7 +345,9 @@ export default {
             {
                 text: "Their expertise, willingness to help, and a shared sense of humor made every challenge enjoyable.",
             },
-            { text: "Big thanks to everyone in Team Bedrock for the fantastic memories and learning experiences!" },
+            {
+                text: "Big thanks to everyone in Team Bedrock for the fantastic memories and learning experiences! Especially the Tube team !",
+            },
         ],
         options: [{ text: "Teamwork makes the dream work!", nextEventKey: "DIALOGUE_END" }],
     },
@@ -195,7 +364,7 @@ export default {
     },
     noDoor_unfinished: {
         dialogue: [
-            { text: "Oh, the list is long: a game engine, a social media clone, a personal AI assistant..." },
+            { text: "Oh, the list is long: a tactical game, a ANKI app like, a TCG deck trading platform..." },
             { text: "The journey is the reward, right? Or, maybe I just need more coffee." },
         ],
         options: [{ text: "To the 'personal projects' stage!", nextEventKey: "DIALOGUE_END" }],
@@ -232,10 +401,10 @@ export default {
     fruits_favorite: {
         dialogue: [
             {
-                text: "Definitely a good apple. Simple, crunchy, and always there for you. Like a reliable piece of code!",
+                text: "Definitely an orange. Simple, juicy, and sweet. full of vitamins!",
             },
         ],
-        options: [{ text: "Unexpected, but true.", nextEventKey: "DIALOGUE_END" }],
+        options: [{ text: "I see.", nextEventKey: "DIALOGUE_END" }],
     },
 
     plant_interaction_start: {
@@ -271,9 +440,9 @@ export default {
     techNews_trending: {
         dialogue: [
             {
-                text: "Lately, it's been a lot about WebAssembly, new CSS features, and the ever-evolving JavaScript frameworks.",
+                text: "Lately, it's been about Vibe coding and the new TS compiler.",
             },
-            { text: "The frontend world never sleeps, and neither do I (when it comes to learning)!" },
+            { text: "The coding world never sleeps, and neither do I (when it comes to learning)!" },
         ],
         options: [{ text: "Fascinating!", nextEventKey: "DIALOGUE_END" }],
     },
@@ -289,20 +458,20 @@ export default {
         ],
     },
     dispenser_open: {
-        dialogue: [{ text: "It's just a regular fridge... full of... more bad coffee. Maybe it's a trap." }],
+        dialogue: [{ text: "It's just a regular fridge... full of... meal for lunch. Maybe it's a trap." }],
         options: [{ text: "You've been warned.", nextEventKey: "DIALOGUE_END" }],
     },
 
     coffee_interaction_start: {
         dialogue: [
-            { text: "A cup of coffee. Simple, yet profound." },
+            { text: "A cup of coffee or tea. Simple, yet reinvigorating." },
             {
                 text: "I believe that if your main problem at the office is the taste of the coffee, your quality of life there is probably really, really good!",
             },
         ],
         options: [
             { text: "That's a philosophical take!", nextEventKey: "DIALOGUE_BRANCH:coffee_philosophy" },
-            { text: "Cheers to good coffee!", nextEventKey: "DIALOGUE_END" },
+            { text: "Cheers to good coffee and tea !", nextEventKey: "DIALOGUE_END" },
         ],
     },
     coffee_philosophy: {
@@ -328,7 +497,7 @@ export default {
     teamITSF_learning: {
         dialogue: [
             {
-                text: "Beyond coding, I learned about collaboration, problem-solving under pressure, and the importance of a supportive environment.",
+                text: "Beyond coding as a frontend dev, I learned about collaboration, problem-solving under pressure, and the importance of a supportive environment.",
             },
             { text: "They truly accelerated my growth as a developer." },
         ],
@@ -337,12 +506,18 @@ export default {
 
     certification_interaction_start: {
         dialogue: [
-            { text: "Ah, the wall of certifications! I'm proud to say I'm certified in a couple of key areas." },
-            { text: "My engineer's degree in computing science, and an accessibility certification." },
+            {
+                text: "Ah, the wall of certifications! I'm proud to say I am a real engineer and that I continued to learn!",
+            },
+            { text: "My engineer's degree in computing science, and an accessibility certification, are highlights." },
         ],
         options: [
             { text: "Tell me about accessibility.", nextEventKey: "DIALOGUE_BRANCH:certification_accessibility" },
-            { text: "Impressive!", nextEventKey: "DIALOGUE_END" },
+            {
+                text: "What about your engineer's degree?",
+                nextEventKey: "DIALOGUE_BRANCH:certification_engineer_degree",
+            },
+            { text: "Understood. Thank you for the insight.", nextEventKey: "DIALOGUE_END" },
         ],
     },
     certification_accessibility: {
@@ -353,8 +528,22 @@ export default {
             {
                 text: "It's not just a compliance thing; it's about creating inclusive digital experiences. Super important in modern web dev!",
             },
+            {
+                text: 'It consists of way more than adding "aria-labels" and "alt" on images !',
+            },
         ],
-        options: [{ text: "An essential skill.", nextEventKey: "DIALOGUE_END" }],
+        options: [{ text: "I see. Moving on.", nextEventKey: "DIALOGUE_END" }],
+    },
+    certification_engineer_degree: {
+        dialogue: [
+            {
+                text: "My engineer's degree in computing science was the core curriculum I followed during my apprenticeship at CGI.",
+            },
+            {
+                text: "It provided a broad foundation, covering general computing as well as specialized areas like AI, software development, databases, and even aspects of project management and communication.",
+            },
+        ],
+        options: [{ text: "That's a comprehensive background. Thank you for sharing.", nextEventKey: "DIALOGUE_END" }],
     },
 
     computerPlayer_interaction_start: {
@@ -366,17 +555,48 @@ export default {
         ],
         options: [
             { text: "What's involved in a video player?", nextEventKey: "DIALOGUE_BRANCH:computerPlayer_details" },
-            { text: "Sounds like high stakes!", nextEventKey: "DIALOGUE_END" },
+            { text: "Understood. Thank you for the insight.", nextEventKey: "DIALOGUE_END" },
         ],
     },
     computerPlayer_details: {
         dialogue: [
-            { text: "Buffering, streaming protocols, DRM, user interfaces... it's a complex beast." },
             {
-                text: "Optimizing for performance and user experience across different devices was a daily challenge, and a rewarding one!",
+                text: "A video player on the web is about handling the stream of various media—live, video, or audio—to deliver it smoothly to users.",
+            },
+            {
+                text: "Beyond buffering and DRM, there's a lot of underlying complexity to ensure a seamless experience.",
             },
         ],
-        options: [{ text: "Complex indeed!", nextEventKey: "DIALOGUE_END" }],
+        options: [
+            {
+                text: "How do you handle the media streams?",
+                nextEventKey: "DIALOGUE_BRANCH:computerPlayer_stream_handling",
+            },
+            { text: "What about advertisements?", nextEventKey: "DIALOGUE_BRANCH:computerPlayer_advertisement" },
+            { text: "I see. Moving on.", nextEventKey: "DIALOGUE_END" },
+        ],
+    },
+    computerPlayer_stream_handling: {
+        dialogue: [
+            {
+                text: "In the professional world, we don't just receive a single, large MP3 or MKV file because they're too big to deliver efficiently.",
+            },
+            {
+                text: "Instead, the media is fragmented into small parts, and the player continuously requests and stitches these fragments together to provide a smooth playback experience.",
+            },
+        ],
+        options: [{ text: "That's clever. Thank you for sharing.", nextEventKey: "DIALOGUE_END" }],
+    },
+    computerPlayer_advertisement: {
+        dialogue: [
+            {
+                text: "The advertisement part is also pretty complicated. Ad formats can vary wildly, and many different providers are involved, making the integration quite challenging.",
+            },
+            {
+                text: "Given that ads are often the main revenue stream for the customer, no errors are permitted during playback—it's a critical component to get right every time.",
+            },
+        ],
+        options: [{ text: "Understood. This concludes our discussion on the player.", nextEventKey: "DIALOGUE_END" }],
     },
 
     computerUi_interaction_start: {
@@ -401,27 +621,51 @@ export default {
         ],
         options: [{ text: "Super useful!", nextEventKey: "DIALOGUE_END" }],
     },
-
     computerDebug_interaction_start: {
         dialogue: [
-            { text: "This monitor displays a tangled mess of code – typical debugging scene!" },
             {
-                text: "Three developers gathered around a single screen, tackling a production bug affecting hundreds of thousands of users... a common occurrence, let me tell you.",
+                text: "This monitor displays a tangled mess of code – a scene all too familiar from our debugging sessions.",
+            },
+            {
+                text: "We put immense effort into preventing bugs through comprehensive tests, rigorous QA, and continuous monitoring.",
             },
         ],
         options: [
-            { text: "Stressful!", nextEventKey: "DIALOGUE_BRANCH:computerDebug_stress" },
-            { text: "The life of a dev.", nextEventKey: "DIALOGUE_END" },
+            { text: "But bugs still happen?", nextEventKey: "DIALOGUE_BRANCH:computerDebug_critical_bugs" },
+            {
+                text: "Tell me about the team's approach.",
+                nextEventKey: "DIALOGUE_BRANCH:computerDebug_team_effort",
+            },
+            { text: "Understood. Thank you for the insight.", nextEventKey: "DIALOGUE_END" },
         ],
     },
-    computerDebug_stress: {
+    computerDebug_critical_bugs: {
         dialogue: [
-            { text: "Absolutely! But also incredibly rewarding when you finally crack it." },
             {
-                text: "It teaches you resilience, collaboration, and the importance of thorough testing (after the fact, of course!).",
+                text: "Absolutely. Despite all precautions, sometimes the worst happens, and a critical bug surfaces in production.",
+            },
+            {
+                text: "When a key feature isn't working, customers can potentially lose a lot of money, so even if we don't save lives, our urgency is high.",
             },
         ],
-        options: [{ text: "Lessons learned!", nextEventKey: "DIALOGUE_END" }],
+        options: [
+            { text: "How does the team handle that?", nextEventKey: "DIALOGUE_BRANCH:computerDebug_team_effort" },
+            { text: "I see. Moving on.", nextEventKey: "DIALOGUE_END" },
+        ],
+    },
+    computerDebug_team_effort: {
+        dialogue: [
+            {
+                text: "It was not unusual to see multiple developers from the team working together, pooling their knowledge to track down and correct a significant bug.",
+            },
+            {
+                text: "Sometimes these bugs weren't even from our own code, but we still had to find a solution or a workaround if we could.",
+            },
+            {
+                text: "It's a high-stakes, collaborative effort, quite different from when bugs are minor or caught before deployment, which is, thankfully, far less stressful.",
+            },
+        ],
+        options: [{ text: "That's a dedicated approach. Thanks for sharing.", nextEventKey: "DIALOGUE_END" }],
     },
 
     map_interaction_start: {
@@ -455,6 +699,9 @@ export default {
             {
                 text: "This allowed us to react super fast if we spotted any anomalies, mainly using New Relic and Youbora.",
             },
+            {
+                text: "We also had alerts and simulated navigation to unsure the platforms were up 24/7",
+            },
         ],
         options: [
             { text: "Tell me about KPIs.", nextEventKey: "DIALOGUE_BRANCH:monitoring_kpis" },
@@ -464,7 +711,7 @@ export default {
     monitoring_kpis: {
         dialogue: [
             {
-                text: "We tracked things like video start time, buffering rates, ad completion rates, and error occurrences.",
+                text: "We tracked things like plays, errors per play, ads impressions, browsers, and much more. All in different carefully crafted dashboards",
             },
             {
                 text: "It's like having a pulse on the entire system, ensuring a smooth experience for millions of users.",
@@ -475,24 +722,44 @@ export default {
 
     chromecast_interaction_start: {
         dialogue: [
-            { text: "Ah, the Chromecast. I worked on the remake of the Chromecast project." },
-            { text: "The goal was to make it more stable, faster, and easier to maintain." },
+            {
+                text: "Ah, the Chromecast. This device is essentially a small computer designed to embed a video player. It's primarily used to watch content from other devices, like a phone or PC, directly on a TV.",
+            },
+            {
+                text: "It downloads specific JavaScript code to run content streamed from a web application, typically through a Chrome browser.",
+            },
         ],
         options: [
-            { text: "What were the challenges?", nextEventKey: "DIALOGUE_BRANCH:chromecast_challenges" },
-            { text: "Improving existing tech is great.", nextEventKey: "DIALOGUE_END" },
+            {
+                text: "Tell me about the Chromecast project remake.",
+                nextEventKey: "DIALOGUE_BRANCH:chromecast_project_remake",
+            },
+            {
+                text: "What did you learn from working on it?",
+                nextEventKey: "DIALOGUE_BRANCH:chromecast_personal_learning",
+            },
+            { text: "Understood. Thank you for the insight.", nextEventKey: "DIALOGUE_END" },
         ],
     },
-    chromecast_challenges: {
+    chromecast_project_remake: {
         dialogue: [
             {
-                text: "Migrating legacy code, optimizing performance for low-power devices, and ensuring cross-device compatibility.",
+                text: "I worked on a significant remake of this project. The primary goal was to make the existing Chromecast application more stable, faster, and significantly easier to maintain.",
             },
             {
-                text: "It was a deep dive into media playback and device communication – very rewarding to see the improvements!",
+                text: "Challenges included migrating legacy code, optimizing performance for low-power devices. It was a deep dive into media playback and device communication—very rewarding to see the improvements!",
             },
         ],
-        options: [{ text: "Sounds like a big undertaking.", nextEventKey: "DIALOGUE_END" }],
+        options: [{ text: "Sounds like a big undertaking. I see.", nextEventKey: "DIALOGUE_END" }],
+    },
+    chromecast_personal_learning: {
+        dialogue: [
+            { text: "Working on the Chromecast project was truly interesting and greatly improved my knowledge." },
+            {
+                text: "I gained a much deeper understanding of event-driven architectures and how to build highly modular code for flexible and maintainable systems.",
+            },
+        ],
+        options: [{ text: "That's valuable experience. Thanks for sharing.", nextEventKey: "DIALOGUE_END" }],
     },
 
     tv_interaction_start: {
@@ -501,7 +768,7 @@ export default {
             { text: "It brings back memories of showcasing all the hard work we put into the platform." },
         ],
         options: [
-            { text: "What was Bedrock?", nextEventKey: "DIALOGUE_BRANCH:tv_bedrock_info" },
+            { text: "What is Bedrock?", nextEventKey: "DIALOGUE_BRANCH:tv_bedrock_info" },
             { text: "Nice!", nextEventKey: "DIALOGUE_END" },
         ],
     },
@@ -522,17 +789,6 @@ export default {
             },
             { text: "Just like clean code – refreshing when done right, painful when overused." },
         ],
-        options: [
-            { text: "Any AC-related work stories?", nextEventKey: "DIALOGUE_BRANCH:ac_story" },
-            { text: "Essential comfort!", nextEventKey: "DIALOGUE_END" },
-        ],
-    },
-    ac_story: {
-        dialogue: [
-            { text: "Once, the AC broke down during a critical sprint. We learned the true meaning of 'hotfix'." },
-            { text: "Sweat + code = a unique kind of debugging experience." },
-        ],
-        options: [{ text: "That's dedication!", nextEventKey: "DIALOGUE_END" }],
     },
 
     printer_interaction_start: {
@@ -554,43 +810,25 @@ export default {
         ],
         options: [{ text: "Smart!", nextEventKey: "DIALOGUE_END" }],
     },
-
     money_interaction_start: {
         dialogue: [
-            { text: "Oh, money. The universal motivator, and sometimes, the mystery." },
-            { text: "I wonder what it's truly used for... besides paying for coffee, of course." },
+            { text: "This stack of bills makes me think about value and investment." },
+            { text: "In a professional context, it represents the impact and return one can bring to a company." },
         ],
         options: [
-            { text: "Deep thoughts...", nextEventKey: "DIALOGUE_BRANCH:money_thoughts" },
-            { text: "Cha-ching!", nextEventKey: "DIALOGUE_END" },
+            { text: "How do you view that investment?", nextEventKey: "DIALOGUE_BRANCH:money_investment_value" },
+            { text: "Understood. Thank you for the insight.", nextEventKey: "DIALOGUE_END" },
         ],
     },
-    money_thoughts: {
+    money_investment_value: {
         dialogue: [
             {
-                text: "It's a tool, a means to an end, enabling new projects, new experiences, and maybe... just maybe, better coffee.",
+                text: "I see my contributions as an investment. My skills in complex problem-solving, efficient development, and commitment to quality mean tangible returns for a team or project.",
             },
-        ],
-        options: [{ text: "Always about the coffee.", nextEventKey: "DIALOGUE_END" }],
-    },
-
-    spawn_interaction_start: {
-        dialogue: [
-            { text: "This is the spawn point. A beginning." },
-            { text: "Every great journey, like a career, starts with a single step... or a respawn." },
-        ],
-        options: [
-            { text: "Where to next?", nextEventKey: "DIALOGUE_BRANCH:spawn_next" },
-            { text: "Let's explore!", nextEventKey: "DIALOGUE_END" },
-        ],
-    },
-    spawn_next: {
-        dialogue: [
             {
-                text: "That's up to you, the player! Explore this virtual office, discover more about my work, and have fun.",
+                text: "It's about delivering robust solutions that save time, reduce costs, and drive innovation, ultimately contributing to the company's success.",
             },
-            { text: "Just don't get stuck behind that 'half-wall' tile..." },
         ],
-        options: [{ text: "Challenge accepted!", nextEventKey: "DIALOGUE_END" }],
+        options: [{ text: "That's a clear value proposition. Thanks for sharing.", nextEventKey: "DIALOGUE_END" }],
     },
 } satisfies DialoguesAtlas;

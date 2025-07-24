@@ -6,8 +6,8 @@ export interface IInteractableSprite extends Phaser.Physics.Arcade.Sprite {
     name: string;
     dialogueKey: string;
     interact: () => void;
-    removeOutline: () => void;
-    applyOutline: () => void;
+    removeInteractable: () => void;
+    setInteractable: () => void;
 }
 
 export class InteractiveSprite extends Phaser.Physics.Arcade.Sprite implements IInteractableSprite {
@@ -42,16 +42,12 @@ export class InteractiveSprite extends Phaser.Physics.Arcade.Sprite implements I
         this.frameName = frameName;
     }
 
-    public applyOutline(): void {
-        this.setTint(0xff8800); // Orange tint for outline
-        // TODO: Integrate a PostFXPipeline shader here for pixel-perfect outlines
-        // Example: this.setPipeline('OutlinePipeline');
+    public setInteractable(): void {
+        eventManager.emit({ type: "OBJECT_INTERACTABLE", isInteractable: true });
     }
 
-    public removeOutline(): void {
-        this.setTint(0xffffff); // Reset tint
-        // TODO: Remove the PostFXPipeline here
-        // Example: this.resetPipeline();
+    public removeInteractable(): void {
+        eventManager.emit({ type: "OBJECT_INTERACTABLE", isInteractable: false });
     }
 
     public interact(): void {

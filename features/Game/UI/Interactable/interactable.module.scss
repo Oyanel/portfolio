@@ -1,0 +1,24 @@
+@use "styles/sass/core/colors";
+@use "styles/sass/core/fonts";
+@use "styles/sass/core/typography";
+
+.interactableRoot {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle farthest-side at right bottom, colors.$dark 0%, transparente 100%);
+
+    .container {
+        margin: auto 10% 5% auto;
+        max-width: 350px;
+    }
+
+    .text {
+        text-shadow: 2px 2px 2px colors.$dark;
+        color: colors.$light;
+        font-family: fonts.$title-font-family;
+        text-transform: uppercase;
+        @include typography.section-title-h3;
+    }
+}

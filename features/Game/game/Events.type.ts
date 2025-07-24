@@ -21,10 +21,15 @@ export type ReadyGameEvent = {
     sceneInstance: Scene;
 };
 
+export type ObjectInteractableGameEvent = {
+    type: "OBJECT_INTERACTABLE";
+    isInteractable: boolean;
+};
+
 export type ObjectInteractionGameEvent = {
     type: "OBJECT_INTERACTION";
     objectName: string;
     dialogueKey: string;
 };
 
-export type GameEvent = ReadyGameEvent | ObjectInteractionGameEvent;
+export type GameEvent = ReadyGameEvent | ObjectInteractionGameEvent | ObjectInteractableGameEvent;

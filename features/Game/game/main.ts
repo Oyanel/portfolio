@@ -18,7 +18,7 @@ const config: Types.Core.GameConfig = {
     physics: {
         default: "arcade",
         arcade: {
-            debug: true, // Set to true for debugging physics bodies
+            // debug: true, // Set to true for debugging physics bodies
         },
     },
     backgroundColor: "#000000",

@@ -81,12 +81,12 @@ export class StageScene extends Phaser.Scene {
 
         if (closestInteractable! && this.currentNearestInteractable !== closestInteractable) {
             if (this.currentNearestInteractable) {
-                this.currentNearestInteractable.removeOutline();
+                this.currentNearestInteractable.removeInteractable();
             }
-            closestInteractable.applyOutline();
+            closestInteractable.setInteractable();
             this.currentNearestInteractable = closestInteractable;
         } else if (!closestInteractable! && this.currentNearestInteractable) {
-            this.currentNearestInteractable.removeOutline();
+            this.currentNearestInteractable.removeInteractable();
             this.currentNearestInteractable = null;
         }
     }

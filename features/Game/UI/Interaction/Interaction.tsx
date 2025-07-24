@@ -53,20 +53,22 @@ export const Interaction = ({ dialogues, dialogueKey }: Props) => {
                 <div className={classNames(style.line, style.line5)} />
                 <p className={style.text}>{dialogue[dialogCounter].text}</p>
                 <ul className={style.options}>
-                    {options?.map((option) => (
-                        <li key={option.text}>
-                            <Button variant="dialogue" onClick={() => onSelectOption(option.nextEventKey)}>
-                                {option.text}
-                            </Button>
-                        </li>
-                    ))}
-                    {!options && dialogue[dialogCounter] && (
-                        <li>
-                            <Button className={style.button} variant="dialogue" onClick={onNext}>
-                                {dialogue[dialogCounter + 1] ? "Next" : "Ok"}
-                            </Button>
-                        </li>
-                    )}
+                    {!dialogue[dialogCounter + 1] &&
+                        options?.map((option) => (
+                            <li key={option.text}>
+                                <Button variant="dialogue" onClick={() => onSelectOption(option.nextEventKey)}>
+                                    {option.text}
+                                </Button>
+                            </li>
+                        ))}
+                    {!options ||
+                        (dialogue[dialogCounter + 1] && (
+                            <li>
+                                <Button className={style.button} variant="dialogue" onClick={onNext}>
+                                    {dialogue[dialogCounter + 1] ? "Next" : "Ok"}
+                                </Button>
+                            </li>
+                        ))}
                 </ul>
             </div>
         </div>

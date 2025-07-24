@@ -10,11 +10,7 @@ export type ExitUIEvent = {
     type: "EXIT";
 };
 
-export type DialogEndUiEvent = {
-    type: "DIALOGUE_END";
-};
-
-export type UIEvent = PlayUIEvent | ExitUIEvent | DialogEndUiEvent;
+export type UIEvent = PlayUIEvent | ExitUIEvent;
 
 export type ReadyGameEvent = {
     type: "SCENE_READY";

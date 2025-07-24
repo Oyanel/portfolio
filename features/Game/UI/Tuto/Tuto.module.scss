@@ -1,0 +1,28 @@
+@use "styles/sass/core/colors";
+
+.tutoRoot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(colors.$dark, 0.6);
+
+    .tutoContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        max-width: 80%;
+
+        .text {
+            color: colors.$light;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { Button } from "@/components/Buttons/Button/Button";
 import { eventManager } from "@/features/Game/EventManager";
 import style from "./interaction.module.scss";
-import classNames from "classnames";
+import { DialogueBox } from "@/features/Game/UI/components/dialogueBox";
 
 type Props = {
     dialogues: DialoguesAtlas;
@@ -25,7 +25,7 @@ export const Interaction = ({ dialogues, dialogueKey }: Props) => {
             const [dialogueType, nextDialogueKey] = nextEventKey.split(":");
 
             if (dialogueType === "DIALOGUE_END") {
-                eventManager.emit({ type: "DIALOGUE_END" });
+                eventManager.emit({ type: "EXIT" });
                 return;
             }
 
@@ -41,16 +41,12 @@ export const Interaction = ({ dialogues, dialogueKey }: Props) => {
             return;
         }
 
-        eventManager.emit({ type: "DIALOGUE_END" });
+        eventManager.emit({ type: "EXIT" });
     }, [dialogCounter, dialogue.length]);
 
     return (
         <div className={style.interactionRoot}>
-            <div className={style.dialogBox}>
-                <div className={classNames(style.line, style.line1)} />
-                <div className={classNames(style.line, style.line3)} />
-                <div className={classNames(style.line, style.line4)} />
-                <div className={classNames(style.line, style.line5)} />
+            <DialogueBox className={style.interactionContainer}>
                 <p className={style.text}>{dialogue[dialogCounter].text}</p>
                 <ul className={style.options}>
                     {!dialogue[dialogCounter + 1] &&
@@ -70,7 +66,7 @@ export const Interaction = ({ dialogues, dialogueKey }: Props) => {
                             </li>
                         ))}
                 </ul>
-            </div>
+            </DialogueBox>
         </div>
     );
 };

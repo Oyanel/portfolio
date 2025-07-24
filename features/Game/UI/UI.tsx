@@ -7,15 +7,21 @@ import { ObjectInteractableGameEvent, ObjectInteractionGameEvent, PlayUIEvent } 
 import { DIALOGUES_CONFIG_PATHS } from "@/features/Game/UI/Interaction/config";
 import { DialoguesAtlas } from "@/features/Game/UI/Interaction/interaction.type";
 import { Interactable } from "@/features/Game/UI/Interactable/Interactable";
+import { Tuto } from "@/features/Game/UI/Tuto/Tuto";
 
 enum UIScreen {
     STAGE_SELECTION = "STAGE_SELECTION",
+    TUTO = "TUTO",
     INTERACTION = "INTERACTION",
     INTERACTABLE = "INTERACTABLE",
 }
 
 type StageSelectionUiState = {
     type: UIScreen.STAGE_SELECTION;
+};
+
+type TutoUiState = {
+    type: UIScreen.TUTO;
 };
 
 type InteractableUiState = {
@@ -29,7 +35,7 @@ type InteractionUiState = {
     dialogueKey: string;
 };
 
-type UIState = StageSelectionUiState | InteractionUiState | InteractableUiState;
+type UIState = StageSelectionUiState | InteractionUiState | InteractableUiState | TutoUiState;
 
 export const UI = () => {
     const [uiState, setUiState] = useState<UIState | undefined>({ type: UIScreen.STAGE_SELECTION });
@@ -40,7 +46,7 @@ export const UI = () => {
             const { stage } = event as PlayUIEvent;
             const dialogues = await import(`./Interaction/dialogues/${DIALOGUES_CONFIG_PATHS[stage.id]}`);
             dialoguesRef.current = dialogues.default;
-            setUiState(undefined);
+            setUiState({ type: UIScreen.TUTO });
         });
 
         eventManager.on("OBJECT_INTERACTION", (event) => {
@@ -60,13 +66,13 @@ export const UI = () => {
             setUiState({ type: UIScreen.INTERACTABLE, isInteractable });
         });
 
-        eventManager.on("DIALOGUE_END", () => {
+        eventManager.on("EXIT", () => {
             setUiState(undefined);
         });
 
         return () => {
             eventManager.removeListener("PLAY");
-            eventManager.removeListener("DIALOGUE_END");
+            eventManager.removeListener("EXIT");
             eventManager.removeListener("OBJECT_INTERACTION");
             eventManager.removeListener("OBJECT_INTERACTABLE");
         };
@@ -75,6 +81,7 @@ export const UI = () => {
     return (
         <div className={style.UIRoot}>
             {uiState?.type === UIScreen.STAGE_SELECTION && <StageSelection />}
+            {uiState?.type === UIScreen.TUTO && <Tuto />}
             {uiState?.type === UIScreen.INTERACTION && (
                 <Interaction {...uiState} dialogues={dialoguesRef.current as DialoguesAtlas} />
             )}

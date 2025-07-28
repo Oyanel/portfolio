@@ -1,5 +1,6 @@
 @use "styles/sass/core/colors";
 @use "styles/sass/core/typography";
+@use "styles/sass/functions/breakpoints";
 
 .interactionRoot {
     display: flex;
@@ -9,7 +10,7 @@
     background-color: rgba(colors.$dark, 0.6);
 
     .interactionContainer {
-        bottom: 48px;
+        bottom: 15%;
         width: 80%;
 
         .text {
@@ -25,6 +26,12 @@
             gap: 0.4rem;
             grid-column: 2;
             grid-row: 2;
+            flex-wrap: wrap;
+
+            @include breakpoints.mobile {
+                align-items: center;
+                justify-content: center;
+            }
         }
 
         .button {

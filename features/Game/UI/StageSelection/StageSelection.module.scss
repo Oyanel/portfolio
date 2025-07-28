@@ -67,9 +67,15 @@
                         outline: 1px solid colors.$light;
                     }
 
-                    .stageImage {
-                        cursor: pointer;
-                        object-fit: cover;
+                    .imageContainer {
+                        position: relative;
+                        width: 150px;
+                        aspect-ratio: 1;
+
+                        .stageImage {
+                            cursor: pointer;
+                            object-fit: cover;
+                        }
                     }
                 }
             }

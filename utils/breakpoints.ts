@@ -17,7 +17,5 @@ export const useIsBelowWindowWidth = (maxWidth: number) => {
         };
     }, []);
 
-    const isMobile = width <= maxWidth;
-
-    return isMobile;
+    return width <= maxWidth;
 };

@@ -1,0 +1,32 @@
+.commands {
+    position: absolute;
+    bottom: 36px;
+    left: 10%;
+    display: grid;
+    gap: 6px;
+    grid-template-areas:
+        ". top ."
+        "left bottom right";
+}
+
+.command {
+    width: 42px;
+    height: 42px;
+    cursor: default;
+}
+
+.left {
+    grid-area: left;
+}
+
+.right {
+    grid-area: right;
+}
+
+.top {
+    grid-area: top;
+}
+
+.bottom {
+    grid-area: bottom;
+}

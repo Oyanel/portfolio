@@ -1,4 +1,5 @@
 import Phaser, { Scene } from "phaser";
+import { CommandMoveUIEvent } from "@/features/Game/game/Events.type";
 
 enum Direction {
     DOWN = "down",
@@ -34,7 +35,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         this.play("idle-down", true);
     }
 
-    handleMovement(cursors: Phaser.Types.Input.Keyboard.CursorKeys) {
+    handleMovement(cursors: Phaser.Types.Input.Keyboard.CursorKeys, direction: CommandMoveUIEvent["direction"]) {
         this.state = State.IDLE;
         this.setVelocity(0);
 
@@ -44,19 +45,19 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
             this.speed = 200;
         }
 
-        if (cursors.left.isDown) {
+        if (cursors.left.isDown || direction === "LEFT") {
             this.moveLeft();
         }
 
-        if (cursors.right.isDown) {
+        if (cursors.right.isDown || direction === "RIGHT") {
             this.moveRight();
         }
 
-        if (cursors.up.isDown) {
+        if (cursors.up.isDown || direction === "UP") {
             this.moveUp();
         }
 
-        if (cursors.down.isDown) {
+        if (cursors.down.isDown || direction === "DOWN") {
             this.moveDown();
         }
 

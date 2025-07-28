@@ -59,3 +59,16 @@
         margin-bottom: 2px;
     }
 }
+
+.command {
+    display: flex;
+    border: 0;
+    color: colors.$light;
+    background-color: rgba(colors.$dark, 0.5);
+    min-width: 24px;
+
+    &:active {
+        background-color: rgba(colors.$dark, 0.8);
+        outline: 1px solid colors.$light;
+    }
+}

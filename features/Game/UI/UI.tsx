@@ -8,6 +8,7 @@ import { DIALOGUES_CONFIG_PATHS } from "@/features/Game/UI/Interaction/config";
 import { DialoguesAtlas } from "@/features/Game/UI/Interaction/interaction.type";
 import { Interactable } from "@/features/Game/UI/Interactable/Interactable";
 import { Tuto } from "@/features/Game/UI/Tuto/Tuto";
+import { Commands } from "@/features/Game/UI/commands/commands";
 
 enum UIScreen {
     STAGE_SELECTION = "STAGE_SELECTION",
@@ -80,12 +81,13 @@ export const UI = () => {
 
     return (
         <div className={style.UIRoot}>
+            {uiState?.type !== UIScreen.STAGE_SELECTION && <Commands />}
             {uiState?.type === UIScreen.STAGE_SELECTION && <StageSelection />}
             {uiState?.type === UIScreen.TUTO && <Tuto />}
             {uiState?.type === UIScreen.INTERACTION && (
                 <Interaction {...uiState} dialogues={dialoguesRef.current as DialoguesAtlas} />
             )}
-            {uiState?.type === UIScreen.INTERACTABLE && <Interactable {...uiState} />}
+            {uiState?.type === UIScreen.INTERACTABLE && <Interactable />}
         </div>
     );
 };

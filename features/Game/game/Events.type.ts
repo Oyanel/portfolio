@@ -10,7 +10,17 @@ export type ExitUIEvent = {
     type: "EXIT";
 };
 
-export type UIEvent = PlayUIEvent | ExitUIEvent;
+export type CommandMoveUIEvent = {
+    type: "COMMAND_MOVE";
+    direction: "UP" | "LEFT" | "RIGHT" | "DOWN" | undefined;
+};
+
+export type CommandKeyUIEvent = {
+    type: "COMMAND_KEY";
+    key: string;
+};
+
+export type UIEvent = PlayUIEvent | ExitUIEvent | CommandMoveUIEvent | CommandKeyUIEvent;
 
 export type ReadyGameEvent = {
     type: "SCENE_READY";

@@ -5,16 +5,13 @@ import type { Types } from "phaser";
 import { ProScene } from "./scenes/ProScene";
 import { PersoScene } from "@/features/Game/game/scenes/PersoScene";
 
-//  Find out more information about the Game Config at:
-//  https://newdocs.phaser.io/docs/3.70.0/Phaser.Types.Core.GameConfig
 const config: Types.Core.GameConfig = {
     type: AUTO,
-    mode: Scale.FIT,
-    autoCenter: Scale.NO_CENTER,
-    width: 960,
-    height: 640,
+    mode: Scale.EXPAND,
+    width: Math.min(window.innerWidth, 940),
+    height: Math.min(window.innerHeight * 0.9, 640),
     parent: "game-container",
-    pixelArt: true, // For Tiled maps
+    pixelArt: true,
     physics: {
         default: "arcade",
         arcade: {

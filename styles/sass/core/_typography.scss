@@ -9,6 +9,11 @@
     font-size: clamp(1.7em, 2.5vw, 2.5rem);
 }
 
+@mixin command-text {
+    font-weight: bold;
+    font-size: clamp(1em, 1.5vw, 2rem);
+}
+
 @mixin button {
     font-size: clamp(1rem, 1.2vw, 1.3rem);
 }

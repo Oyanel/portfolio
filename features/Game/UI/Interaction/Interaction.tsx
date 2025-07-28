@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { Button } from "@/components/Buttons/Button/Button";
 import { eventManager } from "@/features/Game/EventManager";
 import style from "./interaction.module.scss";
-import { DialogueBox } from "@/features/Game/UI/components/dialogueBox";
+import { DialogueBox } from "@/features/Game/UI/components/dialogBox/dialogueBox";
 
 type Props = {
     dialogues: DialoguesAtlas;

@@ -3,6 +3,8 @@ import { Player } from "@/features/Game/game/prefab/player";
 import { IInteractableSprite, InteractiveSprite } from "@/features/Game/game/prefab/InteractiveObject";
 import { getTiledProperties, isTiledInteractiveObject } from "../utils/TiledObjectUtils";
 import { LayerConfig, TilesetMapping } from "../types/Tilemap.type";
+import { eventManager } from "@/features/Game/EventManager";
+import { CommandKeyUIEvent, CommandMoveUIEvent } from "@/features/Game/game/Events.type";
 
 export class StageScene extends Phaser.Scene {
     protected player!: Player;
@@ -13,6 +15,7 @@ export class StageScene extends Phaser.Scene {
     protected dynamicDepthGroup!: Phaser.GameObjects.Group;
     protected playerSpawnPoint: { x: number; y: number } = { x: 0, y: 0 };
     protected currentNearestInteractable: IInteractableSprite | null = null; // Type it with the interface
+    private directionCommand: CommandMoveUIEvent["direction"];
 
     constructor(key: string) {
         super(key);
@@ -31,8 +34,6 @@ export class StageScene extends Phaser.Scene {
     }
 
     create() {
-        console.log(`Creating scene: ${this.scene.key}`);
-
         this.dynamicDepthGroup = this.add.group();
         this.interactablesGroup = this.physics.add.group();
         this.inactiveGroup = this.physics.add.group();
@@ -45,12 +46,31 @@ export class StageScene extends Phaser.Scene {
 
         // Set up common input for interaction
         this.input.keyboard!.on("keydown-E", this.handleInteraction, this);
+        this.handleUiKeyCommands();
+        this.handleUIMovementCommands();
     }
 
     update(): void {
         this.performDynamicDepthSorting();
         this.handlePlayerMovement();
         this.updateNearestInteractableOutline();
+    }
+
+    private handleUiKeyCommands() {
+        eventManager.on("COMMAND_KEY", (event) => {
+            const { key } = event as CommandKeyUIEvent;
+
+            if (key === "E") {
+                this.handleInteraction();
+            }
+        });
+    }
+
+    private handleUIMovementCommands(): void {
+        eventManager.on("COMMAND_MOVE", (event) => {
+            const { direction } = event as CommandMoveUIEvent;
+            this.directionCommand = direction;
+        });
     }
 
     private performDynamicDepthSorting(): void {
@@ -63,7 +83,7 @@ export class StageScene extends Phaser.Scene {
     }
 
     private handlePlayerMovement(): void {
-        this.player.handleMovement(this.cursors);
+        this.player.handleMovement(this.cursors, this.directionCommand);
     }
 
     private updateNearestInteractableOutline(): void {
@@ -198,6 +218,12 @@ export class StageScene extends Phaser.Scene {
     }
 
     protected createInteractiveObjects(objects: Phaser.Types.Tilemaps.TiledObject[]) {
+        this.anims.create({
+            key: "pulsing",
+            frames: this.anims.generateFrameNumbers("pointer_atlas", { start: 0, end: 2 }),
+            frameRate: 3,
+            repeat: -1,
+        });
         objects.forEach((interactiveObject) => {
             if (isTiledInteractiveObject(interactiveObject)) {
                 const parsedObject = getTiledProperties(interactiveObject);

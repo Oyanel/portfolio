@@ -11,7 +11,13 @@ export const StageSelection = () => {
     return (
         <section className={style.stageSelectionRoot}>
             <div className={style.background}>
-                <Image src={selectedStage.image} alt={selectedStage.alt} className={style.backgroundImage} fill />
+                <Image
+                    src={selectedStage.image}
+                    alt={selectedStage.alt}
+                    className={style.backgroundImage}
+                    fill
+                    priority
+                />
                 <div className={style.mask} />
             </div>
             <div className={style.content}>
@@ -31,7 +37,16 @@ export const StageSelection = () => {
                                         onStageChange(stage);
                                     }}
                                 >
-                                    <Image alt={stage.alt} src={stage.image} className={style.stageImage} fill />
+                                    <div className={style.imageContainer}>
+                                        <Image
+                                            alt={stage.alt}
+                                            src={stage.image}
+                                            className={style.stageImage}
+                                            width={150}
+                                            height={150}
+                                            priority
+                                        />
+                                    </div>
                                 </button>
                             </li>
                         ))}

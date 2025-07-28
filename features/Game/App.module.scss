@@ -4,7 +4,8 @@
 .gameContainer {
     position: relative;
     display: flex;
-    height: 80dvh;
+    height: auto;
+    width: auto;
     align-items: center;
     justify-content: center;
     overflow: hidden;

@@ -51,9 +51,13 @@ export const Interaction = ({ dialogues, dialogueKey }: Props) => {
                 <TypewriterText className={style.text} text={dialogue[dialogCounter].text} />
                 <ul className={style.options}>
                     {!dialogue[dialogCounter + 1] &&
-                        options?.map((option) => (
+                        options?.map((option, index) => (
                             <li key={option.text}>
-                                <Button variant="dialogue" onClick={() => onSelectOption(option.nextEventKey)}>
+                                <Button
+                                    variant="dialogue"
+                                    onClick={() => onSelectOption(option.nextEventKey)}
+                                    autoFocus={index === 0}
+                                >
                                     {option.text}
                                 </Button>
                             </li>
@@ -61,7 +65,7 @@ export const Interaction = ({ dialogues, dialogueKey }: Props) => {
                     {!options ||
                         (dialogue[dialogCounter + 1] && (
                             <li>
-                                <Button className={style.button} variant="dialogue" onClick={onNext}>
+                                <Button className={style.button} variant="dialogue" onClick={onNext} autoFocus>
                                     {dialogue[dialogCounter + 1] ? "Next" : "Ok"}
                                 </Button>
                             </li>

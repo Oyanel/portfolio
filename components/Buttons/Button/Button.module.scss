@@ -40,21 +40,37 @@
 }
 
 .dialogue {
+    position: relative;
     display: flex;
     color: colors.$light;
     background-color: transparent;
     border: 1px solid colors.$light;
     @include typography.button;
 
-    &::before {
+    &::before,
+    &:after {
         content: " ";
         height: 16px;
-        margin-right: 4px;
+        position: absolute;
+    }
+
+    &:before {
+        left: 0;
+    }
+
+    &::after {
+        right: 0;
     }
 
     &:hover::before,
     &:focus::before {
         content: "⏵";
+        margin-bottom: 2px;
+    }
+
+    &:hover::after,
+    &:focus::after {
+        content: "⏴";
         margin-bottom: 2px;
     }
 }

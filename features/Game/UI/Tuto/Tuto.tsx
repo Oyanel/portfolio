@@ -13,22 +13,17 @@ export const Tuto = () => {
         <div className={style.tutoRoot}>
             <div className={style.tutoContainer}>
                 <DialogueBox>
+                    <p className={style.text}>Step into my dev ground!</p>
                     <p className={style.text}>
-                        Hello There ! You decided to check the dev ground ? Not everybody make it this far ...
+                        Here, you&#39;ll <strong>explore my work and learn about my professional journey</strong>{" "}
+                        through an engaging experience. Take your time to uncover hidden details about my projects and
+                        what I bring to the table.
                     </p>
                     <p className={style.text}>
-                        In this game you can go at your own pace to find items related to my job.
+                        Enjoy the discovery, and my contact information is in the footer if you&#39;d like to connect!{" "}
                     </p>
-                    <p className={style.text}>
-                        To learn more about me and what I do, just press &#34;E&#34; on your keyboard when indicated.
-                    </p>
-                    <p className={style.text}>I hope this little game makes it more fun to learn about me.</p>
-                    <p className={style.text}>
-                        If you have more questions or want to contact me, you have my contact info in the footer !
-                    </p>
-                    <p className={style.text}>Have fun !</p>
                     <div className={style.actions}>
-                        <Button onClick={onPassTuto} variant="dialogue">
+                        <Button onClick={onPassTuto} variant="dialogue" autoFocus>
                             OK, Let&#39;s go
                         </Button>
                     </div>

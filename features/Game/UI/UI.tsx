@@ -81,7 +81,7 @@ export const UI = () => {
 
     return (
         <div className={style.UIRoot}>
-            {uiState?.type !== UIScreen.STAGE_SELECTION && <Commands />}
+            {uiState?.type !== UIScreen.STAGE_SELECTION && <Commands className={style.commands} />}
             {uiState?.type === UIScreen.STAGE_SELECTION && <StageSelection />}
             {uiState?.type === UIScreen.TUTO && <Tuto />}
             {uiState?.type === UIScreen.INTERACTION && (

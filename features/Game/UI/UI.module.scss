@@ -4,4 +4,10 @@
     position: absolute;
     height: min(100%, 640px);
     width: min(100%, 940px);
+
+    .commands {
+        position: absolute;
+        bottom: 36px;
+        left: 10%;
+    }
 }

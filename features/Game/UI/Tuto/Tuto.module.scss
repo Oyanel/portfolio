@@ -19,6 +19,30 @@
             color: colors.$light;
         }
 
+        .commandContainer {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+
+            .commandMove {
+                display: flex;
+                gap: 16px;
+                align-items: center;
+            }
+
+            .commandEContainer {
+                display: flex;
+                gap: 8px;
+                align-items: center;
+
+                .commandE {
+                    width: 42px;
+                    height: 42px;
+                }
+            }
+        }
+
         .actions {
             display: flex;
             align-items: center;

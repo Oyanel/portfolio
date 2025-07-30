@@ -1,8 +1,8 @@
-import { ButtonHTMLAttributes } from "react";
+import { HTMLAttributes } from "react";
 import style from "./Button.module.scss";
 import classNames from "classnames";
 
-export interface IParams extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IParams extends HTMLAttributes<HTMLButtonElement> {
     variant?: "primary" | "secondary" | "dialogue" | "command";
 }
 

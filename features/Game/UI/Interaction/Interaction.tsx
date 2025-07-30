@@ -4,6 +4,7 @@ import { Button } from "@/components/Buttons/Button/Button";
 import { eventManager } from "@/features/Game/EventManager";
 import style from "./interaction.module.scss";
 import { DialogueBox } from "@/features/Game/UI/components/dialogBox/dialogueBox";
+import { TypewriterText } from "@/components/TypewritterText/TypewriterText";
 
 type Props = {
     dialogues: DialoguesAtlas;
@@ -47,7 +48,7 @@ export const Interaction = ({ dialogues, dialogueKey }: Props) => {
     return (
         <div className={style.interactionRoot}>
             <DialogueBox className={style.interactionContainer}>
-                <p className={style.text}>{dialogue[dialogCounter].text}</p>
+                <TypewriterText className={style.text} text={dialogue[dialogCounter].text} />
                 <ul className={style.options}>
                     {!dialogue[dialogCounter + 1] &&
                         options?.map((option) => (

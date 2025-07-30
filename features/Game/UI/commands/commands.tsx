@@ -13,6 +13,7 @@ export const Commands = () => {
     return (
         <div className={style.commands}>
             <Button
+                tabIndex={-1}
                 className={classNames(style.command, style.top)}
                 onTouchStart={() => onMoveCommand("UP")}
                 onTouchEnd={() => onMoveCommand(undefined)}
@@ -21,6 +22,7 @@ export const Commands = () => {
                 ▲
             </Button>
             <Button
+                tabIndex={-1}
                 className={classNames(style.command, style.left)}
                 onTouchStart={() => onMoveCommand("LEFT")}
                 onTouchEnd={() => onMoveCommand(undefined)}
@@ -29,6 +31,7 @@ export const Commands = () => {
                 ◀
             </Button>
             <Button
+                tabIndex={-1}
                 className={classNames(style.command, style.bottom)}
                 onTouchStart={() => onMoveCommand("DOWN")}
                 onTouchEnd={() => onMoveCommand(undefined)}
@@ -37,6 +40,7 @@ export const Commands = () => {
                 ▼
             </Button>
             <Button
+                tabIndex={-1}
                 className={classNames(style.command, style.right)}
                 onTouchStart={() => onMoveCommand("RIGHT")}
                 onTouchEnd={() => onMoveCommand(undefined)}

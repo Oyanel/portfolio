@@ -41,14 +41,13 @@
 
 .dialogue {
     display: flex;
-    border: 0;
     color: colors.$light;
     background-color: transparent;
+    border: 1px solid colors.$light;
     @include typography.button;
 
     &::before {
         content: " ";
-        width: 16px;
         height: 16px;
         margin-right: 4px;
     }

@@ -9,33 +9,46 @@
     height: 100%;
     background-color: rgba(colors.$dark, 0.6);
 
-    .interactionContainer {
-        bottom: 15%;
+    .dialogueContainer {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         width: 80%;
 
-        .text {
-            color: colors.$light;
-            margin-bottom: 32px;
-            font-size: 1.2rem;
+        .imageContainer {
+            position: relative;
+            height: 50%;
+            overflow: hidden;
         }
 
-        .options {
-            padding: 0;
-            display: flex;
-            list-style: none;
-            gap: 16px;
-            grid-column: 2;
-            grid-row: 2;
-            flex-wrap: wrap;
+        .dialogueBox {
+            width: 100%;
 
-            @include breakpoints.mobile {
-                align-items: center;
-                justify-content: center;
+            .text {
+                color: colors.$light;
+                margin-bottom: 32px;
+                font-size: 1.2rem;
             }
-        }
 
-        .button {
-            margin-left: auto;
+            .options {
+                padding: 0;
+                display: flex;
+                list-style: none;
+                gap: 16px;
+                grid-column: 2;
+                grid-row: 2;
+                flex-wrap: wrap;
+
+                @include breakpoints.mobile {
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            .button {
+                margin-left: auto;
+            }
         }
     }
 }

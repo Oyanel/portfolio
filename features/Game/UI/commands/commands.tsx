@@ -26,7 +26,10 @@ export const Commands = ({ disabled, className, ...rest }: CommandProps) => {
                 tabIndex={-1}
                 className={classNames(style.command, style.top)}
                 onTouchStart={() => onMoveCommand("UP")}
+                onMouseDown={() => onMoveCommand("UP")}
                 onTouchEnd={() => onMoveCommand(undefined)}
+                onMouseUp={() => onMoveCommand(undefined)}
+                onMouseLeave={() => onMoveCommand(undefined)}
                 variant="command"
             >
                 ▲
@@ -35,7 +38,10 @@ export const Commands = ({ disabled, className, ...rest }: CommandProps) => {
                 tabIndex={-1}
                 className={classNames(style.command, style.left)}
                 onTouchStart={() => onMoveCommand("LEFT")}
+                onMouseDown={() => onMoveCommand("LEFT")}
                 onTouchEnd={() => onMoveCommand(undefined)}
+                onMouseUp={() => onMoveCommand(undefined)}
+                onMouseLeave={() => onMoveCommand(undefined)}
                 variant="command"
             >
                 ◀
@@ -44,7 +50,10 @@ export const Commands = ({ disabled, className, ...rest }: CommandProps) => {
                 tabIndex={-1}
                 className={classNames(style.command, style.bottom)}
                 onTouchStart={() => onMoveCommand("DOWN")}
+                onMouseDown={() => onMoveCommand("DOWN")}
                 onTouchEnd={() => onMoveCommand(undefined)}
+                onMouseUp={() => onMoveCommand(undefined)}
+                onMouseLeave={() => onMoveCommand(undefined)}
                 variant="command"
             >
                 ▼
@@ -53,7 +62,10 @@ export const Commands = ({ disabled, className, ...rest }: CommandProps) => {
                 tabIndex={-1}
                 className={classNames(style.command, style.right)}
                 onTouchStart={() => onMoveCommand("RIGHT")}
+                onMouseDown={() => onMoveCommand("RIGHT")}
                 onTouchEnd={() => onMoveCommand(undefined)}
+                onMouseUp={() => onMoveCommand(undefined)}
+                onMouseLeave={() => onMoveCommand(undefined)}
                 variant="command"
             >
                 ▶

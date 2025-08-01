@@ -1,12 +1,37 @@
 import { DialoguesAtlas } from "@/features/Game/UI/Interaction/interaction.type";
+import ITSFWebSite from "@/public/game/dialogues/office/images/ITSFWebSite.webp";
+import GOMO from "@/public/game/dialogues/office/images/gomo.webp";
+import reactLogo from "@/public/game/dialogues/office/images/reactLogo.webp";
+import firePlace from "@/public/game/dialogues/office/images/firePlace.webp";
+import cloudWords from "@/public/game/dialogues/office/images/cloudWords.webp";
+import safe from "@/public/game/dialogues/office/images/safe.webp";
+import teamITSF from "@/public/game/dialogues/office/images/teamITSF.webp";
+import crmITSF from "@/public/game/dialogues/office/images/crmITSF.webp";
+import plant from "@/public/game/dialogues/office/images/plant.webp";
+import certificate from "@/public/game/dialogues/office/images/certificate.webp";
+import debug from "@/public/game/dialogues/office/images/debug.webp";
+import ac from "@/public/game/dialogues/office/images/ac.webp";
+import map from "@/public/game/dialogues/office/images/map.webp";
+import chromecast from "@/public/game/dialogues/office/images/chromecast.webp";
+import chromecastVideo from "@/public/game/dialogues/office/images/chromecastVideo.webp";
+import platformTV from "@/public/game/dialogues/office/images/platformTV.webp";
+import monitoring from "@/public/game/dialogues/office/images/monitoring.webp";
+import kpis from "@/public/game/dialogues/office/images/kpis.webp";
+import zeroheight from "@/public/game/dialogues/office/images/zeroheight.webp";
+import figma from "@/public/game/dialogues/office/images/figma.webp";
+import videoDiagram from "@/public/game/dialogues/office/images/videoDiagram.webp";
+import devBedrock from "@/public/game/dialogues/office/images/devBedrock.webp";
+import teamBedrock from "@/public/game/dialogues/office/images/teamBedrock.webp";
 
 export default {
     computerITSF_interaction_start: {
         dialogue: [
             {
+                image: ITSFWebSite,
                 text: "This computer brings back memories of ITSF, where I developed a CRM for telecommunications companies.",
             },
             {
+                image: GOMO,
                 text: "My role was focused on the frontend, contributing to the design, development, and continuous deployment of critical applications.",
             },
         ],
@@ -26,6 +51,9 @@ export default {
             },
             {
                 text: "It involved developing and continuously delivering React features, interacting with dozens of internal microservices to manage millions of telecom customer services.",
+            },
+            {
+                text: "For example, we improved the subscription process, reducing the time it used to take from 45 minutes to less than 10 minutes.",
             },
         ],
         options: [
@@ -50,6 +78,7 @@ export default {
     computerITSF_stack: {
         dialogue: [
             {
+                image: reactLogo,
                 text: "My main tools were React 18, Typescript, MUI, and SWR for the frontend, working with Keycloak for authentication.",
             },
             {
@@ -61,7 +90,7 @@ export default {
 
     firePlace_interaction_start: {
         dialogue: [
-            { text: "A crackling fireplace... Ah, the warmth and good vibes." },
+            { image: firePlace, text: "A crackling fireplace... Ah, the warmth and good vibes." },
             { text: "Just like the atmosphere at my past companies. A positive environment is crucial!" },
         ],
         options: [
@@ -82,6 +111,7 @@ export default {
     ITSFTest_interaction_start: {
         dialogue: [
             {
+                image: cloudWords,
                 text: "This device brings back memories of ensuring software quality through various testing approaches.",
             },
             { text: "I utilized different testing strategies to confirm everything worked as expected." },
@@ -156,7 +186,7 @@ export default {
 
     safe_interaction_start: {
         dialogue: [
-            { text: "A sturdy, unyielding safe." },
+            { image: safe, text: "A sturdy, unyielding safe." },
             { text: "This represents all the amazing work I've been a part of that remains confidential." },
             { text: "There's a lot of great design and code from past projects that I can't showcase publicly." },
         ],
@@ -200,7 +230,10 @@ export default {
 
     phone_interaction_start: {
         dialogue: [
-            { text: "This old-school phone reminds me of my work on a CRM for telecoms in Europe at ITSF." },
+            {
+                image: crmITSF,
+                text: "This old-school phone reminds me of my work on a CRM for telecoms in Europe at ITSF.",
+            },
             { text: "That was one of the main products I helped develop." },
         ],
         options: [
@@ -212,6 +245,9 @@ export default {
         dialogue: [
             {
                 text: "A CRM is Customer Relationship Management software. It helps companies manage and analyze customer interactions and data.",
+            },
+            {
+                text: "The agent on the phone or in retail can help you with anything related to your account.",
             },
             {
                 text: "Think of it as the brain behind keeping customers happy and organized for big telecom providers across Europe.",
@@ -332,7 +368,10 @@ export default {
 
     teamBedrock_interaction_start: {
         dialogue: [
-            { text: "Ah, the Bedrock corner! I truly had an amazing time working with these folks." },
+            {
+                image: teamBedrock,
+                text: "Ah, the Bedrock corner! I truly had an amazing time working with these folks.",
+            },
             { text: "It's so important to work with nice and competent people. They make all the difference." },
         ],
         options: [
@@ -409,7 +448,7 @@ export default {
 
     plant_interaction_start: {
         dialogue: [
-            { text: "Look at this lovely office plant. Plants just make you happier, don't they?" },
+            { image: plant, text: "Look at this lovely office plant. Plants just make you happier, don't they?" },
             { text: "A little bit of green makes a big difference in a tech environment." },
         ],
         options: [
@@ -486,7 +525,7 @@ export default {
 
     teamITSF_interaction_start: {
         dialogue: [
-            { text: "This plaque reminds me of the young, awesome team at ITSF." },
+            { image: teamITSF, text: "This plaque reminds me of the young, awesome team at ITSF." },
             { text: "So many good memories, and I learned an incredible amount by their side." },
         ],
         options: [
@@ -507,6 +546,7 @@ export default {
     certification_interaction_start: {
         dialogue: [
             {
+                image: certificate,
                 text: "Ah, the wall of certifications! I'm proud to say I am a real engineer and that I continued to learn!",
             },
             { text: "My engineer's degree in computing science, and an accessibility certification, are highlights." },
@@ -549,6 +589,7 @@ export default {
     computerPlayer_interaction_start: {
         dialogue: [
             {
+                image: devBedrock,
                 text: "This computer represents my work at Bedrock, specifically as a frontend developer in the player team.",
             },
             { text: "Building and maintaining video players for millions of users is quite a ride!" },
@@ -579,9 +620,10 @@ export default {
     computerPlayer_stream_handling: {
         dialogue: [
             {
-                text: "In the professional world, we don't just receive a single, large MP3 or MKV file because they're too big to deliver efficiently.",
+                text: "In the professional world, we don't just receive a single, large MP3 or raw file because they're too big to deliver efficiently.",
             },
             {
+                image: videoDiagram,
                 text: "Instead, the media is fragmented into small parts, and the player continuously requests and stitches these fragments together to provide a smooth playback experience.",
             },
         ],
@@ -601,9 +643,11 @@ export default {
 
     computerUi_interaction_start: {
         dialogue: [
-            { text: "This screen shows off the UI work process at Bedrock." },
+            { image: figma, text: "This screen shows off the UI work process at Bedrock." },
             { text: "We worked in agile cycles (Scrum), with UI designs from Figma or Zeroheight." },
-            { text: "The coolest part? One theme for each customer – ensuring brand consistency across platforms." },
+            {
+                text: "The coolest part? One theme for each customer – ensuring brand consistency across platforms. Pixel perfect with Zeroheight.",
+            },
         ],
         options: [
             { text: "What is Zeroheight?", nextEventKey: "DIALOGUE_BRANCH:computerUi_zeroheight" },
@@ -613,6 +657,7 @@ export default {
     computerUi_zeroheight: {
         dialogue: [
             {
+                image: zeroheight,
                 text: "Zeroheight is a design system management tool. It bridges the gap between design and development.",
             },
             {
@@ -624,6 +669,7 @@ export default {
     computerDebug_interaction_start: {
         dialogue: [
             {
+                image: debug,
                 text: "This monitor displays a tangled mess of code – a scene all too familiar from our debugging sessions.",
             },
             {
@@ -670,7 +716,7 @@ export default {
 
     map_interaction_start: {
         dialogue: [
-            { text: "This world map highlights Bedrock's reach." },
+            { image: map, text: "This world map highlights Bedrock's reach." },
             { text: "The streaming platform is present in a lot of countries across the globe." },
         ],
         options: [
@@ -692,7 +738,7 @@ export default {
 
     monitoring_interaction_start: {
         dialogue: [
-            { text: "This complex dashboard reminds me of daily monitoring at Bedrock." },
+            { image: monitoring, text: "This dashboard reminds me of daily monitoring at Bedrock." },
             {
                 text: "I kept a close eye on the KPIs (Key Performance Indicators) of the player and ads in production.",
             },
@@ -711,6 +757,7 @@ export default {
     monitoring_kpis: {
         dialogue: [
             {
+                image: kpis,
                 text: "We tracked things like plays, errors per play, ads impressions, browsers, and much more. All in different carefully crafted dashboards",
             },
             {
@@ -723,6 +770,7 @@ export default {
     chromecast_interaction_start: {
         dialogue: [
             {
+                image: chromecast,
                 text: "Ah, the Chromecast. This device is essentially a small computer designed to embed a video player. It's primarily used to watch content from other devices, like a phone or PC, directly on a TV.",
             },
             {
@@ -744,6 +792,7 @@ export default {
     chromecast_project_remake: {
         dialogue: [
             {
+                image: chromecastVideo,
                 text: "I worked on a significant remake of this project. The primary goal was to make the existing Chromecast application more stable, faster, and significantly easier to maintain.",
             },
             {
@@ -764,7 +813,7 @@ export default {
 
     tv_interaction_start: {
         dialogue: [
-            { text: "This TV is showing a Bedrock presentation." },
+            { image: platformTV, text: "Let's watch a movie on Netfl... Bedrock I mean." },
             { text: "It brings back memories of showcasing all the hard work we put into the platform." },
         ],
         options: [
@@ -777,7 +826,9 @@ export default {
             {
                 text: "Bedrock is a streaming technology platform that powers major European broadcasters and streaming services.",
             },
-            { text: "It's the engine behind many popular video-on-demand and live TV experiences." },
+            {
+                text: "It's the platform behind many popular video-on-demand and live TV experiences. (M6+, Videoland, RTL+, ...)",
+            },
         ],
         options: [{ text: "Got it!", nextEventKey: "DIALOGUE_END" }],
     },
@@ -785,10 +836,12 @@ export default {
     ac_interaction_start: {
         dialogue: [
             {
+                image: ac,
                 text: "A nice breeze from the AC. In the summer, this is an absolute must-have in an office, but in moderation, of course.",
             },
             { text: "Just like clean code – refreshing when done right, painful when overused." },
         ],
+        options: [{ text: "Refreshing !", nextEventKey: "DIALOGUE_END" }],
     },
 
     printer_interaction_start: {

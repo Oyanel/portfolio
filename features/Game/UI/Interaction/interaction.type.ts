@@ -1,4 +1,7 @@
+import { StaticImageData } from "next/image";
+
 export type DialogueLine = {
+    image?: string | StaticImageData;
     text: string;
 };
 

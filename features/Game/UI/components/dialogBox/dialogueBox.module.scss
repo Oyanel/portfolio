@@ -1,7 +1,6 @@
 @use "../../../../../styles/sass/core/colors";
 
 .dialogBox {
-    position: absolute;
     background-color: rgba(colors.$primary, 0.8);
     backdrop-filter: blur(6px);
     padding: 0.4rem 3rem;

@@ -1,4 +1,4 @@
-import { LinkButton } from "../../../../components/Buttons/LinkButton/LinkButton";
+import { LinkButton } from "@/components/Buttons/LinkButton/LinkButton";
 import { ReactElement } from "react";
 import style from "./ProjectDescription.module.scss";
 

@@ -14,6 +14,16 @@
     border: none;
     padding: 0;
 
+    .imageTitle {
+        opacity: 1;
+        transition: opacity 0.5s ease;
+
+        &.imageTitleSelected {
+            opacity: 0;
+            transition-delay: 0.3s;
+        }
+    }
+
     @include breakpoints.desktop {
         flex-direction: column;
         &:hover {

@@ -7,5 +7,7 @@ export interface IProjectCard {
     fullText: ReactElement;
     projectLink?: string;
     image: StaticImageData;
+    titleImage: StaticImageData;
+    altTitleImage: string;
     altImage: string;
 }

@@ -23,7 +23,6 @@ export const Commands = ({ disabled, className, ...rest }: CommandProps) => {
     return (
         <div {...rest} className={classNames(className, style.commands)}>
             <Button
-                tabIndex={-1}
                 className={classNames(style.command, style.top)}
                 onTouchStart={() => onMoveCommand("UP")}
                 onMouseDown={() => onMoveCommand("UP")}
@@ -35,7 +34,6 @@ export const Commands = ({ disabled, className, ...rest }: CommandProps) => {
                 ▲
             </Button>
             <Button
-                tabIndex={-1}
                 className={classNames(style.command, style.left)}
                 onTouchStart={() => onMoveCommand("LEFT")}
                 onMouseDown={() => onMoveCommand("LEFT")}
@@ -47,7 +45,6 @@ export const Commands = ({ disabled, className, ...rest }: CommandProps) => {
                 ◀
             </Button>
             <Button
-                tabIndex={-1}
                 className={classNames(style.command, style.bottom)}
                 onTouchStart={() => onMoveCommand("DOWN")}
                 onMouseDown={() => onMoveCommand("DOWN")}
@@ -59,7 +56,6 @@ export const Commands = ({ disabled, className, ...rest }: CommandProps) => {
                 ▼
             </Button>
             <Button
-                tabIndex={-1}
                 className={classNames(style.command, style.right)}
                 onTouchStart={() => onMoveCommand("RIGHT")}
                 onMouseDown={() => onMoveCommand("RIGHT")}

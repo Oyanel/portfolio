@@ -9,7 +9,7 @@ export const navigationLinks = [
         label: "Home",
     },
     {
-        href: "/dev-ground",
-        label: "Dev Ground",
+        href: "/code-ground",
+        label: "Code Ground",
     },
 ] satisfies NavigationLink[];

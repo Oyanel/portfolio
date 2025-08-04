@@ -1,6 +1,7 @@
 import style from "./More.module.scss";
 import sassIcon from "@/public/icons/sass.svg";
 import nextIcon from "@/public/icons/nextIcon.svg";
+import phaserIcon from "@/public/icons/phaserIcon.svg";
 import Image from "next/image";
 
 export const More = () => (
@@ -9,8 +10,8 @@ export const More = () => (
             <h2 className={style.title}>{"Curious about this site ?"}</h2>
             <div className={style.skillsContainer}>
                 <p>
-                    {"I tried to make a fun site with animations but still make it performant." +
-                        " I don't have that much time unfortunaltly, so I'll make updates on the long run. This is my tech selection"}
+                    {"Please enjoy the technical details of the website. " +
+                        "Below you can check my tech selection, more info on the github repository"}
                 </p>
                 <p>
                     {"Credit to"}{" "}
@@ -24,10 +25,13 @@ export const More = () => (
                 </p>
                 <div className={style.techs}>
                     <div className={style.logo}>
-                        <Image alt="Next logo" fill src={nextIcon} />
+                        <Image className={style.image} alt="Next logo" src={nextIcon} />
                     </div>
                     <div className={style.logo}>
-                        <Image alt="sass logo" fill src={sassIcon} />
+                        <Image className={style.image} alt="sass logo" src={sassIcon} />
+                    </div>
+                    <div className={style.logo}>
+                        <Image className={style.image} alt="phaser logo" src={phaserIcon} />
                     </div>
                 </div>
             </div>

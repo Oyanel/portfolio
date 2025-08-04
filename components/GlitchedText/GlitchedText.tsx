@@ -3,6 +3,7 @@
 import { setGlitchedInterval as setGlitchedInterval } from "../../utils/Interval";
 import { HTMLAttributes, useCallback, useEffect, useRef } from "react";
 import style from "./GlitchedText.module.scss";
+import classNames from "classnames";
 
 interface IParams extends HTMLAttributes<HTMLHeadingElement> {
     text: string;
@@ -51,7 +52,7 @@ export const GlitchedText = (props: IParams) => {
 
     return (
         <Heading
-            className={`${className ?? ""} ${style.glitchedText}`}
+            className={classNames(className, style.glitchedText, { [style.clickable]: !autoAltText })}
             data-alt-text={altText}
             data-text={text}
             ref={ref}

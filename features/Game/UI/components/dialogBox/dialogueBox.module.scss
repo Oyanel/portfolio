@@ -12,17 +12,20 @@
     }
 
     .line1 {
-        animation: expend-height 1s;
+        animation:
+            expend-height 1s,
+            move-vertical 10s infinite forwards;
         transform-origin: top;
         top: -48px;
         left: 0;
         height: 100%;
         width: 2px;
-        scale: 1 1.6;
     }
 
-    .line3 {
-        animation: expend-height 1s;
+    .line2 {
+        animation:
+            expend-height 1s,
+            move-vertical 10s infinite forwards;
         transform-origin: bottom;
         top: 10%;
         right: 0;
@@ -30,7 +33,7 @@
         width: 2px;
     }
 
-    .line4 {
+    .line3 {
         animation:
             expend-width 1s,
             move-horizontal 10s infinite forwards;
@@ -42,14 +45,13 @@
         scale: 1.1 1;
     }
 
-    .line5 {
+    .line4 {
         animation:
             expend-width 1s,
             move-horizontal 10s infinite forwards;
-        animation-delay: 0s, 1s;
         transform-origin: right;
         bottom: 12px;
-        right: -40%;
+        right: -48px;
         height: 2px;
         width: 100%;
         scale: 0.6 1;
@@ -83,5 +85,17 @@
     }
     100% {
         transform: translateX(-16px);
+    }
+}
+
+@keyframes move-vertical {
+    0% {
+        transform: translateY(-16px);
+    }
+    50% {
+        transform: translateY(16px);
+    }
+    100% {
+        transform: translateY(-16px);
     }
 }

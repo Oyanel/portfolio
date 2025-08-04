@@ -65,7 +65,7 @@ export const Interaction = ({ dialogues, dialogueKey }: Props) => {
                             src={displayedImage}
                             alt=""
                             fill
-                            objectFit="contain"
+                            style={{ objectFit: "contain" }}
                         />
                     )}
                 </div>

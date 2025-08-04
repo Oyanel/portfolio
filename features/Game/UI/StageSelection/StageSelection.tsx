@@ -33,6 +33,7 @@ export const StageSelection = () => {
                                 })}
                             >
                                 <button
+                                    className={style.stageButton}
                                     onClick={function () {
                                         onStageChange(stage);
                                     }}

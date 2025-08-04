@@ -1,11 +1,11 @@
-import { forwardRef } from "react";
+import { forwardRef, ReactElement } from "react";
 import style from "./SkillItem.module.scss";
 import Image, { ImageProps } from "next/image";
 
 interface Props {
     image: ImageProps["src"];
     title: string;
-    text: string;
+    text: ReactElement;
     altImage: string;
     inverted?: boolean;
     visible: boolean;
@@ -22,7 +22,7 @@ export const SkillItem = forwardRef<HTMLDivElement, Props>(function render(props
                 </div>
                 <div className={style.textContainer}>
                     <h3 className={style.title}>{title}</h3>
-                    <p className={style.text}>{text}</p>
+                    <div>{text}</div>
                 </div>
             </div>
         </div>

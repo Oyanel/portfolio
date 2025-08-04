@@ -350,6 +350,10 @@
     color: colors.$light;
     z-index: 2;
 
+    &.clickable {
+        cursor: pointer;
+    }
+
     &::before,
     &::after {
         content: attr(data-alt-text);

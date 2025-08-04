@@ -3,14 +3,16 @@
 import { SkillItem } from "@/components/SkillItem/SkillItem";
 import style from "./Me.module.scss";
 import computerIcon from "@/public/icons/computer.svg";
-import tubesIcon from "@/public/icons/tubes.svg";
+import gearIcon from "@/public/icons/gear.svg";
+import lightBulbIcon from "@/public/icons/light_bulb.svg";
 import gameJapIcon from "@/public/icons/game_jap.svg";
 import { IntersectionOptions, useInView } from "react-intersection-observer";
 
 export const Me = () => {
     const intersectionOptions: IntersectionOptions = { threshold: 0.8, triggerOnce: true };
     const [computerRef, computerInView] = useInView(intersectionOptions);
-    const [labRef, labInView] = useInView(intersectionOptions);
+    const [gearRef, gearInView] = useInView(intersectionOptions);
+    const [lightbulbRef, lightBulbInView] = useInView(intersectionOptions);
     const [japGameRef, japGameInView] = useInView(intersectionOptions);
 
     return (
@@ -27,32 +29,97 @@ export const Me = () => {
             </picture>
             <div className={style.container}>
                 <div className={style.textContainer}>
-                    <h2 className={style.title}>{"Hey It's me, Therence"}</h2>
+                    <h2 className={style.title}>{"Who Am I"}</h2>
                     <div className={style.skillsContainer}>
                         <SkillItem
-                            altImage="Computer icon"
+                            altImage=""
                             image={computerIcon}
                             ref={computerRef}
-                            text="I’ve been working in the web for more than 6 years. I started with PHP and then I switched to a more frontend approach in a company developing web apps in the telecom sector."
-                            title="I make it"
+                            text={
+                                <ul className={style.list}>
+                                    <li>
+                                        <strong>Experience: </strong>nearly 10 years of experience with complex,
+                                        large-scale web projects.
+                                    </li>
+                                    <li>
+                                        <strong>Focus: </strong>architecting and owning significant front-end features.
+                                    </li>
+                                    <li>
+                                        <strong>Passion: </strong>real love for development.
+                                    </li>
+                                </ul>
+                            }
+                            title="A Senior Developer"
                             visible={computerInView}
                         />
                         <SkillItem
-                            altImage="Scientific tubes icon"
-                            image={tubesIcon}
+                            altImage=""
+                            image={lightBulbIcon}
                             inverted
-                            ref={labRef}
-                            text="I enjoy working on personal projects to try new techs and have a different perspective on the web development. I also tried react native, but I prefer web over mobile !"
-                            title="I try it"
-                            visible={labInView}
+                            ref={lightbulbRef}
+                            text={
+                                <ul className={style.list}>
+                                    <li>
+                                        <strong>Continuous learning: </strong>experimenting with new tools and
+                                        platforms.
+                                    </li>
+                                    <li>
+                                        <strong>Broad expertise: </strong>exploring technologies from game engines and
+                                        3D to backend and DevOps.
+                                    </li>
+                                    <li>
+                                        <strong>Adaptation: </strong> creates tailored, optimal solutions for every
+                                        challenge.
+                                    </li>
+                                </ul>
+                            }
+                            title="My Philosophy"
+                            visible={lightBulbInView}
                         />
                         <SkillItem
-                            altImage="Remote and ramen icon"
+                            altImage=""
+                            image={gearIcon}
+                            ref={gearRef}
+                            text={
+                                <ul className={style.list}>
+                                    <li>
+                                        <strong>Strategic Approach: </strong>combines a full-stack mindset with the
+                                        detail-oriented eye of a designer.
+                                    </li>
+                                    <li>
+                                        <strong>Quality First: </strong>delivers robust solutions for users and clean,
+                                        maintainable code for the team.
+                                    </li>
+                                    <li>
+                                        <strong>Productive: </strong> engaged in producing fast results
+                                    </li>
+                                </ul>
+                            }
+                            title="My Approach"
+                            visible={gearInView}
+                        />
+                        <SkillItem
+                            altImage=""
                             image={gameJapIcon}
+                            inverted
                             ref={japGameRef}
-                            text="I LOVE japanese culture (yes anime too) and video games. Even if I don’t play as much as I used to, I’m still good at Tekken or Valorant.
-                     I also enjoy learning new tech stuff, especially frontend dev oriented."
-                            title="I love it"
+                            text={
+                                <ul className={style.list}>
+                                    <li>
+                                        <strong>Inspired By: </strong>draws inspiration from the design of video games
+                                        and the rich storytelling of Japanese culture.
+                                    </li>
+                                    <li>
+                                        <strong>Creativity: </strong>Applies a unique blend of creativity and logical
+                                        thinking to every project.
+                                    </li>
+                                    <li>
+                                        <strong>Team Work: </strong> believes a positive team environment is key to a
+                                        superior product and a healthy human experience.
+                                    </li>
+                                </ul>
+                            }
+                            title="Beyond the Code"
                             visible={japGameInView}
                         />
                     </div>

@@ -37,17 +37,23 @@
             }
             .techs {
                 display: flex;
+                flex-wrap: wrap;
                 justify-content: space-around;
                 gap: 5rem;
                 margin-top: 4rem;
+
                 @include breakpoints.desktop {
                     margin-top: 6rem;
                 }
 
                 .logo {
-                    height: 200px;
+                    max-width: 50%;
                     position: relative;
-                    flex: 1;
+
+                    .image {
+                        width: 100%;
+                        height: auto;
+                    }
                 }
             }
         }

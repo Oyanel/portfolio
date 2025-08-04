@@ -1,4 +1,5 @@
 @use "styles/sass/core/colors";
+@use "styles/sass/functions/breakpoints";
 
 .tutoRoot {
     display: flex;
@@ -12,8 +13,18 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 50%;
-        max-width: 80%;
+        width: 90%;
+        margin-top: 64px;
+
+        @include breakpoints.desktop {
+            max-width: 80%;
+        }
+
+        .dialogue {
+            max-height: 60dvh;
+            overflow: auto;
+            margin-bottom: 32px;
+        }
 
         .text {
             color: colors.$light;

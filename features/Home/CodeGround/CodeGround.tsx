@@ -1,48 +1,53 @@
 "use client";
 
-import style from "./DevGround.module.scss";
+import style from "./CodeGround.module.scss";
 import { ComponentProps, ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import { ProjectCard } from "./ProjectCard/ProjectCard";
 import Image from "next/image";
 import chevronLeftIcon from "@/public/icons/chevron_left.svg";
-import m6plus from "@/public/images/m6-plus.png";
-import ryoumengoImage from "@/public/images/ryoumengo.png";
-import gomoImage from "@/public/images/gomo.png";
+import m6plus from "@/public/images/projects/m6-plus.png";
+import ryoumengoImage from "@/public/images/projects/ryoumengo.png";
+import gomoImage from "@/public/images/projects/gomo.png";
+import bedrockLogoImage from "@/public/images/projects/bedrockLogo.jpg";
+import gomoLogoImage from "@/public/images/projects/gomoLogo.jpg";
+import ryoumengoLogoImage from "@/public/images/projects/ryoumengoLogo.jpg";
 import { IProjectCard } from "./ProjectCard/IProjectCard";
 import { ProjectDescription } from "./ProjectDescription/ProjectDescription";
 import { GlitchedText } from "@/components/GlitchedText/GlitchedText";
+import classNames from "classnames";
 
 const projectCardContentList: IProjectCard[] = [
     {
         title: "Bedrock Streaming",
         projectLink: "https://bedrockstreaming.com",
-        smallText: <p>Participate to create streaming champions</p>,
+        smallText: <p>Developing a performant streaming platform</p>,
         image: m6plus,
         altImage: "Screeenshot of the m6.fr website",
         fullText: (
             <>
-                <p>{"I had the chance to work on a big and fun project at Bedrock Streaming"}</p>
                 <p>
                     {
-                        "Bedrock Streaming creates streaming platforms such as Videoland, M6+, RTL+ from a unique product by a complete customization process."
+                        "Bedrock Streaming is a company that creates and customizes unique streaming platforms for major broadcaster or streaming platforms like Videoland, M6+, and RTL+."
                     }
                 </p>
                 <p>
                     {
-                        "My job there was to create features and improve the web player in a team of around 10 people as a frontend developer."
+                        "As a frontend developer in a team of approximately 10 people, my primary responsibilities were to create new features and enhance the core web player."
                     }
                 </p>
                 <p>
                     {
-                        "Working on a web player and all its environment (third parties, ads, media content, ...)  was really interesting and it was a refreshing experience. Playing with streams, video sdks, and complex mechanisms in a video made the frontend developer job a lot more challenging that it usually is."
+                        "This role provided a unique and refreshing experience, as it involved working with complex systems such as video streams, SDKs, third-party integrations, and ad content, which made the frontend development a significantly more challenging and rewarding experience."
                     }
                 </p>
             </>
         ),
+        titleImage: bedrockLogoImage,
+        altTitleImage: "The Bedrock Logo",
     },
     {
-        title: "Ryoumengo",
-        smallText: <p>This is an ongoing react native mobile app to study japanese.</p>,
+        title: "Project: Ryoumengo",
+        smallText: <p>A better way to learn japanese.</p>,
         image: ryoumengoImage,
         projectLink: "https://www.figma.com/file/d4P2hxEld703X7gfnHigs1/Ryoumengo-mobile?t=LRZZC83XYZIY5dx4-1",
         altImage: "Screeenshot of the figma project of Ryoumengo",
@@ -50,54 +55,50 @@ const projectCardContentList: IProjectCard[] = [
             <>
                 <p>
                     {
-                        "This is an ongoing react native mobile app to study japanese with flash cards made by the community or yourself."
+                        "Ryoumengo is an ongoing React Native mobile application for studying Japanese with community-sourced or user-created flashcards. The platform is built with a mobile frontend and a backend API utilizing Node.js, TSOA, and MongoDB."
                     }
-                </p>
-                <p>{"It is composed of a frontend for mobile and a backend (mongo, node, tsoa)."}</p>
-                <p>{"The project is 80% completed and is on hold for now."}</p>
-                <p>
-                    {"I started learning japanese 3 years ago and I came across an app called Anki that is the reference for flash card studies." +
-                        "It's made with the default java desktop app design that we dislike so much. I then decided that I could make a simpler, better app for my use." +
-                        " This is how I started this project."}
                 </p>
                 <p>
                     {
-                        "It was a great way to learn react native, figma and the mobile development. It's really different from the web, even though I used React Native that is based on react."
+                        "Inspired by the functionality of Anki but aiming for a more modern and intuitive design, I initiated this project to build a better study tool. The development process was a valuable opportunity to master mobile development, React Native, and design principles with Figma. The project is currently on hold, with approximately 80% of the planned features completed. "
                     }
-                </p>
-                <p>
-                    {"You can see the "}
+                    {"You can view the code and project progress on my "}
                     <a href="https://github.com/Ryounengo" rel="noreferrer" target="_blank">
-                        Ryoumengo project
+                        Github
                     </a>
-                    {" on my github account."}
                 </p>
             </>
         ),
+        titleImage: ryoumengoLogoImage,
+        altTitleImage: "",
     },
     {
-        title: "Gomo",
+        title: "Project: Gomo",
         projectLink: "https://gomo.ie",
-        smallText: <p>Gomo is an online-only, low-cost brand from the Eir operator in Ireland</p>,
+        smallText: <p>Gomo, the online-only operator in Ireland</p>,
         image: gomoImage,
         altImage: "Screeenshot of gomo.ie website",
         fullText: (
             <>
-                <p>{"Gomo is an online-only, low-cost brand from the Eir operator in Ireland"}</p>
-                <p>{"It is made with React/Wordpress for the frontend, and multiple web services for the backend."}</p>
-                <p>{"I didn't have the chance to build the project from scratch but I participated actively in it."}</p>
                 <p>
                     {
-                        "I mainly wrote all the tests of this app as there were none at all with react testing library. I also maintained it up to date and added a few features along the years."
+                        "Gomo is an online-only, low-cost brand from the Eir operator in Ireland. The platform's frontend is built with a combination of React and WordPress, supported by multiple backend web services."
                     }
                 </p>
-                <p>{"This app lives in pair with a self-care app available for clients only."}</p>
+                <p>
+                    {
+                        "I joined the project after its initial build and played a key role in its continued development. My primary contribution was the implementation of a comprehensive testing suite from scratch using React Testing Library. I also maintained the application and developed several new features over its lifecycle."
+                    }
+                </p>
+                <p>{"The Gomo platform operates in conjunction with a separate, client-only self-care application."}</p>
             </>
         ),
+        titleImage: gomoLogoImage,
+        altTitleImage: "The Gomo Logo",
     },
 ];
 
-export const DevGround = () => {
+export const CodeGround = () => {
     const [selectedCardIndex, setSelectedCardIndex] = useState<number>();
     const [currentProjectCardContent, setCurrentProjectCardContent] = useState<IProjectCard>();
     const sectionRef = useRef<HTMLElement>(null);
@@ -141,33 +142,25 @@ export const DevGround = () => {
                     <div className={`${style.textContainer} ${selectedStyle}`}>
                         <div className={style.titleContainer}>
                             <GlitchedText
-                                altText="デブクラウンド"
+                                altText="コードクラウンド"
                                 className={style.title}
                                 headingElement="h2"
-                                text="My dev ground"
+                                text="Code ground"
                             />
                         </div>
-                        <p>
-                            {"I’d like to say I am a full stack dev but I mainly create frontend apps." +
-                                " Still, I do some node/java when I need to. Like a lot of devs, I do a lot of things." +
-                                " Though I specialize in React, I could probably build an app with any library."}
-                        </p>
-                        <p>
-                            {"Unfortunately you won't be able to see the projects I've been working on the most as they are private projects." +
-                                " Still, If you wish to see some of my work, check this."}
-                        </p>
+                        <p>{"Click on a project to learn more about it"}</p>
                     </div>
-                    <div className={`${style.projects} ${selectedCardIndex !== undefined ? style.fullWidth : ""} `}>
+                    <div className={classNames(style.projects, { [style.fullWidth]: selectedCardIndex !== undefined })}>
                         {projectCardList}
                         <button
                             aria-label="Go back to project cards"
                             className={`${style.backButton} ${selectedStyle}`}
                             onClick={() => setSelectedCardIndex(undefined)}
                         >
-                            <Image alt="Chevron gauche" height={24} src={chevronLeftIcon} width={24} />
+                            <Image alt="" height={24} src={chevronLeftIcon} width={24} />
                         </button>
                     </div>
-                    <div className={`${style.fullText} ${selectedStyle}`}>
+                    <div className={classNames(style.fullText, selectedStyle)}>
                         {currentProjectCardContent && (
                             <ProjectDescription
                                 fullText={currentProjectCardContent.fullText}

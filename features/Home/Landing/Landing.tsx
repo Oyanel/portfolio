@@ -5,6 +5,7 @@ import { GlitchedText } from "@/components/GlitchedText/GlitchedText";
 import { useEffect, useRef } from "react";
 import { setGlitchedInterval } from "@/utils/Interval";
 import { useIsBelowWindowWidth } from "@/utils/breakpoints";
+import classNames from "classnames";
 
 let clearTimeout: () => void;
 
@@ -19,6 +20,7 @@ export const Landing = () => {
     const isMobile = useIsBelowWindowWidth(550);
 
     useEffect(() => {
+        console.log("Landing");
         if (ref?.current && !isMobile) {
             const { clear } = setGlitchedInterval(() => toggleBackgroundImage(ref.current));
             clearTimeout = clear;
@@ -45,20 +47,18 @@ export const Landing = () => {
                     src="/images/landing/landing-549-976.webp"
                 />
             </picture>
-            {!isMobile && (
-                <picture>
-                    <source media="(min-width: 1080px)" srcSet="/images/landing/landing-4096-2048.webp" />
-                    <source media="(min-width: 768px)" srcSet="/images/landing/landing-2048-1024.webp" />
-                    <source media="(min-width: 550px)" srcSet="/images/landing/landing-1024-512.webp" />
-                    <source media="(max-width: 549px)" srcSet="/images/landing/landing-549-976.webp" />
-                    <img
-                        alt="Man in a japanese/cyberpunk style dark alley"
-                        className={`${style.backgroundImage} ${style.masked}`}
-                        ref={ref}
-                        src="/images/landing/landing-549-976.webp"
-                    />
-                </picture>
-            )}
+            <picture>
+                <source media="(min-width: 1080px)" srcSet="/images/landing/landing-4096-2048.webp" />
+                <source media="(min-width: 768px)" srcSet="/images/landing/landing-2048-1024.webp" />
+                <source media="(min-width: 550px)" srcSet="/images/landing/landing-1024-512.webp" />
+                <source media="(max-width: 549px)" srcSet="/images/landing/landing-549-976.webp" />
+                <img
+                    alt="Man in a japanese/cyberpunk style dark alley"
+                    className={classNames(style.backgroundImage, style.masked)}
+                    ref={ref}
+                    src="/images/landing/landing-549-976.webp"
+                />
+            </picture>
             <div className={style.gradient} />
             <div className={style.textContainer}>
                 <div className={style.titleContainer}>

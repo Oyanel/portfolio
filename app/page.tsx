@@ -1,6 +1,6 @@
 import { Landing } from "@/features/Home/Landing/Landing";
 import { Me } from "@/features/Home/Me/Me";
-import { DevGround } from "@/features/Home/DevGround/DevGround";
+import { CodeGround } from "@/features/Home/CodeGround/CodeGround";
 import { More } from "@/features/Home/More/More";
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
         <>
             <Landing />
             <Me />
-            <DevGround />
+            <CodeGround />
             <More />
         </>
     );

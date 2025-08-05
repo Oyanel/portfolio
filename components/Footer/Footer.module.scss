@@ -17,7 +17,6 @@
         align-items: center;
         flex-wrap: wrap;
         justify-content: center;
-        @include layout.max-container;
 
         .divider {
             top: 0;
@@ -27,25 +26,32 @@
             background-color: colors.$light;
         }
 
-        .email {
-            color: colors.$light;
-            @include breakpoints.desktop {
-                position: absolute;
-                right: 2rem;
-            }
-        }
-
-        .icon {
-            width: 45px;
-        }
-
-        .links {
-            width: 100%;
+        .content {
             display: flex;
+            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            margin-block: 2rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding-block: 1rem;
+
+            .email {
+                text-align: right;
+                margin-inline: auto;
+                color: colors.$light;
+            }
+
+            .icon {
+                width: 45px;
+            }
+
+            .links {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                padding-block: 0.5rem;
+            }
         }
     }
 }

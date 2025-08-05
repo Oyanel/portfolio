@@ -1,7 +1,6 @@
 type NavigationLink = {
     href: string;
     label: string;
-    style?: "glitch";
 };
 
 export const navigationLinks = [

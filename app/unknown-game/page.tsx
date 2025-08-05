@@ -4,6 +4,6 @@ import dynamic from "next/dynamic";
 
 const ClientSideGame = dynamic(() => import("@/features/Game/App"), { ssr: false });
 
-export default function CodeGround() {
+export default function UnknownGame() {
     return <ClientSideGame />;
 }

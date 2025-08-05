@@ -1,0 +1,42 @@
+@use "styles/sass/core/colors";
+@use "styles/sass/core/fonts";
+@use "styles/sass/core/layout";
+
+.legalNoticesRoot {
+    @include layout.container;
+
+    .section {
+        padding: 0 2rem;
+    }
+
+    .title {
+        padding: 0 2rem;
+        margin-bottom: 2rem;
+        font-size: 4rem;
+        color: colors.$light;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .header {
+        font-size: 1.8rem;
+        color: colors.$light;
+        margin-bottom: 2rem;
+    }
+
+    .text {
+        color: colors.$light;
+        font-size: 1rem;
+    }
+
+    .list {
+        padding: 1rem 2rem;
+        background-color: colors.$dark;
+        border-left: 4px solid colors.$secondary;
+        border-radius: 0.4rem;
+    }
+}

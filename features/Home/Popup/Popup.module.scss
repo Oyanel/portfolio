@@ -1,0 +1,16 @@
+@use "styles/sass/core/colors";
+
+.popupRoot {
+    position: fixed;
+    z-index: 100;
+    inset: 0;
+    background-color: rgba(colors.$dark, 0.95);
+
+    opacity: 1;
+    transition: opacity 0.5s;
+
+    &.hidden {
+        opacity: 0;
+        display: none;
+    }
+}

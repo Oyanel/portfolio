@@ -45,6 +45,7 @@
     color: colors.$light;
     background-color: transparent;
     border: 1px solid colors.$light;
+    text-transform: inherit;
     @include typography.button;
 
     &::before,

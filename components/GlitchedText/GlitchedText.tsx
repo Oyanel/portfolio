@@ -8,7 +8,7 @@ import classNames from "classnames";
 interface IParams extends HTMLAttributes<HTMLHeadingElement> {
     text: string;
     altText: string;
-    headingElement: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+    headingElement: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span";
     autoAltText?: boolean;
 }
 

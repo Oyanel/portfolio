@@ -1,0 +1,39 @@
+@use "../../../../styles/sass/core/colors";
+
+.hackingPopupRoot {
+    .close {
+        border: 1px solid colors.$light;
+        position: absolute;
+        cursor: pointer;
+        top: 32px;
+        left: 32px;
+    }
+
+    .content {
+        width: 80%;
+        margin-inline: auto;
+
+        .imageContainer {
+            position: relative;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            aspect-ratio: 1;
+            margin-inline: auto;
+
+            .image {
+                object-fit: cover;
+            }
+        }
+
+        .dialogue {
+            max-height: 60dvh;
+            overflow: auto;
+            margin-bottom: 32px;
+        }
+
+        .text {
+            color: colors.$light;
+        }
+    }
+}

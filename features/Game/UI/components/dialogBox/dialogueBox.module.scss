@@ -1,10 +1,15 @@
-@use "../../../../../styles/sass/core/colors";
+@use "styles/sass/core/colors";
+@use "styles/sass/functions/breakpoints";
 
 .dialogBox {
     background-color: rgba(colors.$primary, 0.8);
     backdrop-filter: blur(6px);
     padding: 0.4rem 3rem;
     box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.59);
+
+    @include breakpoints.mobile {
+        padding: 0.1rem 2rem;
+    }
 
     .line {
         position: absolute;

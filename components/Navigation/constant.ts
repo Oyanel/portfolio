@@ -1,6 +1,7 @@
 type NavigationLink = {
     href: string;
     label: string;
+    style?: "glitch";
 };
 
 export const navigationLinks = [
@@ -8,8 +9,9 @@ export const navigationLinks = [
         href: "/",
         label: "Home",
     },
-    {
-        href: "/code-ground",
-        label: "Code Ground",
-    },
 ] satisfies NavigationLink[];
+
+export const hackedLink = {
+    href: "/unknown-game",
+    label: "Unknown Game",
+} satisfies NavigationLink;

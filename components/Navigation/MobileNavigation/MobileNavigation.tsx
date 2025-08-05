@@ -2,13 +2,16 @@
 
 import Link from "next/link";
 import style from "./MobileNavigation.module.scss";
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import { usePathname } from "next/navigation";
-import { navigationLinks } from "@/components/Navigation/constant";
+import { hackedLink, navigationLinks } from "@/components/Navigation/constant";
 import classNames from "classnames";
+import { GlitchedText } from "@/components/GlitchedText/GlitchedText";
+import { HackingContext } from "@/context/Hacking/HackingContext";
 
 export const MobileNavigation = () => {
     const pathname = usePathname();
+    const { isHacked } = useContext(HackingContext);
 
     const isActive = useCallback((linkPath: string) => pathname === linkPath, [pathname]);
 
@@ -27,6 +30,18 @@ export const MobileNavigation = () => {
                         </Link>
                     </li>
                 ))}
+                {isHacked && (
+                    <li key={hackedLink.label}>
+                        <Link
+                            href={hackedLink.href}
+                            className={classNames(style.link, {
+                                [style.active]: isActive(hackedLink.href),
+                            })}
+                        >
+                            <GlitchedText text={hackedLink.label} altText={hackedLink.label} headingElement="span" />
+                        </Link>
+                    </li>
+                )}
             </ul>
         </nav>
     );

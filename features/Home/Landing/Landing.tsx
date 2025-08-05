@@ -20,7 +20,6 @@ export const Landing = () => {
     const isMobile = useIsBelowWindowWidth(550);
 
     useEffect(() => {
-        console.log("Landing");
         if (ref?.current && !isMobile) {
             const { clear } = setGlitchedInterval(() => toggleBackgroundImage(ref.current));
             clearTimeout = clear;

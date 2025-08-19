@@ -82,6 +82,7 @@
     color: colors.$light;
     background-color: rgba(colors.$dark, 0.5);
     min-width: 24px;
+    user-select: none;
 
     &:active {
         background-color: rgba(colors.$dark, 0.8);

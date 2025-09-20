@@ -142,7 +142,7 @@ export const CodeGround = () => {
                     <div className={`${style.textContainer} ${selectedStyle}`}>
                         <div className={style.titleContainer}>
                             <GlitchedText
-                                altText="コードクラウンド"
+                                altText="コードグラウンド"
                                 className={style.title}
                                 headingElement="h2"
                                 text="Code ground"

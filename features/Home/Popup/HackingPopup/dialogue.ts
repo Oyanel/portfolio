@@ -3,31 +3,30 @@ export type SmileDialogue = {
     text: string;
     answer: string;
 };
-
 export const smileDialogue = [
     {
         type: "cunning",
-        text: "Finally, I can reach you out !",
-        answer: "What the heck ?! What is happening ?",
+        text: "I finally found a way to reach you!",
+        answer: "What in the world is happening?!",
     },
     {
         type: "cunning",
-        text: "To keep it simple, I eventually manage to hack this website, but it was not easy !",
-        answer: "This is not a wordpress web site, this is why!",
+        text: "Let's just say I finally managed to hack this website. It wasn't a walk in the park.",
+        answer: "I hope it was not!",
     },
     {
         type: "smile",
-        text: "That's right, but more importantly, I injected new code into this website so you can play a game ...",
-        answer: "A Game ?",
+        text: "Anyway, Since I'm here, I've injected some new code for you to play a little game...",
+        answer: "A game?",
     },
     {
         type: "happy",
-        text: 'You seem to have some interest in this "Therence", so I added a bit more content for you !',
-        answer: "What is this game ?",
+        text: "You've been so focused on this 'Therence,' so I thought I'd give you some extra content to explore.",
+        answer: "What is this game about?",
     },
     {
         type: "cunning",
-        text: "Just find out yourself, but remember that this dev might be exactly who your are looking for ...",
-        answer: "I won't hesitate anymore then !",
+        text: "Go see for yourself. Just remember, this developer might be the very person you've been looking for all along...",
+        answer: "I'm not holding back anymore.",
     },
 ] satisfies SmileDialogue[];

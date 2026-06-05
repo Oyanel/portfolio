@@ -7,7 +7,7 @@ import { setGlitchedInterval } from "@/utils/Interval";
 import { useIsBelowWindowWidth } from "@/utils/breakpoints";
 import classNames from "classnames";
 
-let clearTimeout: () => void;
+let clearGlitchInterval: () => void;
 
 const toggleBackgroundImage = (element: HTMLImageElement | null) => {
     if (element) {
@@ -20,17 +20,17 @@ export const Landing = () => {
     const isMobile = useIsBelowWindowWidth(550);
 
     useEffect(() => {
-        if (ref?.current && !isMobile) {
+        if (ref.current && !isMobile) {
             const { clear } = setGlitchedInterval(() => toggleBackgroundImage(ref.current));
-            clearTimeout = clear;
+            clearGlitchInterval = clear;
         } else {
-            clearTimeout?.();
+            clearGlitchInterval?.();
         }
 
         return () => {
-            clearTimeout?.();
+            clearGlitchInterval?.();
         };
-    }, [isMobile, ref]);
+    }, [isMobile]);
 
     return (
         <section className={style.container}>
@@ -69,7 +69,7 @@ export const Landing = () => {
                         text="Welcome"
                     />
                 </div>
-                <h2 className={style.subTitle}>This is my website, Feel free to explore.</h2>
+                <h2 className={style.subTitle}>Complex frontends. Real outcomes.</h2>
             </div>
         </section>
     );

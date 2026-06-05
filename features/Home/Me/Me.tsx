@@ -8,8 +8,9 @@ import lightBulbIcon from "@/public/icons/light_bulb.svg";
 import gameJapIcon from "@/public/icons/game_jap.svg";
 import { IntersectionOptions, useInView } from "react-intersection-observer";
 
+const intersectionOptions: IntersectionOptions = { threshold: 0.8, triggerOnce: true };
+
 export const Me = () => {
-    const intersectionOptions: IntersectionOptions = { threshold: 0.8, triggerOnce: true };
     const [computerRef, computerInView] = useInView(intersectionOptions);
     const [gearRef, gearInView] = useInView(intersectionOptions);
     const [lightbulbRef, lightBulbInView] = useInView(intersectionOptions);
@@ -18,11 +19,11 @@ export const Me = () => {
     return (
         <section className={style.section}>
             <picture>
-                <source media="(min-width: 1080gpx)" srcSet="/images/me/me-2048-2048.webp" />
+                <source media="(min-width: 1080px)" srcSet="/images/me/me-2048-2048.webp" />
                 <source media="(min-width: 600px)" srcSet="/images/me/me-1024-1024.webp" />
                 <source media="(max-width: 599px)" srcSet="/images/me/me-512-1024.webp" />
                 <img
-                    alt="Sky scrappers in the night"
+                    alt="Sky scrapers in the night"
                     className={style.backgroundImage}
                     src="/images/me/me-1024-1024.webp"
                 />
@@ -38,18 +39,20 @@ export const Me = () => {
                             text={
                                 <ul className={style.list}>
                                     <li>
-                                        <strong>Experience: </strong>nearly 10 years of experience with complex,
-                                        large-scale web projects.
+                                        <strong>Scale: </strong>built and maintained frontends used by millions of
+                                        users across Europe, in streaming and telecommunications.
                                     </li>
                                     <li>
-                                        <strong>Focus: </strong>architecting and owning significant front-end features.
+                                        <strong>Complexity: </strong>owned challenging systems — video players, SDKs,
+                                        intricate business logic, and production incident response.
                                     </li>
                                     <li>
-                                        <strong>Passion: </strong>real love for development.
+                                        <strong>Architecture: </strong>designs maintainable frontend systems that teams
+                                        can actually build on top of.
                                     </li>
                                 </ul>
                             }
-                            title="A Senior Developer"
+                            title="Hard Problems, Real Solutions"
                             visible={computerInView}
                         />
                         <SkillItem
@@ -60,20 +63,21 @@ export const Me = () => {
                             text={
                                 <ul className={style.list}>
                                     <li>
-                                        <strong>Continuous learning: </strong>experimenting with new tools and
-                                        platforms.
+                                        <strong>Time saved: </strong>reduced a telecom subscription flow from 45
+                                        minutes to 10 — a concrete win for hundreds of agents every day.
                                     </li>
                                     <li>
-                                        <strong>Broad expertise: </strong>exploring technologies from game engines and
-                                        3D to backend and DevOps.
+                                        <strong>Stability delivered: </strong>primary developer on a Chromecast
+                                        app refactor, writing 70% of the new codebase — eliminating video player
+                                        crashes and improving load times.
                                     </li>
                                     <li>
-                                        <strong>Adaptation: </strong> creates tailored, optimal solutions for every
-                                        challenge.
+                                        <strong>Quality built in: </strong>implemented testing suites from scratch,
+                                        turning fragile codebases into reliable ones.
                                     </li>
                                 </ul>
                             }
-                            title="My Philosophy"
+                            title="Outcomes Over Activity"
                             visible={lightBulbInView}
                         />
                         <SkillItem
@@ -83,19 +87,20 @@ export const Me = () => {
                             text={
                                 <ul className={style.list}>
                                     <li>
-                                        <strong>Strategic Approach: </strong>combines a full-stack mindset with the
-                                        detail-oriented eye of a designer.
+                                        <strong>Mentorship: </strong>guided junior and mid-level developers through
+                                        code reviews and pair programming.
                                     </li>
                                     <li>
-                                        <strong>Quality First: </strong>delivers robust solutions for users and clean,
-                                        maintainable code for the team.
+                                        <strong>Decisions: </strong>drove frontend architecture choices that shaped
+                                        how teams worked for years after.
                                     </li>
                                     <li>
-                                        <strong>Productive: </strong> engaged in producing fast results
+                                        <strong>Hiring: </strong>participated in technical interviews to help build
+                                        stronger, more capable teams.
                                     </li>
                                 </ul>
                             }
-                            title="My Approach"
+                            title="Technical Leadership"
                             visible={gearInView}
                         />
                         <SkillItem
@@ -110,11 +115,11 @@ export const Me = () => {
                                         and the rich storytelling of Japanese culture.
                                     </li>
                                     <li>
-                                        <strong>Creativity: </strong>Applies a unique blend of creativity and logical
+                                        <strong>Creativity: </strong>applies a unique blend of creativity and logical
                                         thinking to every project.
                                     </li>
                                     <li>
-                                        <strong>Team Work: </strong> believes a positive team environment is key to a
+                                        <strong>Team Work: </strong>believes a positive team environment is key to a
                                         superior product and a healthy human experience.
                                     </li>
                                 </ul>

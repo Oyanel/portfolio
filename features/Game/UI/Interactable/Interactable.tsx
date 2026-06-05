@@ -14,7 +14,7 @@ export const Interactable = () => {
                 <Button className={style.commandE} onClick={onInteraction} variant="command">
                     E
                 </Button>
-                <p className={style.text}>to Interact with the Object</p>
+                <p className={style.text}>to interact</p>
             </div>
         </div>
     );

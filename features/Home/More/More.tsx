@@ -24,11 +24,11 @@ export const More = () => {
     return (
         <section className={style.container}>
             <div className={style.textContainer}>
-                <h2 className={style.title}>{"Curious about this site ?"}</h2>
+                <h2 className={style.title}>{"Curious about this site?"}</h2>
                 <div className={style.skillsContainer}>
                     <p>
-                        {"Please enjoy the technical details of the website. " +
-                            "Below you can check my tech selection, more info on the github repository"}
+                        {"Here are the technical details behind this site. " +
+                            "Check the tech stack below, and find more in the GitHub repository."}
                     </p>
                     <p>
                         {"Credit to"}{" "}

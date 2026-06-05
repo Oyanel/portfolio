@@ -17,29 +17,27 @@ export const Tuto = () => {
                     <div className={style.dialogue}>
                         <p className={style.text}>Step into my code ground!</p>
                         <p className={style.text}>
-                            Here, you&#39;ll <strong>explore my work and learn about my professional journey</strong>{" "}
-                            through an engaging experience. Take your time to uncover hidden details about my projects
-                            and what I bring to the table.
+                            <strong>Explore my work and learn about my professional journey.</strong>{" "}
+                            Take your time to uncover hidden details about my projects and what I can offer.
                         </p>
                         <p className={style.text}>
-                            Enjoy the discovery, and my contact information is in the footer if you&#39;d like to
-                            connect!{" "}
+                            My contact info is in the footer if you&#39;d like to reach out.
                         </p>
                         <div className={style.commandContainer}>
                             <div className={style.commandMove}>
                                 <Commands disabled />
-                                <p className={style.text}>to Move</p>
+                                <p className={style.text}>to move</p>
                             </div>
                             <div className={style.commandEContainer}>
                                 <Button className={style.commandE} variant="command">
                                     E
                                 </Button>
-                                <p className={style.text}>to Interact with the Object</p>
+                                <p className={style.text}>to interact</p>
                             </div>
                         </div>
                         <div className={style.actions}>
                             <Button onClick={onPassTuto} variant="dialogue" autoFocus>
-                                OK, Let&#39;s go
+                                OK, let&#39;s go
                             </Button>
                         </div>
                     </div>

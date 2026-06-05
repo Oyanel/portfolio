@@ -37,7 +37,7 @@ const projectCardContentList: IProjectCard[] = [
                 </p>
                 <p>
                     {
-                        "Integrated multiple third-party SDKs and ad systems in highly constrained live environments, and participated in critical incident response to restore video playback for users in production."
+                        "Integrated third-party SDKs and ad systems in high-stakes live environments, and responded to critical incidents to restore video playback in production."
                     }
                 </p>
             </>
@@ -65,7 +65,7 @@ const projectCardContentList: IProjectCard[] = [
                 </p>
                 <p>
                     {
-                        "Also mentored developers through code reviews and participated in technical interviews to help grow the team."
+                        "Mentored developers through code reviews and participated in technical interviews to grow the team."
                     }
                 </p>
             </>
@@ -88,7 +88,7 @@ const projectCardContentList: IProjectCard[] = [
                 </p>
                 <p>
                     {
-                        "Built end-to-end: mobile frontend, backend API (Node.js, TSOA, MongoDB), and UI design in Figma. The project is currently on hold at ~80% of planned features. "
+                        "Built end-to-end: mobile frontend, backend API (Node.js, TSOA, MongoDB), and UI design in Figma. The project is currently on hold with ~80% of planned features complete."
                     }
                     {"Code and progress available on my "}
                     <a href="https://github.com/Ryounengo" rel="noreferrer" target="_blank">

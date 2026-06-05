@@ -79,7 +79,7 @@ export default {
         dialogue: [
             {
                 image: reactLogo,
-                text: "My main tools were React 18, Typescript, MUI, and SWR for the frontend, working with Keycloak for authentication.",
+                text: "My main tools were React 18, TypeScript, MUI, and SWR for the frontend, working with Keycloak for authentication.",
             },
             {
                 text: "I also contributed to the Backend-for-Frontend (BFF) development using Spring/Java, and utilized Docker and Git for our continuous delivery.",
@@ -385,7 +385,7 @@ export default {
                 text: "Their expertise, willingness to help, and a shared sense of humor made every challenge enjoyable.",
             },
             {
-                text: "Big thanks to everyone in Team Bedrock for the fantastic memories and learning experiences! Especially the Tube team !",
+                text: "Big thanks to everyone in Team Bedrock for the fantastic memories and learning experiences! Especially the Tube team!",
             },
         ],
         options: [{ text: "Teamwork makes the dream work!", nextEventKey: "DIALOGUE_END" }],
@@ -403,7 +403,7 @@ export default {
     },
     noDoor_unfinished: {
         dialogue: [
-            { text: "Oh, the list is long: a tactical game, a ANKI app like, a TCG deck trading platform..." },
+            { text: "Oh, the list is long: a tactical game, an Anki-style app, a TCG deck trading platform..." },
             { text: "The journey is the reward, right? Or, maybe I just need more coffee." },
         ],
         options: [{ text: "To the 'personal projects' stage!", nextEventKey: "DIALOGUE_END" }],
@@ -440,7 +440,7 @@ export default {
     fruits_favorite: {
         dialogue: [
             {
-                text: "Definitely an orange. Simple, juicy, and sweet. full of vitamins!",
+                text: "Definitely an orange. Simple, juicy, and sweet. Full of vitamins!",
             },
         ],
         options: [{ text: "I see.", nextEventKey: "DIALOGUE_END" }],
@@ -510,7 +510,7 @@ export default {
         ],
         options: [
             { text: "That's a philosophical take!", nextEventKey: "DIALOGUE_BRANCH:coffee_philosophy" },
-            { text: "Cheers to good coffee and tea !", nextEventKey: "DIALOGUE_END" },
+            { text: "Cheers to good coffee and tea!", nextEventKey: "DIALOGUE_END" },
         ],
     },
     coffee_philosophy: {
@@ -569,7 +569,7 @@ export default {
                 text: "It's not just a compliance thing; it's about creating inclusive digital experiences. Super important in modern web dev!",
             },
             {
-                text: 'It consists of way more than adding "aria-labels" and "alt" on images !',
+                text: 'It consists of way more than adding "aria-labels" and "alt" on images!',
             },
         ],
         options: [{ text: "I see. Moving on.", nextEventKey: "DIALOGUE_END" }],
@@ -646,7 +646,7 @@ export default {
             { image: figma, text: "This screen shows off the UI work process at Bedrock." },
             { text: "We worked in agile cycles (Scrum), with UI designs from Figma or Zeroheight." },
             {
-                text: "The coolest part? One theme for each customer – ensuring brand consistency across platforms. Pixel perfect with Zeroheight.",
+                text: "The coolest part? One theme per customer – ensuring brand consistency across platforms. Pixel-perfect with Zeroheight.",
             },
         ],
         options: [
@@ -746,7 +746,7 @@ export default {
                 text: "This allowed us to react super fast if we spotted any anomalies, mainly using New Relic and Youbora.",
             },
             {
-                text: "We also had alerts and simulated navigation to unsure the platforms were up 24/7",
+                text: "We also had alerts and simulated navigation to ensure the platforms were up 24/7.",
             },
         ],
         options: [
@@ -841,14 +841,14 @@ export default {
             },
             { text: "Just like clean code – refreshing when done right, painful when overused." },
         ],
-        options: [{ text: "Refreshing !", nextEventKey: "DIALOGUE_END" }],
+        options: [{ text: "Refreshing!", nextEventKey: "DIALOGUE_END" }],
     },
 
     printer_interaction_start: {
         dialogue: [
             { text: "The office printer. My personal stationery shop these days." },
             {
-                text: "I only use this for personal stuff now. The paperless office dream is almost a reality for dev docs! :sweating_face:",
+                text: "I only use this for personal stuff now. The paperless office dream is almost a reality for dev docs! 😅",
             },
         ],
         options: [

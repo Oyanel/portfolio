@@ -23,14 +23,14 @@ export const Me = () => {
                 <source media="(min-width: 600px)" srcSet="/images/me/me-1024-1024.webp" />
                 <source media="(max-width: 599px)" srcSet="/images/me/me-512-1024.webp" />
                 <img
-                    alt="Sky scrapers in the night"
+                    alt="Skyscrapers at night"
                     className={style.backgroundImage}
                     src="/images/me/me-1024-1024.webp"
                 />
             </picture>
             <div className={style.container}>
                 <div className={style.textContainer}>
-                    <h2 className={style.title}>{"Who Am I"}</h2>
+                    <h2 className={style.title}>{"Who I Am"}</h2>
                     <div className={style.skillsContainer}>
                         <SkillItem
                             altImage=""
@@ -47,7 +47,7 @@ export const Me = () => {
                                         intricate business logic, and production incident response.
                                     </li>
                                     <li>
-                                        <strong>Architecture: </strong>designs maintainable frontend systems that teams
+                                        <strong>Architecture: </strong>designed maintainable frontend systems that teams
                                         can actually build on top of.
                                     </li>
                                 </ul>
@@ -67,8 +67,8 @@ export const Me = () => {
                                         minutes to 10 — a concrete win for hundreds of agents every day.
                                     </li>
                                     <li>
-                                        <strong>Stability delivered: </strong>primary developer on a Chromecast
-                                        app refactor, writing 70% of the new codebase — eliminating video player
+                                        <strong>Stability delivered: </strong>led the Chromecast app refactor as
+                                        primary developer, writing 70% of the new codebase — eliminating video player
                                         crashes and improving load times.
                                     </li>
                                     <li>
@@ -92,7 +92,7 @@ export const Me = () => {
                                     </li>
                                     <li>
                                         <strong>Decisions: </strong>drove frontend architecture choices that shaped
-                                        how teams worked for years after.
+                                        how teams worked for years to come.
                                     </li>
                                     <li>
                                         <strong>Hiring: </strong>participated in technical interviews to help build
@@ -111,16 +111,16 @@ export const Me = () => {
                             text={
                                 <ul className={style.list}>
                                     <li>
-                                        <strong>Inspired By: </strong>draws inspiration from the design of video games
-                                        and the rich storytelling of Japanese culture.
+                                        <strong>Inspired by: </strong>the design of video games and the rich
+                                        storytelling of Japanese culture.
                                     </li>
                                     <li>
-                                        <strong>Creativity: </strong>applies a unique blend of creativity and logical
-                                        thinking to every project.
+                                        <strong>Creativity: </strong>brings an inventive and analytical mindset
+                                        to every project.
                                     </li>
                                     <li>
-                                        <strong>Team Work: </strong>believes a positive team environment is key to a
-                                        superior product and a healthy human experience.
+                                        <strong>Teamwork: </strong>believes a positive team environment is key to a
+                                        better product and a better human experience.
                                     </li>
                                 </ul>
                             }

@@ -41,7 +41,7 @@ export const Landing = () => {
                 <source media="(min-width: 550px)" srcSet="/images/landing/landing-1024-512.webp" />
                 <source media="(max-width: 549px)" srcSet="/images/landing/landing-549-976.webp" />
                 <img
-                    alt="Man in a japanese/cyberpunk style dark alley"
+                    alt="Man in a Japanese-cyberpunk style dark alley"
                     className={style.backgroundImage}
                     src="/images/landing/landing-549-976.webp"
                 />
@@ -52,7 +52,7 @@ export const Landing = () => {
                 <source media="(min-width: 550px)" srcSet="/images/landing/landing-1024-512.webp" />
                 <source media="(max-width: 549px)" srcSet="/images/landing/landing-549-976.webp" />
                 <img
-                    alt="Man in a japanese/cyberpunk style dark alley"
+                    alt="Man in a Japanese-cyberpunk style dark alley"
                     className={classNames(style.backgroundImage, style.masked)}
                     ref={ref}
                     src="/images/landing/landing-549-976.webp"
